@@ -12,10 +12,26 @@ const Hero = () => {
           <h1 className="text-[32px] text-white">Welcome to Ctrcr!</h1>
         </div>
       </section>
-      <section className="flex items-center justify-center text-white text-2xl">
-        <div className="-mt-3">
-          <img src="landing1.svg" />
-        </div>
+      <section className="bg-white h-[200vh]">
+        <section className="flex flex-col items-center justify-center text-white text-2xl">
+          <div className="-mt-3">
+            <img src="landing1.svg" />
+          </div>
+          <div className="text-black">Carousel</div>
+          <div className="text-black flex flex-col justify-center items-center text-center w-[60vw] mt-7">
+            <p className="text-4xl">lorem, random text, dummy text</p>
+            <p className="mt-5">
+              lorem, random text, dummy text, lorem, random text, dummy text
+              lorem, random text, dummy text lorem, random text, dummy text
+              lorem, random text, dummy text lorem, random text, dummy text
+            </p>
+          </div>
+        </section>
+        <section className="flex items- center justify-center text-white text-2xl">
+          <div className="h-[55vh] w-[80vw]">
+            <img src="boxframehorizontal.svg" />
+          </div>
+        </section>
       </section>
     </>
   );
