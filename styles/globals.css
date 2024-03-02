@@ -31,3 +31,8 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Hide the vertical scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}

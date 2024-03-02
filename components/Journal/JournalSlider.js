@@ -89,9 +89,11 @@ const ServiceSlider = () => {
     >
       {serviceData.map((item, index) => (
         <SwiperSlide key={index}>
-          <div className="h-full rounded-lg px-6 py-4 flex sm:flex-col gap-x-6 sm:gap-x-0 cursor-pointer transition-all duration-300">
+          <div className="h-full rounded-lg px-6 py-4 flex flex-col gap-x-6 sm:gap-x-0 cursor-pointer transition-all duration-300">
             {/* image */}
-            <Image src={item.path} width={750} height={470} alt="" />
+
+            <Image src={item.path} width={450} height={200} alt="" />
+
             {/* description */}
             <div className="flex flex-col justify-center items-center">
               <p className="leading-normal text-black">
