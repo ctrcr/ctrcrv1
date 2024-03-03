@@ -12,7 +12,7 @@ const TeamPage = () => {
   ];
 
   return (
-    <div className="text-black font-montserrat ">
+    <div className="font-montserrat ">
       {/* <h1 className="text-2xl font-bold mb-4">Our Team</h1>
       <div className="grid grid-cols-3 gap-4">
         {teamMembers.map((member, index) => (

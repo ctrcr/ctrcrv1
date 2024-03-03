@@ -31,6 +31,7 @@ export default function TeamLanding() {
           height={400}
           width={400}
           className="max-md:w-2/3 max-md:h-2/3 mb-6 text-white bg-white"
+          alt="Logo"
         />
       </div>
 
