@@ -1,0 +1,60 @@
+[
+  {
+    "title": "our Events",
+    "cardDetails": [
+      {
+        "image": "img1",
+        "title": "Mauris et neque hendrerit bortis turpis giat nisl",
+        "description": "Most of the laughter that you will hear in the pharmacy comes from Lynsay’s mischievous sense of humour.",
+        "date": "01 june 2021",
+        "time": "12:30pm",
+        "likes": "20k"
+      },
+      {
+        "image": "img2",
+        "title": "Mauris et neque hendrerit bortis turpis giat nisl",
+        "description": "Most of the laughter that you will hear in the pharmacy comes from Lynsay’s mischievous sense of humour.",
+        "date": "01 june 2021",
+        "time": "12:30pm",
+        "likes": "20k"
+      },
+      {
+        "image": "img3",
+        "title": "Thinking About Living Together…?",
+        "description": "Most of the laughter that you will hear in the pharmacy comes from Lynsay’s mischievous sense of humour.",
+        "date": "01 june 2021",
+        "time": "12:30pm",
+        "likes": "20k"
+      }
+    ]
+  },
+  {
+    "title": "News",
+    "cardDetails": [
+      {
+        "image": "img1",
+        "title": "Mauris et neque hendrerit bortis turpis giat nisl",
+        "description": "Most of the laughter that you will hear in the pharmacy comes from Lynsay’s mischievous sense of humour.",
+        "date": "01 june 2021",
+        "time": "12:30pm",
+        "likes": "20k"
+      },
+      {
+        "image": "img2",
+        "title": "Mauris et neque hendrerit bortis turpis giat nisl",
+        "description": "Most of the laughter that you will hear in the pharmacy comes from Lynsay’s mischievous sense of humour.",
+        "date": "01 june 2021",
+        "time": "12:30pm",
+        "likes": "20k"
+      },
+      {
+        "image": "img3",
+        "title": "Thinking About Living Together…?",
+        "description": "Most of the laughter that you will hear in the pharmacy comes from Lynsay’s mischievous sense of humour.",
+        "date": "01 june 2021",
+        "time": "12:30pm",
+        "likes": "20k"
+      }
+    ]
+  }
+]
