@@ -1,5 +1,6 @@
 import React from "react";
 import backgroundImage from "../../public/home_background.svg";
+import JournalSlider from "./Carousal/HomeSlider";
 
 const Hero = () => {
   return (
@@ -17,7 +18,10 @@ const Hero = () => {
           <div className="-mt-3">
             <img src="landing1.svg" />
           </div>
-          <div className="text-black">Carousel</div>
+          <div className="relative w-[100vw]">
+            <JournalSlider />
+          </div>
+
           <div className="text-black flex flex-col justify-center items-center text-center w-[60vw] mt-7">
             <p className="text-4xl">lorem, random text, dummy text</p>
             <p className="mt-5">
