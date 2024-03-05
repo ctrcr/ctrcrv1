@@ -66,9 +66,9 @@ const ServiceSlider = () => {
       centeredSlides={true}
       loop={true}
       coverflowEffect={{
-        rotate: 15,
-        stretch: 10,
-        depth: -80,
+        rotate: 20,
+        // stretch: 10,
+        depth: -120,
         modifier: 1,
         slideShadows: false,
       }}
@@ -77,12 +77,12 @@ const ServiceSlider = () => {
         disableOnInteraction: true,
       }}
       modules={[Autoplay, EffectCoverflow]}
-      className="h-[500px] sm:h-[350px]"
+      className="h-[30vh] sm:h-auto"
     >
       {serviceData.map((item, index) => (
         <SwiperSlide key={index}>
-          <div className="h-full rounded-lg py-8 flex flex-col gap-x-6 sm:gap-x-0 cursor-pointer transition-all duration-300 ">
-            <Image src={item.path} width={450} height={200} alt="" />
+          <div className="h-full rounded-lg flex flex-col gap-x-6 sm:gap-x-0 cursor-pointer transition-all duration-300 ">
+            <Image src={item.path} width={475} height={525} alt="" />
           </div>
         </SwiperSlide>
       ))}

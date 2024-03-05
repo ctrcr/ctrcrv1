@@ -18,7 +18,8 @@ const Hero = () => {
           <div className="-mt-3">
             <img src="landing1.svg" />
           </div>
-          <div className="relative w-[100vw]">
+
+          <div className="mt-[4rem] w-[100vw]">
             <JournalSlider />
           </div>
 
