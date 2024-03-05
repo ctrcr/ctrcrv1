@@ -27,7 +27,7 @@ const Hero = () => {
             </p>
           </div>
         </section>
-        <section className="flex items- center justify-center text-white text-2xl">
+        <section className="flex items-center justify-center text-white text-2xl">
           <div className="h-[55vh] w-[80vw]">
             <img src="boxframehorizontal.svg" />
           </div>
