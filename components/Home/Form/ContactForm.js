@@ -54,8 +54,8 @@ export default function Contact() {
   };
 
   return (
-    <div>
-      <h1 className="text-lg font-bold mb-4">Contact form</h1>
+    <div className="w-[20vw]">
+      <h1>Contact form</h1>
       {formSuccess ? (
         <div>{formSuccessMessage}</div>
       ) : (
@@ -64,59 +64,60 @@ export default function Contact() {
           action="https://www.formbackend.com/f/664decaabbf1c319"
           onSubmit={submitForm}
         >
-          <div>
+          <div className="mb-4">
             <input
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder="Name *"
               onChange={handleInput}
               value={formData.name}
               required
-              className="w-full p-2 border-gray-300 border rounded mb-4"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
             />
           </div>
 
-          <div>
+          <div className="mb-4">
             <input
               type="email"
               name="email"
               placeholder="Email"
               onChange={handleInput}
               value={formData.email}
-              className="w-full p-2 border-gray-300 border rounded mb-4"
+              // required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
             />
           </div>
 
-          <div>
+          <div className="mb-4">
             <input
               type="tel"
               name="phone"
-              placeholder="Phone Number"
+              placeholder="Phone Number *"
               onChange={handleInput}
               value={formData.phone}
               required
-              className="w-full p-2 border-gray-300 border rounded mb-4"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
             />
           </div>
 
-          <div>
+          <div className="mb-4">
             <input
               type="text"
               name="subject"
               placeholder="Subject"
               onChange={handleInput}
               value={formData.subject}
-              className="w-full p-2 border-gray-300 border rounded mb-4"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
             />
           </div>
 
-          <div>
+          <div className="mb-4">
             <textarea
               name="message"
               placeholder="Type your message here"
               onChange={handleInput}
               value={formData.message}
-              className="w-full p-2 border-gray-300 border rounded mb-4"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
             ></textarea>
           </div>
 
