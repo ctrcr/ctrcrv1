@@ -59,8 +59,8 @@ export default function Contact() {
       {formSuccess ? (
         <div>{formSuccessMessage}</div>
       ) : (
-        <div>
-          <div className="flex flex-col gap-y-4 mb-6">
+        <div className="">
+          <div className="flex flex-col gap-y-5 mb-8">
             <h1 className="text-5xl font-bold">
               Get in <span className="text-gray-600">Touch</span>
             </h1>

@@ -14,7 +14,7 @@ const details = [
 const FormFooter = () => {
   return (
     <div>
-      <div className="flex flex-row justify-between align-center mt-6">
+      <div className="flex flex-row justify-between align-center mt-8">
         {details.map((details) => (
           <div className="flex">
             <div className="flex justify-center items-center mr-3">
