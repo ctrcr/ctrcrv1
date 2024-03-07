@@ -55,7 +55,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-[22vw] ">
+    <div className="w-[23vw] ">
       {formSuccess ? (
         <div>{formSuccessMessage}</div>
       ) : (
