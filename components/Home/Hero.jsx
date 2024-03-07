@@ -1,6 +1,7 @@
 import React from "react";
 import backgroundImage from "../../public/home_background.svg";
 import JournalSlider from "./Carousal/HomeSlider";
+import ContactForm from "./Form/Contact";
 
 const Hero = () => {
   return (
@@ -35,10 +36,8 @@ const Hero = () => {
         <section className=" flex items-center justify-center text-white text-2xl">
           <div className=" w-[80vw] flex items-center justify-center">
             <img src="boxframehorizontal.svg" className="" />
-            <div className="text-black absolute w-[50vw] ">
-              lorem, random text, dummy text, lorem, random text, dummy text
-              lorem, random text, dummy text lorem, random text, dummy text
-              lorem, random text, dummy text lorem, random text, dummy text
+            <div className="text-black absolute ">
+              <ContactForm />
             </div>
           </div>
         </section>
