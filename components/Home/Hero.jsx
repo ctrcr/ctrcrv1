@@ -32,9 +32,14 @@ const Hero = () => {
             </p>
           </div>
         </section>
-        <section className="flex items-center justify-center text-white text-2xl">
-          <div className="h-[55vh] w-[80vw]">
-            <img src="boxframehorizontal.svg" />
+        <section className=" flex items-center justify-center text-white text-2xl">
+          <div className=" w-[80vw] flex items-center justify-center">
+            <img src="boxframehorizontal.svg" className="" />
+            <div className="text-black absolute w-[50vw] ">
+              lorem, random text, dummy text, lorem, random text, dummy text
+              lorem, random text, dummy text lorem, random text, dummy text
+              lorem, random text, dummy text lorem, random text, dummy text
+            </div>
           </div>
         </section>
       </section>
