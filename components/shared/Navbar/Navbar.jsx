@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
@@ -44,7 +45,7 @@ const Navbar = () => {
 
             <div className="mt-1">
               <Link href="/">
-                <img src="btn.svg" />
+                <Image width={125} height={40} src="btn.svg" />
               </Link>
             </div>
           </div>
