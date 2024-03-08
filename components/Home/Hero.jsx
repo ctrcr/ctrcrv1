@@ -2,6 +2,7 @@ import React from "react";
 import backgroundImage from "../../public/home_background.svg";
 import JournalSlider from "./Carousal/HomeSlider";
 import ContactForm from "./Form/ContactForm";
+import Content from "./HeroContent/Content";
 
 const Hero = () => {
   return (
@@ -11,7 +12,7 @@ const Hero = () => {
           style={{ backgroundImage: `url(${backgroundImage.src})` }}
           className="h-screen w-screen bg-cover bg-center flex items-center justify-center bg-no-repeat text-white text-2xl"
         >
-          <h1 className="text-[32px] text-white">Welcome to Ctrcr!</h1>
+          <Content />
         </div>
       </section>
       <section className="bg-white h-[200vh]">
