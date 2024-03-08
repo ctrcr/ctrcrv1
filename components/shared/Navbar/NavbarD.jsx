@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="absolute w-[100vw]">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="items-center h-16">
+        <div className="items-center h-16 pt-2">
           <div className="flex items-center justify-between">
             <div className="flex-shrink-0">
               <Link href="/">
@@ -36,7 +36,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            <div className="mt-1">
+            <div className="">
               <Link href="/">
                 <Image width={125} height={40} src="btn.svg" />
               </Link>
@@ -54,11 +54,19 @@ const NavLink = ({ href, currentPath, children }) => {
   return (
     <Link href={href}>
       <span
-        className={`text-gray-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium ${
-          isActive ? "bg-gray-700 text-white" : ""
+        className={`text-gray-600 hover:text-gray-400 px-3 py-2 rounded-md text-lg font-medium ${
+          isActive ? " text-gray-600" : ""
         }`}
+        style={{ textDecoration: "none" }}
       >
-        {children}
+        <span
+          style={{
+            borderBottom: isActive ? "2px solid" : "none",
+            paddingBottom: "3px",
+          }}
+        >
+          {children}
+        </span>
       </span>
     </Link>
   );
