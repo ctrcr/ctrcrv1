@@ -18,7 +18,7 @@ const GuideLines = () => {
   } = guidelinesData;
 
   return (
-    <div className="mt-32 max-sm:mt-12 grid">
+    <div className="mt-16 max-sm:mt-12 grid">
       {/* Separator */}
       <div className="relative">
         <div className="absolute top-0 left-0 w-3/5 h-full flex items-center">
