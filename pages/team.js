@@ -1,3 +1,6 @@
+import TeamLanding from "@/components/Team/Landing";
+import TeamCards from "@/components/Team/TeamCards";
+import Timeline from "@/components/Team/Timeline";
 import React from "react";
 
 const TeamPage = () => {
@@ -9,8 +12,8 @@ const TeamPage = () => {
   ];
 
   return (
-    <div className="container mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Our Team</h1>
+    <div className="font-montserrat ">
+      {/* <h1 className="text-2xl font-bold mb-4">Our Team</h1>
       <div className="grid grid-cols-3 gap-4">
         {teamMembers.map((member, index) => (
           <div key={index} className="bg-gray-200 p-4">
@@ -18,7 +21,13 @@ const TeamPage = () => {
             <p className="text-gray-600">{member.role}</p>
           </div>
         ))}
+      </div> */}
+      <TeamLanding />
+      <div className="absolute bottom-10 hidden lg:flex justify-center items-center w-full">
+        <hr className="bg-black w-[70vw] h-1" />
       </div>
+      <Timeline />
+      <TeamCards />
     </div>
   );
 };

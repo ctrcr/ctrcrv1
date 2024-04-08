@@ -1,0 +1,26 @@
+{
+  "title": "The Centre for Business and Commercial Laws (CBCL) at National Law Institute University, Bhopal (NLIU).",
+  "description": "The CBCL operates the CBCL Blog to publish the latest updates and commentaries on developments relating to business laws and its associated subject areas in India. The objective of the CBCL Blog is to create a platform for legal professionals and students to promote scholarship in aspects pertaining to commercial laws.",
+  "guidelines": {
+    "themes": {
+      "title": "Themes",
+      "content": "The CBCL Blog accepts submissions on topics pertaining to corporate law, securities law, insolvency law, banking law, commercial, competition law, and taxation law. This list is merely suggestive in character. Authors may submit articles on other themes consistent with the general theme of the CBCL Blog. We encourage authors to go through a few blogs published on our website to get an idea of the desirable structure and themes."
+    },
+    "content": {
+      "title": "Content Guidelines",
+      "content": "Submissions must be the original work of the contributor. Submissions can be in the form of articles, opinions, case comments, and short notes on the aforementioned themes. Authors are advised to make the introductory paragraph(s) of the article comprehensive and succinct. The initial paragraphs must summarize the substance of the article. All referred case laws, statutory materials, statistics, and other resources must be hyperlinked. Authors may also use endnotes where necessary. The citation format must be kept uniform, preferably the latest edition of the Bluebook. The articles should be analytical rather than descriptive."
+    },
+    "word_limit": {
+      "title": "Word limit",
+      "content": "Authors are advised to keep their articles concise and precise to enhance the effectiveness of their posts. The CBCL Blog accepts submissions that are ideally not more than 1500 words (excluding endnotes). Furthermore, the title of the submission must not be more than ten words long."
+    },
+    "submission_process": {
+      "title": "Submission Process",
+      "content": "All submissions for The CBCL Blog must be uploaded via the Google Form (Click here). Kindly DO NOT send submissions via email. Authors must provide details, including their full name and affiliation, a link to their online profile page, if possible, and also the suggested category of the submission. CBCL conducts a strict double-blind peer-review of the received submissions and holds absolute discretion in determining whether to accept or reject a submission. The review process takes around 1-2 weeks. Authors can seek updates in case of delays through email at our official email address cbcl@nliu.ac.in."
+    },
+    "cross_publication": {
+      "title": "Cross publication",
+      "content": "Posts accepted for publication on the CBCL Blog may be cross-posted. However, this is subject to the condition that such cross-posting should necessarily acknowledge the fact that the article was originally posted on the CBCL blog."
+    }
+  }
+}
