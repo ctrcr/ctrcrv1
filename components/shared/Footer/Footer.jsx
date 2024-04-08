@@ -4,7 +4,9 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white p-4">
       <div className="container mx-auto text-center">
-        <p className="mb-2">ctrcr.com</p>
+        <a href="https://www.ctrcr.com" className="text-white hover:underline">
+          <p className="mb-2">CTRCR.COM</p>
+        </a>
         <p>©2024</p>
       </div>
     </footer>
