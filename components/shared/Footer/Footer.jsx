@@ -2,10 +2,12 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0F111F] h-[15vh] py-4">
-      <div className="flex flex-col items-center justify-center gap-1">
-        <a href="/">CTRCR.com</a>
-        <p>&#64;2024</p>
+    <footer className="bg-black text-white p-4">
+      <div className="container mx-auto text-center">
+        <a href="https://www.ctrcr.com" className="text-white hover:underline">
+          <p className="mb-2">CTRCR.COM</p>
+        </a>
+        <p>©2024</p>
       </div>
     </footer>
   );
