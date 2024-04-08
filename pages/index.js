@@ -3,7 +3,7 @@ import Navbar from "@/components/shared/Navbar/Navbar";
 
 const HomePage = () => {
   return (
-    <main className="">
+    <main className="overflow-y-hidden min-h-screen">
       <Hero />
     </main>
   );
