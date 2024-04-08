@@ -1,11 +1,11 @@
 import Footer from "@/components/shared/Footer/Footer";
-import Navbar from "@/components/shared/Navbar/Navbar";
+import NavbarD from "@/components/shared/Navbar/NavbarD";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Navbar />
+      <NavbarD />
       <Component {...pageProps} />
       <Footer />
     </>
