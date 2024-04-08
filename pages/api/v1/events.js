@@ -1,4 +1,4 @@
-import Event from "@/utils/models/event.models";
+import Events from "@/utils/models/events.model";
 import DBInstance from "@/utils/db";
 DBInstance();
 
@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
       // Retrieve all events from the database
-      const events = await Event.find();
+      const events = await Events.find();
 
       // Send the response with the retrieved events
       res.status(200).json({ success: true, data: events });
