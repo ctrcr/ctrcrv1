@@ -1,22 +1,23 @@
+// EventsPage.jsx
 import React, { useState, useEffect } from "react";
-import Card from "@/components/Events/Card";
 import axios from "axios";
+import Card from "@/components/Events/Card";
 
 const EventsPage = () => {
   const [eventsData, setEventsData] = useState([]);
 
   useEffect(() => {
-    const fetchEvents = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get("https://new.ctrcr.com/api/v1/events");
-        console.log("Events data:", response.data);
-        setEventsData(response.data);
+        const response = await axios.get("/api/v1/events");
+        setEventsData(response.data.data);
+        // console.log("Events Data:", response);
       } catch (error) {
-        console.error("Error fetching events data:", error);
+        console.error("Error fetching events:", error);
       }
     };
 
-    fetchEvents();
+    fetchData();
   }, []);
 
   return (
@@ -27,7 +28,7 @@ const EventsPage = () => {
             Our Events
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full">
             {eventsData.map((event, index) => (
               <Card
                 key={index}
