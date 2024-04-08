@@ -41,7 +41,7 @@ const Navbar = () => {
                   Journal
                 </NavLink>
                 {isDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg">
+                  <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg w-60">
                     <ul>
                       <li>
                         <NavLink href="/journal/editorial-board">
