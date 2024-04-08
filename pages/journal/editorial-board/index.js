@@ -18,7 +18,9 @@ const Card = ({ children }) => (
 const MemberCard = ({ name, designation, institution, email }) => (
   <Card>
     <div className="p-6">
-      <h3 className="text-lg font-semibold mb-2">{name}</h3>
+      <h3 className="text-xl font-semibold text-gray-600 text-bold mb-2">
+        {name}
+      </h3>
       <p className="text-gray-600 mb-2">{designation}</p>
       {institution && <p className="text-gray-600 mb-2">{institution}</p>}
       <p className="text-gray-600 mb-2">{email}</p>
@@ -30,7 +32,8 @@ const AboutPage = () => {
   const data = {
     leadership: {
       vice_chancellor: {
-        name: "Vice-Chancellor",
+        name: "Prof. (Dr.) DILIP UKEY",
+        designation: "Vice-Chancellor",
         institution: "Maharashtra National Law University, Mumbai",
         email: "vc@mnlumumbai.edu.in",
       },
@@ -216,7 +219,7 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-16 px-8 flex flex-col gap-4">
+    <div className="container  mx-auto py-16 px-8 flex flex-col gap-4 ">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}

@@ -1,12 +1,14 @@
 import React from "react";
 
 import JournalSlider from "@/components/Journal/JournalSlider";
-import GuideLines from "@/components/Journal/GuideLines";
 
 const JournalPage = () => {
   return (
-    <div className="h-screen overflow-y-scroll pt-12 lg:pt-20">
-      <section className="container mx-auto px-4 lg:px-8 py-8 grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
+    <div className="min-h-screen  pt-12 lg:pt-20 bg-[#EBEBEB]">
+      <h1 className="text-center text-5xl text-black font-bold my-4">
+        JOURNAL
+      </h1>
+      <section className="container mx-auto px-4 lg:px-8 py-8 grid lg:grid-cols-2 gap-8 lg:gap-20 items-center text-black">
         <div className="text-justify">
           <h2 className="text-3xl lg:text-4xl font-semibold mb-4">
             About Journal
@@ -28,7 +30,7 @@ const JournalPage = () => {
             field. Submit your work and become part of our vibrant community.
           </p>
         </div>
-        <div className="rounded-md shadow-md bg-gradient-to-r from-blue-500 to-blue-700 text-white p-8 flex flex-col items-center justify-center">
+        <div className="rounded-md shadow-md bg-gradient-to-r bg-black text-white p-8 flex flex-col items-center justify-center">
           <h2 className="text-3xl lg:text-4xl font-semibold mb-4">
             Call for Papers
           </h2>
@@ -44,13 +46,9 @@ const JournalPage = () => {
           </a>
         </div>
       </section>
+      <div className="flex justify-around"></div>
 
-      <div>
-        <GuideLines />
-      </div>
-      <h1 className="text-2xl font-bold p-4 text-black text-center uppercase">
-        Issues
-      </h1>
+      <h1 className="text-center text-5xl text-black font-bold my-4">ISSUES</h1>
       {/* Slider */}
       <div>
         <JournalSlider />
