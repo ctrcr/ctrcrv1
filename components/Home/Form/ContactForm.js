@@ -55,20 +55,23 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-[23vw] ">
+    <div className="lg:w-[23vw] ">
       {formSuccess ? (
         <div>{formSuccessMessage}</div>
       ) : (
         <div className="">
-          <div className="flex flex-col gap-y-5 mb-8">
+          <div className="lg:flex flex-col gap-y-5 mb-8 hidden">
             <h1 className="text-5xl font-bold">
               Get in <span className="text-gray-600">Touch</span>
             </h1>
-            <div>
+            <div className="max-lg:flex max-lg:gap-1.5">
               <h2 className="text-sm">NLU Mumbai</h2>
               <h2 className="text-sm">Journal</h2>
             </div>
           </div>
+          <h1 className="text-lg text-center font-bold w-72 block lg:hidden mb-2">
+            Get in Touch
+          </h1>
           <form
             method="POST"
             action="https://www.formbackend.com/f/664decaabbf1c319"
@@ -138,7 +141,6 @@ export default function Contact() {
               Send message
             </button>
           </form>
-          <FormFooter />
         </div>
       )}
     </div>
