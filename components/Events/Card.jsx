@@ -1,18 +1,19 @@
-import Image from "next/image";
+// Card.jsx
 import React from "react";
 import { GoClock } from "react-icons/go";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { TbCalendarTime } from "react-icons/tb";
 
-const Card = ({ image, title, description, date, time, likes }) => (
+const Card = ({ title, description, date, time, regLink, image }) => (
   <div className="bg-white rounded-lg shadow-md w-fit">
-    <Image
-      src={image}
-      alt="Profile"
-      className="w-full object-cover rounded-lg "
-      width={0}
-      height={0}
-    />
+    <div
+      className="w-full h-64 object-cover rounded-t-lg"
+      style={{
+        backgroundImage: `url(${image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    ></div>
     <div className="py-4 px-6">
       <h2 className="text-lg font-semibold text-[#0F111F] leading-none mb-5">
         {title}
@@ -28,8 +29,15 @@ const Card = ({ image, title, description, date, time, likes }) => (
           {time}
         </span>
         <span className="flex items-center gap-1">
-          <MdOutlineRemoveRedEye size={20} />
-          {likes}
+          <a
+            href={regLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1"
+          >
+            <MdOutlineRemoveRedEye size={20} />
+            Register
+          </a>
         </span>
       </div>
     </div>
