@@ -1,70 +1,30 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-const Leadership = ({ viceChancellor, chiefEditor }) => {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Leadership</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-4 bg-white rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold mb-2">Vice-Chancellor</h3>
-            <p className="text-gray-600 mb-2">{viceChancellor.name}</p>
-            <p className="text-gray-600 mb-2">{viceChancellor.institution}</p>
-            <p className="text-gray-600 mb-2">{viceChancellor.email}</p>
-          </div>
-          <div className="p-4 bg-white rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold mb-2">Chief Editor</h3>
-            <p className="text-gray-600 mb-2">{chiefEditor.name}</p>
-            <p className="text-gray-600 mb-2">{chiefEditor.designation}</p>
-            <p className="text-gray-600 mb-2">{chiefEditor.institution}</p>
-            <p className="text-gray-600 mb-2">{chiefEditor.email}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+const SectionHeader = ({ text }) => (
+  <h2 className="text-3xl font-bold mb-6">{text}</h2>
+);
 
-const Members = ({ members }) => {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Members</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {members.map((member, index) => (
-            <div key={index} className="p-4 bg-white rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold mb-2">{member.name}</h3>
-              <p className="text-gray-600 mb-2">{member.designation}</p>
-              {member.institution && (
-                <p className="text-gray-600 mb-2">{member.institution}</p>
-              )}
-              <p className="text-gray-600 mb-2">{member.email}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+const Card = ({ children }) => (
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="bg-white rounded-lg shadow-xl overflow-hidden transition-transform duration-300 ease-in-out"
+  >
+    {children}
+  </motion.div>
+);
 
-const StudentEditorialBoard = ({ studentEditorialBoard }) => {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Student Editorial Board</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {studentEditorialBoard.map((member, index) => (
-            <div key={index} className="p-4 bg-white rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold mb-2">{member.name}</h3>
-              <p className="text-gray-600 mb-2">{member.designation}</p>
-              <p className="text-gray-600 mb-2">{member.email}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+const MemberCard = ({ name, designation, institution, email }) => (
+  <Card>
+    <div className="p-6">
+      <h3 className="text-lg font-semibold mb-2">{name}</h3>
+      <p className="text-gray-600 mb-2">{designation}</p>
+      {institution && <p className="text-gray-600 mb-2">{institution}</p>}
+      <p className="text-gray-600 mb-2">{email}</p>
     </div>
-  );
-};
+  </Card>
+);
 
 const AboutPage = () => {
   const data = {
@@ -256,15 +216,44 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="py-10 px-4">
-      <Leadership
-        viceChancellor={data.leadership.vice_chancellor}
-        chiefEditor={data.leadership.chief_editor}
-      />
-      <Members members={data.members} />
-      <StudentEditorialBoard
-        studentEditorialBoard={data.student_editorial_board}
-      />
+    <div className="container mx-auto py-16 px-8 flex flex-col gap-4">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <SectionHeader text="Leadership" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <MemberCard {...data.leadership.vice_chancellor} />
+          <MemberCard {...data.leadership.chief_editor} />
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        <SectionHeader text="Members" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {data.members.map((member, index) => (
+            <MemberCard key={index} {...member} />
+          ))}
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1 }}
+      >
+        <SectionHeader text="Student Editorial Board" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {data.student_editorial_board.map((member, index) => (
+            <MemberCard key={index} {...member} />
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };
