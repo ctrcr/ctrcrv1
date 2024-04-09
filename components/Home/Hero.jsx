@@ -18,10 +18,17 @@ const Hero = () => {
       <section className="bg-white ">
         <section className="flex flex-col items-center justify-center text-white text-2xl">
           <div className="-mt-3">
-            <img src="landing1.svg" />
+            <img
+              src="landing1.svg"
+              alt="Latest Events"
+              className="sm:block hidden"
+            />
+            <h1 className="text-center text-5xl text-black font-bold my-8">
+              Latest Events
+            </h1>
           </div>
 
-          <div className="mt-[4rem] w-[100vw] overflow-hidden">
+          <div className="sm:mt-[4rem] w-[100vw] overflow-hidden ">
             <JournalSlider />
           </div>
 
