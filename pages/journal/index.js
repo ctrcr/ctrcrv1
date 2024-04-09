@@ -1,16 +1,17 @@
 import React from "react";
 
 import JournalSlider from "@/components/Journal/JournalSlider";
+import GuideLines from "@/components/Journal/GuideLines";
 
 const JournalPage = () => {
   return (
-    <div className="min-h-screen  pt-12 lg:pt-20 bg-[#EBEBEB]">
+    <div className="min-h-screen pt-16 lg:pt-20 bg-[#EBEBEB]">
       <h1 className="text-center text-5xl text-black font-bold my-4">
         JOURNAL
       </h1>
-      <section className="container mx-auto px-4 lg:px-8 py-8 grid lg:grid-cols-2 gap-8 lg:gap-20 items-center text-black">
+      <section className="container mx-auto px-4 lg:px-8 lg:py-8 pt-2 grid lg:grid-cols-2 gap-8 lg:gap-20 items-center text-black">
         <div className="text-justify">
-          <h2 className="text-3xl lg:text-4xl font-semibold mb-4">
+          <h2 className="text-3xl lg:text-4xl font-semibold mb-4 hidden lg:block">
             About Journal
           </h2>
           <p className="text-sm lg:text-xl mb-6">
@@ -47,8 +48,11 @@ const JournalPage = () => {
         </div>
       </section>
       <div className="flex justify-around"></div>
+      <GuideLines />
 
-      <h1 className="text-center text-5xl text-black font-bold my-4">ISSUES</h1>
+      <h1 className="text-center text-5xl text-black font-bold my-4 max-lg:mt-8">
+        ISSUES
+      </h1>
       {/* Slider */}
       <div>
         <JournalSlider />

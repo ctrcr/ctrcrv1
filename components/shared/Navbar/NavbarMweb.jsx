@@ -130,7 +130,7 @@ const NavLink = ({ href, currentPath, children, toggleNavbar }) => {
     <Link href={href} onClick={toggleNavbar}>
       <span
         className={`text-gray-400 hover:text-gray-300 text-xl font-semibold ${
-          isActive ? " text-gray-600" : ""
+          isActive ? " text-gray-300" : ""
         }`}
         style={{ textDecoration: "none" }}
       >
