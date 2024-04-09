@@ -23,7 +23,7 @@ const Hero = () => {
               alt="Latest Events"
               className="sm:block hidden"
             />
-            <h1 className="text-center text-4xl text-black font-bold mt-8 mb-6">
+            <h1 className="text-center max-sm:block hidden text-4xl text-black font-bold mt-8 mb-6">
               Latest Events
             </h1>
           </div>

@@ -65,8 +65,8 @@ export default function Contact() {
               Get in <span className="text-gray-600">Touch</span>
             </h1>
             <div className="max-lg:flex max-lg:gap-1.5">
-              <h2 className="text-sm">NLU Mumbai</h2>
-              <h2 className="text-sm">Journal</h2>
+              <h2 className="text-sm">MNLU Mumbai</h2>
+              {/* <h2 className="text-sm">Journal</h2> */}
             </div>
           </div>
           <h1 className="text-lg text-center font-bold w-72 block lg:hidden mb-2">

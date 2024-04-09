@@ -61,17 +61,17 @@ const Navbar = () => {
               <NavLink href="/events" currentPath={router.pathname}>
                 Events
               </NavLink>
-              <NavLink href="/team" currentPath={router.pathname}>
+              {/* <NavLink href="/team" currentPath={router.pathname}>
                 Team
               </NavLink>
               <NavLink href="/esg" currentPath={router.pathname}>
                 ESG
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
 
           <div className="">
-            <Link href="/">
+            <Link href="/about">
               <Image width={125} height={40} src="btn.svg" />
             </Link>
           </div>

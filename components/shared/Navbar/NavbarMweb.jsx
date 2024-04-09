@@ -96,7 +96,7 @@ const MobileNavbar = () => {
             >
               Events
             </NavLink>
-            <NavLink
+            {/* <NavLink
               href="/team"
               currentPath={router.pathname}
               toggleNavbar={toggleNavbar}
@@ -109,14 +109,14 @@ const MobileNavbar = () => {
               toggleNavbar={toggleNavbar}
             >
               ESG
-            </NavLink>
+            </NavLink> */}
           </div>
 
-          <div className="">
+          {/* <div className="">
             <Link href="/">
               <Image width={125} height={40} src="btn.svg" />
             </Link>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

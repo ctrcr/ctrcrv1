@@ -6,7 +6,7 @@ import GuideLines from "@/components/Journal/GuideLines";
 const JournalPage = () => {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 bg-[#EBEBEB]">
-      <h1 className="text-center text-5xl text-black font-bold my-4">
+      <h1 className="text-center text-5xl text-black font-bold my-8">
         JOURNAL
       </h1>
       <section className="container mx-auto px-4 lg:px-8 lg:py-8 pt-2 grid lg:grid-cols-2 gap-8 lg:gap-20 items-center text-black">

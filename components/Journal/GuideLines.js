@@ -13,20 +13,28 @@ const GuideLines = () => {
           <div className="h-0.5 w-full bg-black"></div>
         </div>
       </div>
-      <h1 className="text-2xl font-bold p-4 text-black text-center mt-8 mb-4 uppercase">
-        Submission Guidelines
-      </h1>
-      <div className="flex flex-col md:flex-row justify-center items-center gap-10 px-4 lg:px-16 mb-12">
-        <iframe
-          src="https://drive.google.com/file/d/1s2QFbU9u5VzKmanAvJsj7Zg2zK8VyevN/view?usp=drive_link"
-          height="400px"
-          width="100%"
-        ></iframe>
-        <iframe
-          src="https://drive.google.com/file/d/1xeSEa3p-E9TN8uR-yhRH22_ITk42mxkT/view?usp=sharing"
-          height="400px"
-          width="100%"
-        ></iframe>
+
+      <div className="flex max-md:flex-col py-8 md:flex-row justify-center items-center gap-10 px-4 lg:px-16 mb-12">
+        <div className="w-1/2 max-md:w-[90%]">
+          <h1 className="text-2xl font-bold p-4 text-black text-center mt-8 mb-4 uppercase">
+            Submission Guidelines
+          </h1>
+          <iframe
+            src="https://ik.imagekit.io/ctrcr/PDF/Submission%20Guidelines%20-%20clcr%20vol%201%20issue%202%20.pdf?updatedAt=1712670524099"
+            className="h-[900px] max-md:h-[400px] mx-auto"
+            width="90%"
+          ></iframe>
+        </div>
+        <div className="w-1/2 max-md:w-[90%]">
+          <h1 className="text-2xl font-bold p-4 text-black text-center mt-8 mb-4 uppercase">
+            Style Guides
+          </h1>
+          <iframe
+            src="https://ik.imagekit.io/ctrcr/PDF/style%20guide.pdf?updatedAt=1712670864523"
+            className="h-[900px] max-md:h-[400px] mx-auto"
+            width="90%"
+          ></iframe>
+        </div>
       </div>
       {/* <div className="py-6 text-black mx-12 sm:mx-32 mb-12">
         <p>{title}</p>
