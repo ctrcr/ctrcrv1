@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import MobileNavbar from "./NavbarMweb";
 
 const Navbar = () => {
   const router = useRouter();
@@ -16,8 +17,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 backdrop-blur-lg">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 w-full z-50 backdrop-blur-lg ">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 hidden md:block">
         <div className="flex items-center justify-between h-16 pt-2">
           <div className="flex-shrink-0">
             <Link href="/">
@@ -27,7 +28,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="hidden md:block">
+          <div className="">
             <div className="ml-10 flex items-baseline space-x-4">
               <NavLink href="/" currentPath={router.pathname}>
                 Home
@@ -60,22 +61,23 @@ const Navbar = () => {
               <NavLink href="/events" currentPath={router.pathname}>
                 Events
               </NavLink>
-              <NavLink href="/team" currentPath={router.pathname}>
+              {/* <NavLink href="/team" currentPath={router.pathname}>
                 Team
               </NavLink>
               <NavLink href="/esg" currentPath={router.pathname}>
                 ESG
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
 
           <div className="">
-            <Link href="/">
+            <Link href="/about">
               <Image width={125} height={40} src="btn.svg" />
             </Link>
           </div>
         </div>
       </div>
+      <MobileNavbar />
     </nav>
   );
 };
