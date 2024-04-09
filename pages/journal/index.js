@@ -5,10 +5,16 @@ import GuideLines from "@/components/Journal/GuideLines";
 
 const JournalPage = () => {
   return (
-    <div className="min-h-screen pt-16 lg:pt-20 bg-[#EBEBEB]">
-      <h1 className="text-center text-5xl text-black font-bold my-8">
-        JOURNAL
-      </h1>
+    <div className="min-h-screen pt-16 lg:pt-20 bg-[#EBEBEB] mt-10">
+      <div className="flex justify-center items-center">
+        <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
+          <hr className="w-24 h-1 bg-black" />
+          <span className="font-bold ">JOURNAL</span>
+          <div className={"flex justify-end w-60 font-bold"}>
+            <hr className="w-32 h-1 bg-black " />
+          </div>
+        </h2>
+      </div>
       <section className="container mx-auto px-4 lg:px-8 lg:py-8 pt-2 grid lg:grid-cols-2 gap-8 lg:gap-20 items-center text-black">
         <div className="text-justify">
           <h2 className="text-3xl lg:text-4xl font-semibold mb-4 hidden lg:block">
@@ -39,20 +45,65 @@ const JournalPage = () => {
             Volume I, Issue II is out now! Share your research and insights with
             our global audience. Let your voice be heard.
           </p>
-          <a
-            href="/"
-            className="bg-white text-blue-600 px-6 py-3 rounded-md hover:bg-blue-600 hover:text-white transition duration-300"
-          >
-            Submit Now
-          </a>
+          <button>
+            <a
+              href="/"
+              className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-600 hover:text-white transition duration-300"
+            >
+              Submit Now
+            </a>
+          </button>
         </div>
       </section>
       <div className="flex justify-around"></div>
       <GuideLines />
+      <div>
+        <div className="flex justify-center items-center">
+          <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
+            <hr className="w-24 h-1 bg-black" />
+            <span className="font-bold ">ISSUES</span>
+            <div className={"flex justify-end w-40 font-bold"}>
+              <hr className="w-24 h-1 bg-black " />
+            </div>
+          </h2>
+        </div>
+        <div>
+          {" "}
+          <div className="flex max-md:flex-col w-[80%] mx-auto gap-5 items-center justify-evenly max-md:gap-4 my-16 max-sm:mt-12 ">
+            <div className="rounded-md w-[80%] max-md:w-[100%] shadow-md bg-gradient-to-r bg-black text-white p-8 flex flex-col items-center justify-center">
+              <h2 className="text-2xl lg:text-4xl font-semibold mb-12">
+                VOLUME I, ISSUE I
+              </h2>
+              <a
+                href="https://ik.imagekit.io/ctrcr/PDF/Volume%201%20Issue%201.pdf?updatedAt=1712685237604"
+                target="_blank"
+                className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-600 hover:text-white transition duration-300"
+              >
+                DOWNLOAD NOW
+              </a>
+            </div>
 
-      <h1 className="text-center text-5xl text-black font-bold my-4 max-lg:mt-8">
-        ISSUES
-      </h1>
+            <div className="rounded-md w-[80%] max-md:w-[100%] shadow-md bg-gradient-to-r bg-black text-white p-8 flex flex-col items-center justify-center">
+              <h2 className="text-2xl lg:text-4xl font-semibold mb-12">
+                VOLUME I, ISSUE II
+              </h2>
+              <a className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-600 hover:text-white transition duration-300">
+                COMING SOON
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-center items-center">
+        <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
+          <hr className="w-24 h-1 bg-black" />
+          <span className="font-bold ">ARTICLES</span>
+          <div className={"flex justify-end w-60 font-bold"}>
+            <hr className="w-32 h-1 bg-black " />
+          </div>
+        </h2>
+      </div>
       {/* Slider */}
       <div>
         <JournalSlider />

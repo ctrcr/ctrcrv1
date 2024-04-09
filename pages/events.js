@@ -25,9 +25,15 @@ const EventsPage = () => {
     <div className="bg-[#EBEBEB] overflow-y-hidden">
       <div className="px-[6%] mb-[6%]  max-md:mt-20 mt-20 container mx-auto text-[#0F111F] p-4 space-y-[10%] ">
         <div className="space-y-[5%]">
-          <h1 className="text-5xl font-normal text-center capitalize  underline">
-            Our Events
-          </h1>
+          <div className="flex justify-center items-center">
+            <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
+              <hr className="w-24 h-1 bg-black" />
+              <span className="font-bold ">OUR EVENTS</span>
+              <div className={"flex justify-end w-56 font-bold"}>
+                <hr className="w-24 h-1 bg-black " />
+              </div>
+            </h2>
+          </div>
 
           {loading ? ( // Check if loading is true
             <div className="flex justify-center items-center h-screen">

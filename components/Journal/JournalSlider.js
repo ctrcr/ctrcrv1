@@ -64,7 +64,6 @@ const serviceData = [
 
 const ServiceSlider = () => {
   const [slidesPerView, setSlidesPerView] = useState(3);
-  const [swiper, setSwiper] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -80,22 +79,6 @@ const ServiceSlider = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const handleSlideChange = (swiper) => {
-    console.log("Current slide index:", swiper.realIndex);
-  };
-
-  const handleMouseEnter = () => {
-    if (swiper) {
-      swiper.autoplay.stop();
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (swiper) {
-      swiper.autoplay.start();
-    }
-  };
 
   return (
     <Swiper
@@ -115,10 +98,6 @@ const ServiceSlider = () => {
       }}
       modules={[Autoplay]}
       className="h-[400px] sm:h-[350px]"
-      onSlideChange={handleSlideChange}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onSwiper={setSwiper}
     >
       {serviceData.map((item, index) => (
         <SwiperSlide key={index}>

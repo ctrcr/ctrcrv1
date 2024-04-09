@@ -13,7 +13,7 @@ const MobileNavbar = () => {
 
   return (
     <div className="md:hidden w-full">
-      <div className="flex justify-between w-full items-center px-4 h-[10vh] py-2 bg-gray-900 text-white">
+      <div className="flex justify-between w-full items-center px-4 h-[8vh] py-2 bg-gray-900 text-white">
         <Link href="/">
           <span className="text-white font-bold text-xl cursor-pointer">
             CTRCR
@@ -58,7 +58,7 @@ const MobileNavbar = () => {
       </div>
       {isOpen && (
         <div className="bg-gray-900 text-white h-[90vh] w-full justify-center items-center flex flex-col gap-10">
-          <div className="w-full justify-center items-center flex flex-col space-y-4">
+          <div className="w-full justify-center items-center -mt-[300px] flex flex-col space-y-4">
             <NavLink
               href="/"
               currentPath={router.pathname}
