@@ -12,31 +12,40 @@ import "swiper/css/bundle";
 // data
 const serviceData = [
   {
-    path: "/home_background.svg",
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/1.jpg?updatedAt=1712915002248",
   },
   {
-    path: "/home_background.svg",
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/2.jpg?updatedAt=1712915002342",
   },
   {
-    path: "/home_background.svg",
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/3.jpg?updatedAt=1712915002175",
   },
   {
-    path: "/home_background.svg",
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/4.jpeg?updatedAt=1712915002162",
   },
   {
-    path: "/home_background.svg",
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/5.jpg?updatedAt=1712915002273",
   },
   {
-    path: "/home_background.svg",
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/6.jpg?updatedAt=1712915002231",
   },
   {
-    path: "/home_background.svg",
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/7.jpg?updatedAt=1712915002345",
   },
   {
-    path: "/home_background.svg",
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/8.jpg?updatedAt=1712915002335",
   },
   {
-    path: "/home_background.svg",
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/9.jpg?updatedAt=1712915002166",
+  },
+  {
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/10.jpeg?updatedAt=1712915002335",
+  },
+  {
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/11.jpeg?updatedAt=1712915005259",
+  },
+  {
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/12.jpeg?updatedAt=1712915004920",
   },
 ];
 
@@ -82,7 +91,7 @@ const ServiceSlider = () => {
       {serviceData.map((item, index) => (
         <SwiperSlide key={index}>
           <div className="h-full rounded-lg flex flex-col gap-x-6 sm:gap-x-0 cursor-pointer transition-all duration-300 ">
-            <Image src={item.path} width={475} height={525} alt="" />
+            <Image src={item.path} width={700} height={500} alt="" />
           </div>
         </SwiperSlide>
       ))}
