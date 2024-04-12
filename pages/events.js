@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "@/components/Events/Card";
+import Image from "next/image";
+import loader from "@/public/loader.svg";
 
 const EventsPage = () => {
   const [eventsData, setEventsData] = useState([]);
@@ -11,10 +13,10 @@ const EventsPage = () => {
       try {
         const response = await axios.get("/api/v1/events");
         setEventsData(response.data.data);
-        setLoading(false); // Set loading to false when data is fetched
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching events:", error);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false);
       }
     };
 
@@ -37,7 +39,7 @@ const EventsPage = () => {
 
           {loading ? ( // Check if loading is true
             <div className="flex justify-center items-center h-screen">
-              <div className="loader ease-linear rounded-full border-8 border-t-8 border-black h-24 w-24"></div>
+              <Image src={loader} alt="Loading" />
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full">

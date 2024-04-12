@@ -32,15 +32,15 @@ const Hero = () => {
             <JournalSlider />
           </div>
 
-          <div className="text-black flex flex-col justify-center items-center text-center w-[60vw] mt-7">
-            <p className="lg:text-4xl md:text-3xl sm:text-2xl text-xl">
-              lorem, random text, dummy text
-            </p>
-            <p className="mt-5 lg:text-2xl md:text-xl sm:text-lg text-base">
-              lorem, random text, dummy text, lorem, random text, dummy text
-              lorem, random text, dummy text lorem, random text, dummy text
-              lorem, random text, dummy text lorem, random text, dummy text
-            </p>
+          <div className="text-black flex flex-col justify-center items-center text-center w-[60vw] mt-12">
+            <button>
+              <a
+                href="/events"
+                className=" px-6 py-3 rounded-md text-white bg-[#24292F] hover:bg-[#24292F]/70 transition duration-300"
+              >
+                Explore More
+              </a>
+            </button>
           </div>
         </section>
         <section className=" flex items-center justify-center text-white text-2xl max-lg:min-h-[65vh]">
