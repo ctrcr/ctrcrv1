@@ -3,7 +3,19 @@ import backgroundImage from "../../public/home_background.svg";
 import JournalSlider from "./Carousal/HomeSlider";
 import ContactForm from "./Form/ContactForm";
 import Content from "./HeroContent/Content";
+import Card from "../Home/Archives/Card";
 
+const image =
+  "https://static.wixstatic.com/media/5a65d0_1c4112da8f4045d191fa5098e0d4c8e3~mv2.png/v1/crop/x_0,y_0,w_940,h_834/fill/w_743,h_660,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/5a65d0_1c4112da8f4045d191fa5098e0d4c8e3~mv2.png";
+const title = "VOLUME I ISSUE I";
+const link =
+  "https://ik.imagekit.io/ctrcr/PDF/Volume%201%20Issue%201.pdf?updatedAt=1712685237604";
+
+const image2 =
+  "https://static.wixstatic.com/media/5a65d0_1c4112da8f4045d191fa5098e0d4c8e3~mv2.png/v1/crop/x_0,y_0,w_940,h_834/fill/w_743,h_660,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/5a65d0_1c4112da8f4045d191fa5098e0d4c8e3~mv2.png";
+const title2 = "VOLUME I ISSUE II";
+const link2 =
+  "https://ik.imagekit.io/ctrcr/PDF/Volume%201%20Issue%201.pdf?updatedAt=1712685237604";
 const Hero = () => {
   return (
     <>
@@ -23,19 +35,59 @@ const Hero = () => {
               alt="Latest Events"
               className="sm:block hidden"
             />
-            <h1 className="text-center max-sm:block hidden text-4xl text-black font-bold mt-8 mb-6">
+            {/* <h1 className="text-center max-sm:block hidden text-4xl text-black font-bold mt-8 mb-6">
               Latest Events
-            </h1>
+            </h1> */}
+          </div>
+          <div className="flex max-sm:block hidden justify-center items-center text-black my-12">
+            <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
+              <hr className="w-24 h-1 bg-black" />
+              <span className="font-bold ">LATEST EVENTS</span>
+              <div className={"flex justify-end w-72 font-bold"}>
+                <hr className="w-32 h-1 bg-black " />
+              </div>
+            </h2>
           </div>
 
-          <div className="sm:mt-[4rem] w-[100vw] overflow-hidden ">
+          <div className="sm:mt-[4rem] overflow-hidden w-full ">
             <JournalSlider />
           </div>
 
-          <div className="text-black flex flex-col justify-center items-center text-center w-[60vw] mt-12">
+          <div className="text-black flex flex-col justify-center items-center text-center w-[60vw] mt-24 mb-12">
             <button>
               <a
                 href="/events"
+                className=" px-6 py-3 rounded-md text-white bg-[#24292F] hover:bg-[#24292F]/70 transition duration-300"
+              >
+                Explore More
+              </a>
+            </button>
+          </div>
+        </section>
+        <section>
+          <div className="flex justify-center items-center my-12">
+            <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
+              <hr className="w-24 h-1 bg-black" />
+              <span className="font-bold ">ARCHIVES</span>
+              <div className={"flex justify-end w-60 font-bold"}>
+                <hr className="w-32 h-1 bg-black " />
+              </div>
+            </h2>
+          </div>
+          <div className="flex max-md:flex-col w-[80%] items-center justify-evenly max-md:gap-24 mx-auto">
+            <div className=" ">
+              {" "}
+              <Card image={image} title={title} regLink={link} />
+            </div>
+            <div className="">
+              {" "}
+              <Card image={image2} title={title2} regLink={link2} />
+            </div>{" "}
+          </div>
+          <div className="text-black flex justify-center items-center text-center w-[60vw] mx-auto mt-24 mb-12 text-2xl">
+            <button>
+              <a
+                href="/journal"
                 className=" px-6 py-3 rounded-md text-white bg-[#24292F] hover:bg-[#24292F]/70 transition duration-300"
               >
                 Explore More

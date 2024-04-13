@@ -86,12 +86,20 @@ const ServiceSlider = () => {
         disableOnInteraction: true,
       }}
       modules={[Autoplay, EffectCoverflow]}
-      className="h-[30vh] sm:h-auto"
+      // className="h-[30vh] sm:h-auto"
+      className=""
     >
       {serviceData.map((item, index) => (
         <SwiperSlide key={index}>
-          <div className="h-full rounded-lg flex flex-col gap-x-6 sm:gap-x-0 cursor-pointer transition-all duration-300 ">
-            <Image src={item.path} width={700} height={500} alt="" />
+          <div className=" rounded-lg flex flex-col gap-x-6 sm:gap-x-0 cursor-pointer transition-all duration-300">
+            <Image
+              src={item.path}
+              // layout="fill"
+              alt="Latest Events Images"
+              className="object-cover "
+              height={1300}
+              width={1000}
+            />
           </div>
         </SwiperSlide>
       ))}

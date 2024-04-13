@@ -22,14 +22,14 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 pt-2">
           <div className="flex-shrink-0">
             <Link href="/">
-              <span className="text-gray-600 font-bold text-xl cursor-pointer">
+              <span className="text-black font-bold text-4xl cursor-pointer">
                 CTRCR
               </span>
             </Link>
           </div>
 
           <div className="">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-4 text-black">
               <NavLink href="/" currentPath={router.pathname}>
                 Home
               </NavLink>
@@ -88,7 +88,7 @@ const NavLink = ({ href, currentPath, children }) => {
   return (
     <Link href={href}>
       <span
-        className={`text-gray-600 hover:text-gray-400 px-3 py-2 rounded-md text-lg font-medium ${
+        className={`text-black hover:text-gray-400 px-3 py-2 rounded-md text-xl font-medium ${
           isActive ? " text-gray-600" : ""
         }`}
         style={{ textDecoration: "none" }}

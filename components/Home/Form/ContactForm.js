@@ -69,9 +69,15 @@ export default function Contact() {
               {/* <h2 className="text-sm">Journal</h2> */}
             </div>
           </div>
-          <h1 className="text-lg text-center font-bold w-72 block lg:hidden mb-2">
-            Get in Touch
-          </h1>
+          <div className="flex max-lg:block hidden justify-center items-center text-black my-12">
+            <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
+              <hr className="w-24 h-1 bg-black" />
+              <span className="font-bold ">GET IN TOUCH</span>
+              <div className={"flex justify-end w-68 font-bold"}>
+                <hr className="w-32 h-1 bg-black " />
+              </div>
+            </h2>
+          </div>
           <form
             method="POST"
             action="https://www.formbackend.com/f/664decaabbf1c319"

@@ -5,7 +5,7 @@ import GuideLines from "@/components/Journal/GuideLines";
 
 const JournalPage = () => {
   return (
-    <div className="min-h-screen pt-16 lg:pt-20 bg-[#EBEBEB] mt-10">
+    <div className="min-h-screen pt-16 lg:pt-20 bg-[#EBEBEB] mt-10 font-serif">
       <div className="flex justify-center items-center">
         <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
           <hr className="w-24 h-1 bg-black" />
