@@ -9,6 +9,8 @@ import { Autoplay, EffectCoverflow } from "swiper";
 import "swiper/css";
 import "swiper/css/bundle";
 
+import { Loader } from "@/public/loader.svg";
+
 // data
 const serviceData = [
   {
@@ -51,6 +53,9 @@ const serviceData = [
 
 const ServiceSlider = () => {
   const [slidesPerView, setSlidesPerView] = useState(6);
+  const [imagesLoaded, setImagesLoaded] = useState(
+    serviceData.map(() => false)
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -67,16 +72,24 @@ const ServiceSlider = () => {
     };
   }, []);
 
+  const handleImageLoad = (index) => {
+    setImagesLoaded((prevState) => {
+      const updatedImagesLoaded = [...prevState];
+      updatedImagesLoaded[index] = true;
+      return updatedImagesLoaded;
+    });
+  };
+
   return (
     <Swiper
       slidesPerView={slidesPerView}
-      effect={"coverflow"}
+      // effect={"coverflow"}
+
       grabCursor={true}
       centeredSlides={true}
       loop={true}
       coverflowEffect={{
         rotate: 20,
-        // stretch: 10,
         depth: -120,
         modifier: 1,
         slideShadows: false,
@@ -86,19 +99,24 @@ const ServiceSlider = () => {
         disableOnInteraction: true,
       }}
       modules={[Autoplay, EffectCoverflow]}
-      // className="h-[30vh] sm:h-auto"
       className=""
     >
       {serviceData.map((item, index) => (
         <SwiperSlide key={index}>
-          <div className=" rounded-lg flex flex-col gap-x-6 sm:gap-x-0 cursor-pointer transition-all duration-300">
+          <div className="rounded-lg flex p-2 flex-col gap-x-6 sm:gap-x-0 cursor-pointer transition-all duration-300">
+            {!imagesLoaded[index] && (
+              <div className="flex justify-center items-center">
+                {" "}
+                <p className="text-black">Loading Image...</p>
+              </div>
+            )}
             <Image
               src={item.path}
-              // layout="fill"
               alt="Latest Events Images"
-              className="object-cover "
+              className="object-cover"
               height={1300}
               width={1000}
+              onLoad={() => handleImageLoad(index)}
             />
           </div>
         </SwiperSlide>
