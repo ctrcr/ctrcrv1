@@ -6,16 +6,16 @@ import Content from "./HeroContent/Content";
 import Card from "../Home/Archives/Card";
 
 const image =
-  "https://static.wixstatic.com/media/5a65d0_1c4112da8f4045d191fa5098e0d4c8e3~mv2.png/v1/crop/x_0,y_0,w_940,h_834/fill/w_743,h_660,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/5a65d0_1c4112da8f4045d191fa5098e0d4c8e3~mv2.png";
+  "https://ik.imagekit.io/ctrcr/Images/Issue_1_cover%20.png?updatedAt=1713427902926";
 const title = "VOLUME I ISSUE I";
 const link =
   "https://ik.imagekit.io/ctrcr/PDF/Volume%201%20Issue%201.pdf?updatedAt=1712685237604";
 
 const image2 =
-  "https://static.wixstatic.com/media/5a65d0_1c4112da8f4045d191fa5098e0d4c8e3~mv2.png/v1/crop/x_0,y_0,w_940,h_834/fill/w_743,h_660,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/5a65d0_1c4112da8f4045d191fa5098e0d4c8e3~mv2.png";
+  "https://ik.imagekit.io/ctrcr/Images/issue_2_cover.png?updatedAt=1713427903966";
 const title2 = "VOLUME I ISSUE II";
 const link2 =
-  "https://ik.imagekit.io/ctrcr/PDF/Volume%201%20Issue%201.pdf?updatedAt=1712685237604";
+  "https://ik.imagekit.io/ctrcr/PDF/Vol%20I%20Issue%20II.pdf?updatedAt=1713427814802";
 const Hero = () => {
   return (
     <>
@@ -54,14 +54,12 @@ const Hero = () => {
           </div>
 
           <div className="text-black flex flex-col justify-center items-center text-center w-[60vw] mt-24 mb-12">
-            <button>
-              <a
-                href="/events"
-                className=" px-6 py-3 rounded-md text-white bg-[#24292F] hover:bg-[#24292F]/70 transition duration-300"
-              >
-                Explore More
-              </a>
-            </button>
+            <a
+              href="/events"
+              className=" px-6 py-3 rounded-md text-white bg-[#24292F] hover:bg-[#24292F]/70 transition duration-300"
+            >
+              <button>Explore More</button>
+            </a>
           </div>
         </section>
         <section>

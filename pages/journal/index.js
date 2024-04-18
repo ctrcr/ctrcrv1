@@ -87,8 +87,12 @@ const JournalPage = () => {
               <h2 className="text-2xl lg:text-4xl font-semibold mb-12">
                 VOLUME I, ISSUE II
               </h2>
-              <a className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-600 hover:text-white transition duration-300">
-                COMING SOON
+              <a
+                href="https://ik.imagekit.io/ctrcr/PDF/Vol%20I%20Issue%20II.pdf?updatedAt=1713427814802"
+                target="_blank"
+                className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-600 hover:text-white transition duration-300"
+              >
+                DOWNLOAD NOW
               </a>
             </div>
           </div>

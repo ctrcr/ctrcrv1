@@ -16,16 +16,17 @@ const Card = ({ image, title, regLink }) => {
           {title}
         </h2>
         <div className="flex text-[#4C555D] mt-10 border-t-2 py-6 text-xs justify-around">
-          <span className="flex items-center gap-1 px-6 py-3 rounded-md text-white bg-[#24292F] hover:bg-[#24292F]/70 transition duration-300">
-            <a
-              href={regLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1"
-            >
+          {" "}
+          <a
+            href={regLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1"
+          >
+            <span className="flex items-center gap-1 px-6 py-3 rounded-md text-white bg-[#24292F] hover:bg-[#24292F]/70 transition duration-300">
               Read More
-            </a>
-          </span>
+            </span>
+          </a>
         </div>
       </div>
     </div>
