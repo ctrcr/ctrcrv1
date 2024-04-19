@@ -45,12 +45,12 @@ const JournalPage = () => {
             Volume I, Issue II is out now! Share your research and insights with
             our global audience. Let your voice be heard.
           </p>
-          <button>
+          <button disabled className="cursor-not-allowed">
             <a
-              href="/"
+              // href="/"
               className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-600 hover:text-white transition duration-300"
             >
-              Submit Now
+              SUBMISSIONS CLOSED
             </a>
           </button>
         </div>
