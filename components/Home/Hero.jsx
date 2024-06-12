@@ -15,7 +15,7 @@ const image2 =
   "https://ik.imagekit.io/ctrcr/Images/issue_2_cover.png?updatedAt=1713427903966";
 const title2 = "VOLUME I ISSUE II";
 const link2 =
-  "https://ik.imagekit.io/ctrcr/PDF/Vol%20I%20Issue%20II.pdf?updatedAt=1713427814802";
+  "https://ik.imagekit.io/ctrcr/PDF/Vol%201%20Issue%20II%20Updated.pdf?updatedAt=1718186589867";
 const Hero = () => {
   return (
     <>
