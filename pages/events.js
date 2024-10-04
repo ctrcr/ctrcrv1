@@ -8,27 +8,27 @@ const EventsPage = () => {
   const [eventsData, setEventsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get("/api/v1/events");
-  //       setEventsData(response.data.data);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error("Error fetching events:", error);
-  //       setLoading(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/v1/events");
+        setEventsData(response.data.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+        setLoading(false);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   return (
     <div className="bg-[#EBEBEB] overflow-y-hidden">
-      <div className="h-screen text-black text-5xl flex justify-center items-center">
+      {/* <div className="h-screen text-black text-5xl flex justify-center items-center">
         Coming Soon....
-      </div>
-      {/* <div className="px-[6%] mb-[6%]  max-md:mt-20 mt-20 container mx-auto text-[#0F111F] p-4 space-y-[10%] ">
+      </div> */}
+      <div className="px-[6%] mb-[6%]  max-md:mt-20 mt-20 container mx-auto text-[#0F111F] p-4 space-y-[10%] ">
         <div className="space-y-[5%]">
           <div className="flex justify-center items-center">
             <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
@@ -60,7 +60,7 @@ const EventsPage = () => {
             </div>
           )}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
