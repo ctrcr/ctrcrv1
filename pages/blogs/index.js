@@ -66,7 +66,7 @@ const BlogsPage = () => {
           blogs.slice(0, showAll ? blogs.length : 6).map((blog) => (
             <div
               key={blog.blogId}
-              className="bg-white shadow-md rounded-lg overflow-hidden"
+              className="bg-gray-200 shadow-md rounded-lg overflow-hidden"
             >
               <img
                 src={blog.image}
@@ -76,9 +76,17 @@ const BlogsPage = () => {
               <div className="p-4">
                 <h2 className="text-xl font-semibold">{blog.title}</h2>
                 <p className="text-gray-600 line-clamp-2">{blog.description}</p>
-                <p className="text-gray-500 text-sm mt-2 line-clamp-1">
-                  By {blog.author} on {new Date(blog.date).toLocaleDateString()}
-                </p>
+                <div>
+                  {" "}
+                  <p className="text-gray-500 mt-4">
+                    By {blog.author} on{" "}
+                    {new Date(blog.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </p>
+                </div>
                 <span className="flex items-center gap-1 my-2 cursor-pointer">
                   <a
                     href={`/blogs/${blog.blogId}`}
