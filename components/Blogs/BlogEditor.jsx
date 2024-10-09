@@ -1,10 +1,13 @@
 import React, { useState, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
 import axios from "axios";
+import { CldUploadButton } from "next-cloudinary";
 
 const JoditEditor = dynamic(() => import("jodit-react"), {
   ssr: false,
 });
+
+const cloudPresetName = process.env.NEXT_PUBLIC_CLOUDINARY_PRESET_NAME;
 
 const BlogEditor = ({ onSave }) => {
   const editorRef = useRef(null);
@@ -13,6 +16,7 @@ const BlogEditor = ({ onSave }) => {
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [approved, setApproved] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,11 +28,11 @@ const BlogEditor = ({ onSave }) => {
       content,
       image: imageUrl,
       date: new Date(),
-      approved: true,
+      approved,
       blogId: String(Date.now()),
     };
 
-    // console.log(formData);
+    console.log("formData:", formData);
 
     try {
       const response = await axios.post("/api/v1/blogs", formData);
@@ -36,7 +40,7 @@ const BlogEditor = ({ onSave }) => {
         onSave();
       }
     } catch (error) {
-      console.error("Error saving blog:", error);
+      console.error("Error saving blog:", error.response.data);
     }
   };
 
@@ -78,12 +82,10 @@ const BlogEditor = ({ onSave }) => {
       ].join(","),
       toolbarAdaptive: false,
       placeholder: "Write your blog here...",
-      // Enable the default styles for lists
       style: {
         listStyleType: "disc",
       },
       events: {
-        // Ensuring that list functionality works as expected
         afterCommand: (command) => {
           if (
             command === "insertOrderedList" ||
@@ -91,7 +93,7 @@ const BlogEditor = ({ onSave }) => {
           ) {
             const editor = editorRef.current?.editor;
             if (editor) {
-              editor.s.focus(); // Focus on the editor after the command
+              editor.s.focus();
             }
           }
         },
@@ -126,13 +128,57 @@ const BlogEditor = ({ onSave }) => {
         className="w-full p-2 border rounded"
         required
       />
-      <input
-        type="text"
-        value={imageUrl}
-        onChange={(e) => setImageUrl(e.target.value)}
-        placeholder="Cover Image URL"
-        className="w-full p-2 border rounded"
-      />
+      <div className="">
+        <CldUploadButton
+          options={{
+            multiple: false,
+            sources: ["local"],
+          }}
+          uploadPreset={cloudPresetName}
+          onSuccess={(result) => {
+            console.log("Upload result:", result);
+            const uploadedImageUrl = result.info.secure_url;
+            setImageUrl(uploadedImageUrl);
+          }}
+          className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        >
+          <span className="text-2xl">
+            {imageUrl ? "Change Cover Photo" : "Upload Cover Photo"}
+          </span>
+        </CldUploadButton>
+      </div>
+
+      {imageUrl && (
+        <img src={imageUrl} alt="Uploaded" className="h-48 object-cover" />
+      )}
+
+      <div>
+        <span>Approved: </span>
+        <label className="mr-4">
+          <input
+            type="radio"
+            value="yes"
+            checked={approved === true}
+            onChange={() => setApproved(true)}
+          />
+          Yes
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="no"
+            checked={approved === false}
+            onChange={() => setApproved(false)}
+          />
+          No
+        </label>
+        <br />
+        <strong className="text-red-700">
+          IF SELECTED YES THEN BLOG WILL LIVE ON WEBSITE, PLEASE PREVIEW BEFORE
+          APPROVING
+        </strong>
+      </div>
+
       <JoditEditor
         ref={editorRef}
         value={content}
@@ -140,7 +186,10 @@ const BlogEditor = ({ onSave }) => {
         config={config}
         className="border rounded"
       />
-      <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+      <button
+        type="submit"
+        className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+      >
         Save Blog
       </button>
     </form>

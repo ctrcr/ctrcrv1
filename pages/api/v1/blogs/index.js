@@ -14,9 +14,16 @@ export default async function handler(req, res) {
     }
   } else if (req.method === "POST") {
     try {
-      const { title, content, image, author, description } = req.body;
+      const { title, content, image, author, description, approved } = req.body;
 
-      if (!title || !content || !image || !author || !description) {
+      if (
+        !title ||
+        !content ||
+        !image ||
+        !author ||
+        !description ||
+        approved === undefined
+      ) {
         return res
           .status(400)
           .json({ success: false, error: "All fields are required." });
@@ -29,7 +36,7 @@ export default async function handler(req, res) {
         author,
         description,
         date: new Date(),
-        approved: true,
+        approved,
         blogId: Date.now(),
       });
 

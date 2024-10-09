@@ -14,7 +14,7 @@ const NewBlog = () => {
   };
 
   return (
-    <div className="container h-screen mx-auto p-4 mt-12">
+    <div className="container h-screen mx-auto p-4 mt-12 min-h-screen">
       <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
@@ -36,8 +36,9 @@ const NewBlog = () => {
           <Image src={logo} alt="Blogs" width={150} height={150} />
         </div>
       </div>
+      <hr className="h-1 bg-black" />
       <div className="flex justify-between">
-        <h1 className="text-2xl my-4">Write New Blog</h1>
+        <h1 className="text-2xl font-bold my-4">Upload New Blog</h1>
         <span className="flex items-center gap-1 my-2 cursor-pointer">
           <a
             href="/admin/blogs"
