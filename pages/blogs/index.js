@@ -13,7 +13,8 @@ const BlogsPage = () => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get("/api/v1/blogs");
-        setBlogs(response.data.data);
+
+        setBlogs(response.data.data.filter((blog) => blog.approved));
       } catch (err) {
         setError("Error fetching blogs");
       } finally {

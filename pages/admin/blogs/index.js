@@ -1,5 +1,3 @@
-// pages/blogs/index.js
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
@@ -14,6 +12,7 @@ const BlogsPage = () => {
       try {
         const response = await axios.get("/api/v1/blogs");
         setBlogs(response.data.data);
+        console.log(response.data.data);
       } catch (err) {
         setError("Error fetching blogs");
       } finally {
@@ -48,6 +47,10 @@ const BlogsPage = () => {
                 By {blog.author} on {new Date(blog.date).toLocaleDateString()}
               </p>
               <Link href={`/blogs/${blog.blogId}`}>Read More</Link>
+              <div className="text-gray-500">
+                Approved: {blog.approved ? "Yes" : "No"}
+              </div>
+              <div>Blog ID: {blog.blogId}</div>
             </div>
           </div>
         ))}
