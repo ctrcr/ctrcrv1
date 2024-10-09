@@ -96,6 +96,13 @@ const MobileNavbar = () => {
             >
               Events
             </NavLink>
+            <NavLink
+              href="/blogs"
+              currentPath={router.pathname}
+              toggleNavbar={toggleNavbar}
+            >
+              Blogs
+            </NavLink>
             {/* <NavLink
               href="/team"
               currentPath={router.pathname}

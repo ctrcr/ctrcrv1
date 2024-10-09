@@ -8,8 +8,7 @@ const NewBlog = () => {
   const router = useRouter();
 
   const handleSave = () => {
-    // Redirect or perform any action after saving
-    router.push("/blogs");
+    router.push("/admin/blogs");
   };
 
   return (
