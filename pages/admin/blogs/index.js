@@ -56,6 +56,15 @@ const BlogsPage = () => {
           <Image src={logo} alt="Blogs" width={150} height={150} />
         </div>
       </div>
+      <span className="flex items-center gap-1 my-2 cursor-pointer">
+        <a
+          href="/admin/blogs/new"
+          rel="noopener noreferrer"
+          className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Add New Blog
+        </a>
+      </span>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {loading ? (
@@ -94,7 +103,7 @@ const BlogsPage = () => {
                 <div className="flex justify-between">
                   <span className="flex items-center gap-1 my-2 cursor-pointer">
                     <a
-                      href={`/blogs/${blog.blogId}`}
+                      href={`/admin/blogs/${blog.blogId}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"

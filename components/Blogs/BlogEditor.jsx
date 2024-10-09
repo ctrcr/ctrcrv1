@@ -130,7 +130,7 @@ const BlogEditor = ({ onSave }) => {
         type="text"
         value={imageUrl}
         onChange={(e) => setImageUrl(e.target.value)}
-        placeholder="Image URL"
+        placeholder="Cover Image URL"
         className="w-full p-2 border rounded"
       />
       <JoditEditor
