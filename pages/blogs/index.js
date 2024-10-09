@@ -30,21 +30,12 @@ const BlogsPage = () => {
     fetchBlogs();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  // if (loading) return <p className="text-center">Loading...</p>;
+  if (error) return <p className="text-center">{error}</p>;
 
   return (
     <div className="container mx-auto mt-8 max-md:mt-12 px-4 py-8">
       <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
-        {/* <div className="ml-4">
-          <h1 className="text-5xl max-md:text-3xl italic font-bold max-md:text-center">
-            the Suitgeist
-          </h1>
-          <p className="text-lg max-md:text-sm text-gray-600">
-            Under the aegis of the Centre for Corporate and Commercial
-            Regulations
-          </p>
-        </div> */}
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
             <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
@@ -67,35 +58,41 @@ const BlogsPage = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {blogs.slice(0, showAll ? blogs.length : 6).map((blog) => (
-          <div
-            key={blog.blogId}
-            className="bg-white shadow-md rounded-lg overflow-hidden"
-          >
-            <img
-              src={blog.image}
-              alt={blog.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h2 className="text-xl font-semibold">{blog.title}</h2>
-              <p className="text-gray-600 line-clamp-2">{blog.description}</p>
-              <p className="text-gray-500 text-sm mt-2 line-clamp-1">
-                By {blog.author} on {new Date(blog.date).toLocaleDateString()}
-              </p>
-              <span className="flex items-center gap-1 my-2 cursor-pointer">
-                <a
-                  href={`/blogs/${blog.blogId}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-                >
-                  Read More
-                </a>
-              </span>
-            </div>
+        {loading ? (
+          <div className="flex justify-center items-center w-full h-screen">
+            <Image src={loader} alt="Loading..." width={200} height={200} />
           </div>
-        ))}
+        ) : (
+          blogs.slice(0, showAll ? blogs.length : 6).map((blog) => (
+            <div
+              key={blog.blogId}
+              className="bg-white shadow-md rounded-lg overflow-hidden"
+            >
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h2 className="text-xl font-semibold">{blog.title}</h2>
+                <p className="text-gray-600 line-clamp-2">{blog.description}</p>
+                <p className="text-gray-500 text-sm mt-2 line-clamp-1">
+                  By {blog.author} on {new Date(blog.date).toLocaleDateString()}
+                </p>
+                <span className="flex items-center gap-1 my-2 cursor-pointer">
+                  <a
+                    href={`/blogs/${blog.blogId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+                  >
+                    Read More
+                  </a>
+                </span>
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
       {blogs.length > 6 && (
