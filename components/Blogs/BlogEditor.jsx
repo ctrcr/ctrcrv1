@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
 
 const JoditEditor = dynamic(() => import("jodit-react"), {
@@ -6,12 +6,12 @@ const JoditEditor = dynamic(() => import("jodit-react"), {
 });
 
 const BlogEditor = ({ onSave }) => {
-  const editorRef = useRef(null); // Create a ref for the editor
+  const editorRef = useRef(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
-  const [imageUrl, setImageUrl] = useState(""); // Store the image URL
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,25 +20,84 @@ const BlogEditor = ({ onSave }) => {
       title,
       description,
       author,
-      content, // Ensure the content with text and images is saved in HTML format
-      image: imageUrl, // Use the image URL instead of file upload
+      content,
+      image: imageUrl,
       date: new Date(),
       approved: true,
       blogId: String(Date.now()),
     };
 
-    console.log(formData);
+    // console.log(formData);
 
-    // Uncomment this for real API calls
-    // try {
-    //   const response = await axios.post("/api/v1/blogs", formData);
-    //   if (response.data.success) {
-    //     onSave();
-    //   }
-    // } catch (error) {
-    //   console.error("Error saving blog:", error);
-    // }
+    try {
+      const response = await axios.post("/api/v1/blogs", formData);
+      if (response.data.success) {
+        onSave();
+      }
+    } catch (error) {
+      console.error("Error saving blog:", error);
+    }
   };
+
+  const config = useMemo(
+    () => ({
+      autofocus: true,
+      uploader: {
+        insertImageAsBase64URI: true,
+      },
+      toolbarSticky: true,
+      spellcheck: true,
+      enter: "DIV",
+      buttons: [
+        "bold",
+        "italic",
+        "underline",
+        "font",
+        "ul",
+        "ol",
+        "fontsize",
+        "lineHeight",
+        "image",
+        "align",
+        "selectall",
+        "copyformat",
+        "hr",
+        "table",
+        "link",
+        "indent",
+        "outdent",
+        "undo",
+        "redo",
+        "find",
+        "source",
+        "fullsize",
+        "preview",
+        "print",
+        "brush",
+      ].join(","),
+      toolbarAdaptive: false,
+      placeholder: "Write your blog here...",
+      // Enable the default styles for lists
+      style: {
+        listStyleType: "disc",
+      },
+      events: {
+        // Ensuring that list functionality works as expected
+        afterCommand: (command) => {
+          if (
+            command === "insertOrderedList" ||
+            command === "insertUnorderedList"
+          ) {
+            const editor = editorRef.current?.editor;
+            if (editor) {
+              editor.s.focus(); // Focus on the editor after the command
+            }
+          }
+        },
+      },
+    }),
+    []
+  );
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -74,39 +133,10 @@ const BlogEditor = ({ onSave }) => {
         className="w-full p-2 border rounded"
       />
       <JoditEditor
-        ref={editorRef} // Attach the ref to the editor
+        ref={editorRef}
         value={content}
-        onBlur={(newContent) => setContent(newContent)} // Update content onBlur to prevent cursor issues
-        config={{
-          buttons: [
-            "bold",
-            "italic",
-            "underline",
-            "link",
-            "image",
-            "source",
-            "clean",
-            "paragraph",
-            "list",
-            "align",
-          ],
-          uploader: {
-            insertImageAsBase64URI: true, // Upload images as base64
-          },
-          events: {
-            beforeCommand: (command) => {
-              // Ensure images are inserted at the cursor position
-              if (command === "insertImage") {
-                const editor = editorRef.current?.editor;
-                if (editor) {
-                  editor.s.insertHTML(`<img src="${imageUrl}" alt=""/>`);
-                }
-              }
-            },
-          },
-          placeholder: "Start writing your blog...",
-          height: 400,
-        }}
+        onBlur={(newContent) => setContent(newContent)}
+        config={config}
         className="border rounded"
       />
       <button type="submit" className="bg-blue-500 text-white p-2 rounded">
