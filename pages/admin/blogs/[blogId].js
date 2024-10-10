@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "@/public/ctrcr_pfp.jpg";
 import loader from "@/public/loader.svg";
+import withAuth from "@/components/Auth/withAuth";
 
 const BlogDetailPage = () => {
   const router = useRouter();
@@ -105,4 +106,4 @@ const BlogDetailPage = () => {
   );
 };
 
-export default BlogDetailPage;
+export default withAuth(BlogDetailPage);

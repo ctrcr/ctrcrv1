@@ -1,10 +1,9 @@
-// pages/admin/blogs/edit.js
-
 import React from "react";
 import EditBlog from "@/components/Blogs/EditBlog";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "@/public/ctrcr_pfp.jpg";
+import withAuth from "@/components/Auth/withAuth";
 
 const EditBlogPage = () => {
   const router = useRouter();
@@ -58,4 +57,4 @@ const EditBlogPage = () => {
   );
 };
 
-export default EditBlogPage;
+export default withAuth(EditBlogPage);

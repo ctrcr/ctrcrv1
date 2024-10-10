@@ -1,10 +1,9 @@
-// pages/blogs/new.js
-
 import React from "react";
 import BlogEditor from "@/components/Blogs/BlogEditor";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import logo from "@/public/ctrcr_pfp.jpg";
+import withAuth from "@/components/Auth/withAuth";
 
 const NewBlog = () => {
   const router = useRouter();
@@ -57,4 +56,4 @@ const NewBlog = () => {
   );
 };
 
-export default NewBlog;
+export default withAuth(NewBlog);
