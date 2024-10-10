@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
 import axios from "axios";
 import { CldUploadButton } from "next-cloudinary";
+import Image from "next/image";
+import loader from "@/public/loader.svg";
 
 const JoditEditor = dynamic(() => import("jodit-react"), {
   ssr: false,
@@ -17,7 +19,7 @@ const EditBlog = ({ blogId, onSave }) => {
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [approved, setApproved] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
@@ -34,7 +36,9 @@ const EditBlog = ({ blogId, onSave }) => {
         setApproved(blogData.approved);
       } catch (error) {
         console.error("Error fetching blog:", error);
-        setErrorMessage("Failed to load blog data.");
+        // setErrorMessage("Failed to load blog data.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -120,6 +124,14 @@ const EditBlog = ({ blogId, onSave }) => {
     }),
     []
   );
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center w-full h-screen">
+        <Image src={loader} alt="Loading..." width={200} height={200} />
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">

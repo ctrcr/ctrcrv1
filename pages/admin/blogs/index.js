@@ -112,7 +112,6 @@ const BlogsPage = () => {
                   <span className="flex items-center gap-1 my-2 cursor-pointer">
                     <a
                       href={`/admin/blogs/${blog.blogId}`}
-                      target="_blank"
                       rel="noopener noreferrer"
                       className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
                     >
