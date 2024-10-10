@@ -1,5 +1,3 @@
-// components/Blogs/EditBlog.jsx
-
 import React, { useEffect, useState, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
 import axios from "axios";
@@ -19,6 +17,8 @@ const EditBlog = ({ blogId, onSave }) => {
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [approved, setApproved] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -34,6 +34,7 @@ const EditBlog = ({ blogId, onSave }) => {
         setApproved(blogData.approved);
       } catch (error) {
         console.error("Error fetching blog:", error);
+        setErrorMessage("Failed to load blog data.");
       }
     };
 
@@ -42,6 +43,8 @@ const EditBlog = ({ blogId, onSave }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setErrorMessage("");
 
     const formData = {
       title,
@@ -60,7 +63,16 @@ const EditBlog = ({ blogId, onSave }) => {
         onSave();
       }
     } catch (error) {
-      console.error("Error updating blog:", error.response.data);
+      console.error(
+        "Error updating blog:",
+        error.response?.data || error.message
+      );
+      setErrorMessage(
+        error.response?.data?.message ||
+          "Failed to update the blog. Please try again."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -192,11 +204,17 @@ const EditBlog = ({ blogId, onSave }) => {
         config={config}
         className="border rounded"
       />
+      {errorMessage && (
+        <div className="text-red-600 p-2 border border-red-600 rounded">
+          {errorMessage}
+        </div>
+      )}
       <button
         type="submit"
         className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        disabled={loading}
       >
-        Update Blog
+        {loading ? "Updating..." : "Update Blog"}
       </button>
     </form>
   );

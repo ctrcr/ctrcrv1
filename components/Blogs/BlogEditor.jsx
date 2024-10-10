@@ -17,9 +17,13 @@ const BlogEditor = ({ onSave }) => {
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [approved, setApproved] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSaving(true);
+    setError("");
 
     const formData = {
       title,
@@ -38,9 +42,17 @@ const BlogEditor = ({ onSave }) => {
       const response = await axios.post("/api/v1/blogs", formData);
       if (response.data.success) {
         onSave();
+      } else {
+        setError("Failed to save the blog. Please try again.");
       }
     } catch (error) {
-      console.error("Error saving blog:", error.response.data);
+      console.error(
+        "Error saving blog:",
+        error.response?.data || error.message
+      );
+      setError("An error occurred while saving the blog. Please try again.");
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -186,11 +198,17 @@ const BlogEditor = ({ onSave }) => {
         config={config}
         className="border rounded"
       />
+
+      {error && <div className="text-red-600 font-semibold">{error}</div>}
+
       <button
         type="submit"
-        className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        className={`bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ${
+          isSaving ? "cursor-not-allowed opacity-50" : ""
+        }`}
+        disabled={isSaving}
       >
-        Save Blog
+        {isSaving ? "Saving..." : "Save Blog"}
       </button>
     </form>
   );
