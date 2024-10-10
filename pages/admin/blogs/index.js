@@ -3,6 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import loader from "@/public/loader.svg";
 import logo from "@/public/ctrcr_pfp.jpg";
+import withAuth from "@/components/Auth/withAuth";
 
 const BlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -56,15 +57,22 @@ const BlogsPage = () => {
           <Image src={logo} alt="Blogs" width={150} height={150} />
         </div>
       </div>
-      <span className="flex items-center gap-1 my-2 cursor-pointer">
-        <a
-          href="/admin/blogs/new"
-          rel="noopener noreferrer"
-          className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Add New Blog
-        </a>
-      </span>
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold my-4">All Blogs</h1>
+
+        <h1 className="text-red-500 text-3xl">
+          <strong>⚠</strong>ADMIN PAGE<strong>⚠</strong>
+        </h1>
+        <span className="flex items-center gap-1 my-2 cursor-pointer">
+          <a
+            href="/admin/blogs/new"
+            rel="noopener noreferrer"
+            className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Add New Blog
+          </a>
+        </span>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {loading ? (
@@ -114,7 +122,6 @@ const BlogsPage = () => {
                   <span className="flex items-center gap-1 my-2 cursor-pointer">
                     <a
                       href={`/admin/blogs/edit?blogId=${blog.blogId}`}
-                      target="_blank"
                       rel="noopener noreferrer"
                       className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
                     >
@@ -142,4 +149,4 @@ const BlogsPage = () => {
   );
 };
 
-export default BlogsPage;
+export default withAuth(BlogsPage);

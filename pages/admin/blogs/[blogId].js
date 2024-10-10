@@ -61,6 +61,21 @@ const BlogDetailPage = () => {
           <Image src={logo} alt="Blogs" width={150} height={150} />
         </div>
       </div>
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold my-4">Preview Blog</h1>
+        <h1 className="text-red-500 text-3xl">
+          <strong>⚠</strong>ADMIN PAGE<strong>⚠</strong>
+        </h1>
+        <span className="flex items-center gap-1 my-2 cursor-pointer">
+          <a
+            href="/admin/blogs"
+            rel="noopener noreferrer"
+            className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Go Back
+          </a>
+        </span>
+      </div>
       {blog ? (
         <div className="bg-gray-200 shadow-lg rounded-lg overflow-hidden p-4">
           <h1 className="text-5xl text-center font-bold mb-4">{blog.title}</h1>

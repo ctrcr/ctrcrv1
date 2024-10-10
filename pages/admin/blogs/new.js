@@ -37,8 +37,11 @@ const NewBlog = () => {
         </div>
       </div>
       <hr className="h-1 bg-black" />
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold my-4">Upload New Blog</h1>
+        <h1 className="text-red-500 text-3xl">
+          <strong>⚠</strong>ADMIN PAGE<strong>⚠</strong>
+        </h1>
         <span className="flex items-center gap-1 my-2 cursor-pointer">
           <a
             href="/admin/blogs"
