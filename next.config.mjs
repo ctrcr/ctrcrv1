@@ -1,7 +1,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["ik.imagekit.io"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
 };
 

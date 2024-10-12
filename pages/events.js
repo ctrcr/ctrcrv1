@@ -8,20 +8,20 @@ const EventsPage = () => {
   const [eventsData, setEventsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get("/api/v1/events");
-  //       setEventsData(response.data.data);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error("Error fetching events:", error);
-  //       setLoading(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/v1/events");
+        setEventsData(response.data.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+        setLoading(false);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   return (
     <div className="bg-[#EBEBEB] overflow-y-hidden">
