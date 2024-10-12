@@ -57,7 +57,6 @@ const BlogsPage = () => {
         </div>
       </div>
       <div className="text-3xl my-8 underline">Recent Blogs:</div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {loading ? (
           <div className="flex justify-center items-center w-full h-screen">
@@ -103,7 +102,6 @@ const BlogsPage = () => {
           ))
         )}
       </div>
-
       {blogs.length > 6 && (
         <div className="flex justify-center mt-6">
           <button
@@ -114,6 +112,32 @@ const BlogsPage = () => {
           </button>
         </div>
       )}
+      <h2 className="text-3xl max-md:text-2xl font-semibold mb-2 tracking-wide w-fit">
+        <hr className="w-20 h-1 max-md:hidden bg-black" />
+        <span className="font-bold max-md:hidden">Submissions</span>
+        <div className={"flex justify-end w-44 font-bold"}>
+          <hr className="w-20 max-md:hidden h-1 bg-black " />
+        </div>
+      </h2>
+      <div className="hidden max-md:block text-3xl text-center my-6 font-bold">
+        Submissions
+      </div>
+      <div className="text-xl my-4">
+        Visit the Link Below to View Submission Guidelines and Submission Form
+      </div>
+      <div className="flex justify-center mt-6">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScw-XXWk8mYtm3dNl-Z570sinCMQoqYGgSv2_BoRgnm5YRFpg/viewform"
+          target="_blank"
+        >
+          <button
+            // onClick={() => setShowAll((prev) => !prev)}
+            className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Submission Form
+          </button>
+        </a>
+      </div>
     </div>
   );
 };
