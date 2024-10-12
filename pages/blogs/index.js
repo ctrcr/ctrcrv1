@@ -34,7 +34,7 @@ const BlogsPage = () => {
   if (error) return <p className="text-center">{error}</p>;
 
   return (
-    <div className="container mx-auto mt-8 max-md:mt-12 px-4 py-8">
+    <div className="container min-h-screen mx-auto mt-8 max-md:mt-12 px-4 py-8">
       <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
@@ -56,6 +56,7 @@ const BlogsPage = () => {
           <Image src={logo} alt="Blogs" width={150} height={150} />
         </div>
       </div>
+      <div className="text-3xl my-8 underline">Recent Blogs:</div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {loading ? (
@@ -71,7 +72,7 @@ const BlogsPage = () => {
               <img
                 src={blog.image}
                 alt={blog.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-contain"
               />
               <div className="p-4">
                 <h2 className="text-xl font-semibold">{blog.title}</h2>

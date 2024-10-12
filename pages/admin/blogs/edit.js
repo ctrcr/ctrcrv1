@@ -14,7 +14,7 @@ const EditBlogPage = () => {
   };
 
   return (
-    <div className="container h-screen mx-auto p-4 mt-12 min-h-screen">
+    <div className="container min-h-screen mx-auto p-4 mt-12">
       <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">

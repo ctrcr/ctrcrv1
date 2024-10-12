@@ -40,7 +40,7 @@ const BlogDetailPage = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="container mx-auto mt-12 px-4 py-8">
+    <div className="container min-h-screen  mx-auto mt-12 px-4 py-8">
       <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
