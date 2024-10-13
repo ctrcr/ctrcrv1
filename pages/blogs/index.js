@@ -39,11 +39,11 @@ const BlogsPage = () => {
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
             <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
-            <span className="text-5xl max-md:text-3xl italic font-bold max-md:text-center">
-              the Suitgeist
+            <span className="text-5xl max-md:text-3xl italic font-bold ">
+              Forum for Commercial and Corporate Regulations
             </span>
 
-            <div className={"flex justify-end w-64 mt-2 font-bold"}>
+            <div className={"flex justify-end  mt-2 font-bold"}>
               <hr className="w-24 h-1 max-md:hidden bg-black" />
             </div>
             <p className="text-lg mt-2 max-md:text-sm text-gray-600">
@@ -112,19 +112,21 @@ const BlogsPage = () => {
           </button>
         </div>
       )}
-      <h2 className="text-3xl max-md:text-2xl font-semibold mb-2 tracking-wide w-fit">
+      <h2 className="text-4xl max-md:text-2xl my-8 mx-auto font-semibold mb-2 tracking-wide w-fit">
         <hr className="w-20 h-1 max-md:hidden bg-black" />
-        <span className="font-bold max-md:hidden">Submissions</span>
-        <div className={"flex justify-end w-44 font-bold"}>
+        <span className="font-bold max-md:hidden">
+          Submission Form and Guidelines
+        </span>
+        <div className={"flex justify-end  font-bold"}>
           <hr className="w-20 max-md:hidden h-1 bg-black " />
         </div>
       </h2>
       <div className="hidden max-md:block text-3xl text-center my-6 font-bold">
-        Submissions
+        Submission Form and Guidelines
       </div>
-      <div className="text-xl my-4">
+      {/* <div className="text-xl my-4">
         Visit the Link Below to View Submission Guidelines and Submission Form
-      </div>
+      </div> */}
       <div className="flex justify-center mt-6">
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLScw-XXWk8mYtm3dNl-Z570sinCMQoqYGgSv2_BoRgnm5YRFpg/viewform"
@@ -132,9 +134,9 @@ const BlogsPage = () => {
         >
           <button
             // onClick={() => setShowAll((prev) => !prev)}
-            className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-black hover:bg-gray-700 text-white text-2xl font-bold py-2 px-4 rounded"
           >
-            Submission Form
+            Submit Now
           </button>
         </a>
       </div>

@@ -18,11 +18,11 @@ const NewBlog = () => {
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
             <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
-            <span className="text-5xl max-md:text-3xl italic font-bold max-md:text-center">
-              the Suitgeist
+            <span className="text-5xl max-md:text-3xl italic font-bold ">
+              Forum for Commercial and Corporate Regulations
             </span>
 
-            <div className={"flex justify-end w-64 mt-2 font-bold"}>
+            <div className={"flex justify-end  mt-2 font-bold"}>
               <hr className="w-24 h-1 max-md:hidden bg-black" />
             </div>
             <p className="text-lg mt-2 max-md:text-sm text-gray-600">
