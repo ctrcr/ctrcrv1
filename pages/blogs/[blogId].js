@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import logo from "@/public/ctrcr_pfp.jpg";
+import logo from "@/public/ctrcr_pfp.png";
 import loader from "@/public/loader.svg";
 
 const BlogDetailPage = () => {

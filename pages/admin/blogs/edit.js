@@ -2,7 +2,7 @@ import React from "react";
 import EditBlog from "@/components/Blogs/EditBlog";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import logo from "@/public/ctrcr_pfp.jpg";
+import logo from "@/public/ctrcr_pfp.png";
 import withAuth from "@/components/Auth/withAuth";
 
 const EditBlogPage = () => {

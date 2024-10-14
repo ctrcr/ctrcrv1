@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import loader from "@/public/loader.svg";
-import logo from "@/public/ctrcr_pfp.jpg";
+import logo from "@/public/ctrcr_pfp.png";
 import withAuth from "@/components/Auth/withAuth";
 
 const BlogsPage = () => {
