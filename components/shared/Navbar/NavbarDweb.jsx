@@ -61,6 +61,9 @@ const Navbar = () => {
               <NavLink href="/events" currentPath={router.pathname}>
                 Events
               </NavLink>
+              <NavLink href="/blogs" currentPath={router.pathname}>
+                Blog
+              </NavLink>
               {/* <NavLink href="/team" currentPath={router.pathname}>
                 Team
               </NavLink>
