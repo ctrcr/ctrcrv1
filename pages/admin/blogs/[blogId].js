@@ -46,7 +46,7 @@ const BlogDetailPage = () => {
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
             <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
             <span className="text-5xl max-md:text-3xl italic font-bold ">
-              Forum for Commercial and Corporate Regulations
+              Forum for Commercial and Corporate Laws
             </span>
 
             <div className={"flex justify-end  mt-2 font-bold"}>
