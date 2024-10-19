@@ -1,3 +1,4 @@
+// utils/models/team.model.js
 import mongoose from "mongoose";
 
 const TeamSchema = new mongoose.Schema({
@@ -17,6 +18,10 @@ const TeamSchema = new mongoose.Schema({
     type: Number,
     required: true,
     unique: true,
+  },
+  index: {
+    type: Number,
+    required: true,
   },
 });
 
