@@ -23,7 +23,7 @@ const EditTeamCard = ({ member, onEdit }) => {
       <img
         src={member.image}
         alt={member.name}
-        className={`rounded-lg object-cover mb-4 ${
+        className={`rounded-lg w-[300px] h-[300px] object-cover mb-4 ${
           loading ? "hidden" : "block"
         }`}
         onLoad={() => setLoading(false)}

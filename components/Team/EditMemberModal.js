@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { CldUploadButton } from "next-cloudinary";
 
 const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
   const [formData, setFormData] = useState({
@@ -31,6 +32,14 @@ const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
     setFormData((prevData) => ({
       ...prevData,
       [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleImageUpload = (result) => {
+    const uploadedImageUrl = result.info.secure_url;
+    setFormData((prevData) => ({
+      ...prevData,
+      image: uploadedImageUrl,
     }));
   };
 
@@ -74,10 +83,10 @@ const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
   }
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg relative">
+    <div className="fixed inset-0  z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-white w-[400px] p-6 rounded-lg shadow-lg relative">
         <button
-          className="absolute top-4 right-4 text-gray-600 text-xl"
+          className="absolute top-4 right-4 text-gray-600 text-5xl"
           onClick={handleClose}
           disabled={loading}
         >
@@ -86,17 +95,29 @@ const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
         <h2 className="text-lg font-bold mb-4">Edit Member</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block mb-2">Image URL</label>
-            <input
-              type="text"
-              name="image"
-              value={formData.image}
-              onChange={handleChange}
-              required
-              className="border border-gray-300 rounded p-2 w-full"
-              disabled={loading}
-            />
+            <CldUploadButton
+              options={{
+                multiple: false,
+                sources: ["local"],
+              }}
+              uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_TEAM_PRESET_NAME}
+              onSuccess={handleImageUpload}
+              className="bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+            >
+              <span className="text-md">
+                {formData.image ? "Change Image" : "Upload Image"}
+              </span>
+            </CldUploadButton>
           </div>
+
+          {formData.image && (
+            <img
+              src={formData.image}
+              alt="Uploaded"
+              className="w-[300px] h-[300px] object-cover mb-4"
+            />
+          )}
+
           <div className="mb-4">
             <label className="block mb-2">Name</label>
             <input

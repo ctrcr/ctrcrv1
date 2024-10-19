@@ -9,13 +9,13 @@ const TeamCard = ({ image, name }) => {
     <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
       {loading && (
         <div className="w-16 h-16 flex justify-center items-center mb-4">
-          <Image src={loader} alt="Loading..." width={64} height={64} />
+          <Image src={loader} alt="Loading..." width={300} height={300} />
         </div>
       )}
       <img
         src={image}
         alt={name}
-        className={`rounded-lg object-cover mb-4 ${
+        className={`rounded-lg object-cover w-[300px] h-[300px] mb-4 ${
           loading ? "hidden" : "block"
         }`}
         onLoad={() => setLoading(false)}
