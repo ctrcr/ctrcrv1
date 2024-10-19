@@ -122,14 +122,19 @@ const TeamPage = () => {
           <hr className="w-16 h-1 max-md:hidden bg-black" />
         </div>
       </h2>
-      <button
-        className="mb-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-        onClick={() => {
-          setIsAddModalOpen(true);
-        }}
-      >
-        Add New Member
-      </button>
+      <div className="flex justify-between items-center">
+        <h1 className="text-red-500 text-3xl">
+          <strong>⚠</strong>ADMIN PAGE<strong>⚠</strong>
+        </h1>
+        <button
+          className="my-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          onClick={() => {
+            setIsAddModalOpen(true);
+          }}
+        >
+          Add New Member
+        </button>
+      </div>
       {Object.keys(teamMembers).map((position) => (
         <div key={position} className="my-8">
           <h2 className="text-2xl font-bold mb-6">{position}</h2>
