@@ -114,7 +114,7 @@ const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
             <img
               src={formData.image}
               alt="Uploaded"
-              className="w-[300px] h-[300px] object-cover mb-4"
+              className="rounded-lg w-[300px] h-[300px] object-cover mb-4"
             />
           )}
 
@@ -140,8 +140,11 @@ const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
                 className="form-checkbox"
                 disabled={loading}
               />
-              <span className="ml-2">Is Current</span>
+              <span className="ml-2">Is Current Member?</span>
             </label>
+            <strong className="ml-2 text-red-500">
+              IF SELECTED, MEMBER WILL BE DISPLAYED ON THE WEBSITE
+            </strong>
           </div>
           <div className="mb-4">
             <label className="block mb-2">Index</label>
