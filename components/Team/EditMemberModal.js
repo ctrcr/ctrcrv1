@@ -83,8 +83,8 @@ const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
   }
 
   return createPortal(
-    <div className="fixed inset-0  z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white w-[400px] p-6 rounded-lg shadow-lg relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-white w-[400px] max-h-[90vh] overflow-y-auto p-6 rounded-lg shadow-lg relative">
         <button
           className="absolute top-4 right-4 text-gray-600 text-5xl"
           onClick={handleClose}
