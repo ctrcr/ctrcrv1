@@ -12,7 +12,10 @@ const TeamPage = () => {
     const fetchTeamMembers = async () => {
       try {
         const response = await axios.get("/api/v1/team");
-        const members = response.data.data;
+        const members = response.data.data
+          .filter((member) => member.isCurrent)
+          .filter((member) => member.index)
+          .sort((a, b) => a.index - b.index);
 
         const groupedMembers = members.reduce((acc, member) => {
           const { position } = member;

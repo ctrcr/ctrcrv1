@@ -14,15 +14,9 @@ export default async function handler(req, res) {
     }
   } else if (req.method === "POST") {
     try {
-      const { image, name, isCurrent, memberID, index } = req.body;
+      const { image, name, isCurrent, index, position } = req.body;
 
-      if (
-        !image ||
-        !name ||
-        isCurrent === undefined ||
-        !memberID ||
-        index === undefined
-      ) {
+      if (!image || !name || isCurrent === undefined || index === undefined) {
         return res
           .status(400)
           .json({ success: false, error: "All fields are required." });
@@ -32,7 +26,8 @@ export default async function handler(req, res) {
         image,
         name,
         isCurrent,
-        memberID,
+        position,
+        memberID: Date.now(),
         index,
       });
 
