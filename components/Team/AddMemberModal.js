@@ -1,18 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { CldUploadButton } from "next-cloudinary";
 
-const AddMemberModal = ({ isOpen, onClose, onSubmit, positions = [] }) => {
-  const [formData, setFormData] = useState({
-    image: "",
-    name: "",
-    isCurrent: false,
-    index: 100,
-    position: "",
-  });
+const AddMemberModal = ({
+  isOpen,
+  onClose,
+  onSubmit,
+  positions = [],
+  initialFormData,
+}) => {
+  const [formData, setFormData] = useState(initialFormData);
+  useEffect(() => {
+    if (isOpen) {
+      setFormData(initialFormData);
+    }
+  }, [isOpen, initialFormData]);
 
   const [customPosition, setCustomPosition] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   if (!isOpen) return null;
 
@@ -44,6 +50,30 @@ const AddMemberModal = ({ isOpen, onClose, onSubmit, positions = [] }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError(""); // Reset error message
+
+    // Validation
+    if (!formData.image) {
+      setError("Image is required.");
+      setLoading(false);
+      return;
+    }
+    if (!formData.name) {
+      setError("Name is required.");
+      setLoading(false);
+      return;
+    }
+    if (formData.index === "" || formData.index < 0) {
+      setError("Index must be a valid number.");
+      setLoading(false);
+      return;
+    }
+    if (!formData.position || formData.position === "") {
+      setError("Position is required and must be valid.");
+      setLoading(false);
+      return;
+    }
+
     try {
       // Use custom position if selected
       const submittedData = {
@@ -87,7 +117,6 @@ const AddMemberModal = ({ isOpen, onClose, onSubmit, positions = [] }) => {
               </span>
             </CldUploadButton>
           </div>
-
           {formData.image && (
             <img
               src={formData.image}
@@ -95,7 +124,6 @@ const AddMemberModal = ({ isOpen, onClose, onSubmit, positions = [] }) => {
               className="rounded-lg w-[300px] h-[300px] object-cover mb-4"
             />
           )}
-
           <div className="mb-4">
             <label className="block mb-2">Name</label>
             <input
@@ -171,6 +199,7 @@ const AddMemberModal = ({ isOpen, onClose, onSubmit, positions = [] }) => {
               </div>
             )}
           </div>
+          {error && <p className="text-red-500 mb-4">{error}</p>}
           <button
             type="submit"
             className={`mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ${

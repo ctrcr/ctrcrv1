@@ -22,6 +22,7 @@ const EditMemberModal = ({
   const [customPosition, setCustomPosition] = useState("");
   const [loading, setLoading] = useState(false);
   const [updatedPositions, setUpdatedPositions] = useState(positions);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (member) {
@@ -78,6 +79,30 @@ const EditMemberModal = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
+
+    // Validation
+    if (!formData.image) {
+      setError("Image is required.");
+      setLoading(false);
+      return;
+    }
+    if (!formData.name) {
+      setError("Name is required.");
+      setLoading(false);
+      return;
+    }
+    if (formData.index === "" || formData.index < 0) {
+      setError("Index must be a valid number.");
+      setLoading(false);
+      return;
+    }
+    if (!formData.position || formData.position === "Select a position") {
+      setError("Position is required and must be valid.");
+      setLoading(false);
+      return;
+    }
+
     try {
       await onSubmit({
         ...formData,
@@ -141,7 +166,6 @@ const EditMemberModal = ({
               </span>
             </CldUploadButton>
           </div>
-
           {formData.image && (
             <img
               src={formData.image}
@@ -149,7 +173,6 @@ const EditMemberModal = ({
               className="rounded-lg w-[300px] h-[300px] object-cover mb-4"
             />
           )}
-
           <div className="mb-4">
             <label className="block mb-2">Name</label>
             <input
@@ -233,7 +256,7 @@ const EditMemberModal = ({
               </div>
             )}
           </div>
-
+          {error && <p className="text-red-500 mb-4">{error}</p>}{" "}
           <button
             type="submit"
             className={`mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ${

@@ -8,6 +8,14 @@ import AddMemberModal from "@/components/Team/AddMemberModal";
 import EditMemberModal from "@/components/Team/EditMemberModal";
 
 const TeamPage = () => {
+  const initialFormData = {
+    image: "",
+    name: "",
+    isCurrent: false,
+    index: 100,
+    position: "",
+  };
+
   const [teamMembers, setTeamMembers] = useState({});
   const [loading, setLoading] = useState(true);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -40,8 +48,6 @@ const TeamPage = () => {
       setLoading(false);
     }
   };
-
-  console.log(uniquePositions);
 
   useEffect(() => {
     fetchTeamMembers();
@@ -112,6 +118,7 @@ const TeamPage = () => {
 
   const handleCloseAddModal = () => {
     setIsAddModalOpen(false);
+    fetchTeamMembers();
   };
 
   const handleCloseEditModal = () => {
@@ -172,6 +179,7 @@ const TeamPage = () => {
         onClose={handleCloseAddModal}
         onSubmit={handleAddMember}
         positions={uniquePositions}
+        initialFormData={initialFormData}
       />
       <EditMemberModal
         isOpen={isEditModalOpen}
