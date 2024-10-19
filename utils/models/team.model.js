@@ -23,6 +23,10 @@ const TeamSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  position: {
+    type: String,
+    required: true,
+  },
 });
 
 const Team = mongoose.models.Team || mongoose.model("Team", TeamSchema);
