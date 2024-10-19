@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { CldUploadButton } from "next-cloudinary";
 
-const AddMemberModal = ({ isOpen, onClose, onSubmit }) => {
+const AddMemberModal = ({ isOpen, onClose, onSubmit, positions = [] }) => {
   const [formData, setFormData] = useState({
     image: "",
     name: "",
     isCurrent: false,
-    index: 0,
+    index: 100,
     position: "",
   });
 
+  const [customPosition, setCustomPosition] = useState("");
   const [loading, setLoading] = useState(false);
 
   if (!isOpen) return null;
@@ -21,6 +22,15 @@ const AddMemberModal = ({ isOpen, onClose, onSubmit }) => {
       ...prevData,
       [name]: type === "checkbox" ? checked : value,
     }));
+
+    // Reset custom position if the selected value is not "other"
+    if (name === "position" && value !== "other") {
+      setCustomPosition("");
+    }
+  };
+
+  const handleCustomPositionChange = (e) => {
+    setCustomPosition(e.target.value);
   };
 
   const handleImageUpload = (result) => {
@@ -35,7 +45,13 @@ const AddMemberModal = ({ isOpen, onClose, onSubmit }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      await onSubmit(formData);
+      // Use custom position if selected
+      const submittedData = {
+        ...formData,
+        position:
+          formData.position === "other" ? customPosition : formData.position,
+      };
+      await onSubmit(submittedData);
       onClose();
     } catch (error) {
       console.error("Error adding member:", error);
@@ -122,15 +138,38 @@ const AddMemberModal = ({ isOpen, onClose, onSubmit }) => {
           </div>
           <div className="mb-4">
             <label className="block mb-2">Position</label>
-            <input
-              type="text"
+            <select
               name="position"
               value={formData.position}
               onChange={handleChange}
               required
               className="border border-gray-300 rounded p-2 w-full"
               disabled={loading}
-            />
+            >
+              <option value="">Select a position</option>
+              {positions.length > 0 ? (
+                positions.map((pos) => (
+                  <option key={pos} value={pos}>
+                    {pos}
+                  </option>
+                ))
+              ) : (
+                <option disabled>No positions available</option>
+              )}
+              <option value="other">Other (type below)</option>
+            </select>
+            {formData.position === "other" && (
+              <div className="flex items-center mt-2">
+                <input
+                  type="text"
+                  value={customPosition}
+                  onChange={handleCustomPositionChange}
+                  placeholder="Type your position"
+                  className="border border-gray-300 rounded p-2 w-full"
+                  disabled={loading}
+                />
+              </div>
+            )}
           </div>
           <button
             type="submit"

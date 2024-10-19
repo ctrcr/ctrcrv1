@@ -2,17 +2,26 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { CldUploadButton } from "next-cloudinary";
 
-const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
+const EditMemberModal = ({
+  isOpen,
+  onClose,
+  member,
+  onSubmit,
+  onDelete,
+  positions = [],
+}) => {
   const [formData, setFormData] = useState({
     image: "",
     name: "",
     isCurrent: false,
-    index: 0,
+    index: 100,
     position: "",
     memberID: "",
   });
 
+  const [customPosition, setCustomPosition] = useState("");
   const [loading, setLoading] = useState(false);
+  const [updatedPositions, setUpdatedPositions] = useState(positions);
 
   useEffect(() => {
     if (member) {
@@ -24,14 +33,37 @@ const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
         position: member.position || "",
         memberID: member.memberID || "",
       });
+      setCustomPosition(member.position === "other" ? "" : member.position);
     }
   }, [member]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
+    if (name === "position" && value !== "other") {
+      setCustomPosition("");
+    }
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleCustomPositionChange = (e) => {
+    setCustomPosition(e.target.value);
+  };
+
+  const handleSetCustomPosition = () => {
+    if (customPosition && !updatedPositions.includes(customPosition)) {
+      setUpdatedPositions((prevPositions) => [
+        ...prevPositions,
+        customPosition,
+      ]);
+    }
+    setFormData((prevData) => ({
+      ...prevData,
+      position: customPosition,
     }));
   };
 
@@ -47,7 +79,11 @@ const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      await onSubmit(formData);
+      await onSubmit({
+        ...formData,
+        position:
+          formData.position === "other" ? customPosition : formData.position,
+      });
       onClose();
     } catch (error) {
       console.error("Error updating member:", error);
@@ -76,11 +112,7 @@ const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
     }
   };
 
-  if (!isOpen) return null;
-
-  if (!member) {
-    onClose();
-  }
+  if (!isOpen || !member) return null;
 
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -160,16 +192,48 @@ const EditMemberModal = ({ isOpen, onClose, member, onSubmit, onDelete }) => {
           </div>
           <div className="mb-4">
             <label className="block mb-2">Position</label>
-            <input
-              type="text"
+            <select
               name="position"
               value={formData.position}
               onChange={handleChange}
               required
               className="border border-gray-300 rounded p-2 w-full"
               disabled={loading}
-            />
+            >
+              <option value="">Select a position</option>
+              {updatedPositions.length > 0 ? (
+                updatedPositions.map((pos) => (
+                  <option key={pos} value={pos}>
+                    {pos}
+                  </option>
+                ))
+              ) : (
+                <option disabled>No positions available</option>
+              )}
+              <option value="other">Other (type below)</option>
+            </select>
+            {formData.position === "other" && (
+              <div className="flex items-center mt-2">
+                <input
+                  type="text"
+                  value={customPosition}
+                  onChange={handleCustomPositionChange}
+                  placeholder="Type your position"
+                  className="border border-gray-300 rounded p-2 w-full"
+                  disabled={loading}
+                />
+                <button
+                  type="button"
+                  onClick={handleSetCustomPosition}
+                  className="ml-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                  disabled={loading}
+                >
+                  Set
+                </button>
+              </div>
+            )}
           </div>
+
           <button
             type="submit"
             className={`mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ${

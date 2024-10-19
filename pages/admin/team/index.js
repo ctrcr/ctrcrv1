@@ -13,6 +13,7 @@ const TeamPage = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editingMember, setEditingMember] = useState(null);
+  const [uniquePositions, setUniquePositions] = useState([]);
 
   const fetchTeamMembers = async () => {
     try {
@@ -20,6 +21,11 @@ const TeamPage = () => {
       const members = response.data.data
         .filter((member) => member.index)
         .sort((a, b) => a.index - b.index);
+
+      const uniquePositions = [
+        ...new Set(members.map((member) => member.position)),
+      ];
+
       const groupedMembers = members.reduce((acc, member) => {
         const { position } = member;
         if (!acc[position]) acc[position] = [];
@@ -28,11 +34,14 @@ const TeamPage = () => {
       }, {});
 
       setTeamMembers(groupedMembers);
+      setUniquePositions(uniquePositions);
       setLoading(false);
     } catch (error) {
       setLoading(false);
     }
   };
+
+  console.log(uniquePositions);
 
   useEffect(() => {
     fetchTeamMembers();
@@ -67,11 +76,17 @@ const TeamPage = () => {
       setTeamMembers((prev) => {
         const newMembers = { ...prev };
         const position = updatedMember.position;
+
+        if (!newMembers[position]) {
+          newMembers[position] = [];
+        }
+
         newMembers[position] = newMembers[position].map((member) =>
           member.memberID === updatedMember.memberID
             ? response.data.data
             : member
         );
+
         return newMembers;
       });
 
@@ -102,6 +117,7 @@ const TeamPage = () => {
   const handleCloseEditModal = () => {
     setIsEditModalOpen(false);
     setEditingMember(null);
+    fetchTeamMembers();
   };
 
   if (loading) {
@@ -155,6 +171,7 @@ const TeamPage = () => {
         isOpen={isAddModalOpen}
         onClose={handleCloseAddModal}
         onSubmit={handleAddMember}
+        positions={uniquePositions}
       />
       <EditMemberModal
         isOpen={isEditModalOpen}
@@ -162,6 +179,7 @@ const TeamPage = () => {
         member={editingMember}
         onSubmit={handleSubmitEdit}
         onDelete={handleDeleteMember}
+        positions={uniquePositions}
       />
     </div>
   );
