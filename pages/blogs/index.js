@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import loader from "@/public/loader.svg";
-import logo from "@/public/ctrcr_pfp.png";
+import logo from "@/public/blog_logo.png";
 
 const BlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -52,7 +52,7 @@ const BlogsPage = () => {
           </h2>
         </div>
         <div>
-          <Image src={logo} alt="Blogs" width={150} height={150} />
+          <Image src={logo} alt="Blogs" width={200} height={200} />
         </div>
       </div>
       <div className="text-3xl my-8 underline">Recent Blogs:</div>
