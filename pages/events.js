@@ -12,7 +12,7 @@ const EventsPage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("/api/v1/events");
-        setEventsData(response.data.data);
+        setEventsData(response.data.data.filter((event) => event.isActive));
         setLoading(false);
       } catch (error) {
         console.error("Error fetching events:", error);
@@ -24,7 +24,7 @@ const EventsPage = () => {
   }, []);
 
   return (
-    <div className="bg-[#EBEBEB] overflow-y-hidden">
+    <div className="bg-[#EBEBEB] overflow-y-hidden min-h-screen">
       <div className="px-[6%] mb-[6%] mt-20 container mx-auto text-[#0F111F] p-4 space-y-[10%] ">
         <div className="space-y-[5%]">
           <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
@@ -38,7 +38,7 @@ const EventsPage = () => {
             <div className="flex justify-center items-center h-screen">
               <Image src={loader} alt="Loading" />
             </div>
-          ) : (
+          ) : eventsData.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full">
               {eventsData.map((event, index) => (
                 <Card
@@ -51,6 +51,12 @@ const EventsPage = () => {
                   gallery={event.gallery}
                 />
               ))}
+            </div>
+          ) : (
+            <div className="flex justify-center items-center h-screen">
+              <p className="text-4xl font-semibold text-gray-600">
+                More Events coming soon!
+              </p>
             </div>
           )}
         </div>
