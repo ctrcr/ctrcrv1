@@ -3,7 +3,7 @@ import { GoClock } from "react-icons/go";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { TbCalendarTime } from "react-icons/tb";
 
-const Card = ({ image, title, description, date, time, regLink }) => {
+const Card = ({ image, title, description, date, regLink }) => {
   // Function to format the date
   const formatDate = (dateString) => {
     const dateObject = new Date(dateString);
@@ -26,15 +26,15 @@ const Card = ({ image, title, description, date, time, regLink }) => {
         </h2>
         <p className="text-[#677685] leading-none text-base">{description}</p>
 
-        <div className="flex text-[#4C555D] mt-10 border-t-2 py-2 text-xs justify-around">
+        <div className="flex text-[#4C555D] mt-10 border-t-2 py-2 text-xs justify-between">
           <span className="flex items-center gap-1">
             <TbCalendarTime size={20} />
             {formatDate(date)} {/* Display formatted date */}
           </span>
-          <span className="flex items-center gap-1">
+          {/* <span className="flex items-center gap-1">
             <GoClock size={20} />
             {time}
-          </span>
+          </span> */}
           <span className="flex items-center gap-1 bg-blue-400 py-2 px-4 text-white rounded-full hover:underline cursor-pointer">
             <a
               href={regLink}

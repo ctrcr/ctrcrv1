@@ -25,17 +25,17 @@ const EventsPage = () => {
 
   return (
     <div className="bg-[#EBEBEB] overflow-y-hidden">
-      <div className="h-screen text-black text-5xl flex justify-center items-center">
+      {/* <div className="h-screen text-black text-5xl flex justify-center items-center">
         Coming Soon....
-      </div>
-      {/* <div className="px-[6%] mb-[6%]  max-md:mt-20 mt-20 container mx-auto text-[#0F111F] p-4 space-y-[10%] ">
+      </div> */}
+      <div className="px-[6%] mb-[6%]  max-md:mt-20 mt-20 container mx-auto text-[#0F111F] p-4 space-y-[10%] ">
         <div className="space-y-[5%]">
-          <div className="flex justify-center items-center">
+          <div className="">
             <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
-              <hr className="w-24 h-1 bg-black" />
+              <hr className="w-16 h-1 bg-black" />
               <span className="font-bold ">OUR EVENTS</span>
-              <div className={"flex justify-end w-56 font-bold"}>
-                <hr className="w-24 h-1 bg-black " />
+              <div className={"flex justify-end  font-bold"}>
+                <hr className="w-16 h-1 bg-black " />
               </div>
             </h2>
           </div>
@@ -53,14 +53,13 @@ const EventsPage = () => {
                   title={event.title}
                   description={event.description}
                   date={event.date}
-                  time={event.time}
                   regLink={event.regLink}
                 />
               ))}
             </div>
           )}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
