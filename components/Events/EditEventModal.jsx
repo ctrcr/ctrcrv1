@@ -56,6 +56,27 @@ const EditEventModal = ({
     setGallery(updatedGallery);
   };
 
+  const handleDeleteEvent = async () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this event?"
+    );
+    if (confirmed) {
+      setLoading(true);
+      setError("");
+
+      try {
+        await axios.delete(`/api/v1/events/${formData.eventID}`);
+        onEventUpdate();
+        onClose();
+      } catch (error) {
+        console.error("Error deleting event:", error);
+        setError("Failed to delete event");
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -209,6 +230,15 @@ const EditEventModal = ({
             disabled={loading}
           >
             {loading ? "Updating..." : "Update Event"}
+          </button>
+          <br />
+          <button
+            type="button"
+            className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            onClick={handleDeleteEvent}
+            disabled={loading}
+          >
+            {loading ? "Deleting..." : "Delete Event"}
           </button>
         </form>
       </div>
