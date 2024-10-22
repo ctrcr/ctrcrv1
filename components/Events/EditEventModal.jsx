@@ -29,10 +29,10 @@ const EditEventModal = ({
   if (!isOpen) return null;
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -219,6 +219,21 @@ const EditEventModal = ({
               disabled={loading}
             />
           </div>
+
+          <div className="mb-4 flex items-center">
+            <input
+              type="checkbox"
+              name="isActive"
+              checked={formData.isActive}
+              onChange={handleChange}
+              className="mr-2"
+              disabled={loading}
+            />
+            <label className="text-lg">Is Active</label>
+          </div>
+          <strong className="ml-2 text-red-500">
+            IF SELECTED, EVENT WILL BE DISPLAYED ON THE WEBSITE
+          </strong>
 
           {error && <p className="text-red-500 mb-4">{error}</p>}
 
