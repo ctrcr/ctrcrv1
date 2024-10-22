@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
         <title>
           Center for Training and Research in Commercial Regulations | MNLU
         </title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/ctrcr_pfp.png" />
         <meta
           name="description"
           content="Center for Training and Research in Commercial Regulations, Maharashtra National Law University, Mumbai"
