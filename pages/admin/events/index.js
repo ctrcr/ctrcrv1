@@ -100,6 +100,7 @@ const AdminEventsPage = () => {
                 gallery: [],
                 isActive: true,
               }}
+              onEventUpdate={fetchEvents}
             />
           )}
         </div>

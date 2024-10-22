@@ -14,6 +14,7 @@ const EditCard = ({
   gallery,
   eventID,
   isActive,
+  onEventUpdate,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -149,6 +150,7 @@ const EditCard = ({
               eventID,
               isActive,
             }}
+            onEventUpdate={onEventUpdate}
           />
         )}
       </div>

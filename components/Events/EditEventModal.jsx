@@ -3,11 +3,17 @@ import { createPortal } from "react-dom";
 import { CldUploadButton } from "next-cloudinary";
 import axios from "axios";
 
-const EditEventModal = ({ isOpen, onClose, initialFormData }) => {
+const EditEventModal = ({
+  isOpen,
+  onClose,
+  initialFormData,
+  onEventUpdate,
+}) => {
   const [formData, setFormData] = useState(initialFormData);
   const [gallery, setGallery] = useState(initialFormData.gallery || []);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [tempCoverImage, setTempCoverImage] = useState(formData.image);
 
   useEffect(() => {
     if (isOpen) {
@@ -16,6 +22,7 @@ const EditEventModal = ({ isOpen, onClose, initialFormData }) => {
         .split("T")[0];
       setFormData({ ...initialFormData, date: formattedDate });
       setGallery(initialFormData.gallery || []);
+      setTempCoverImage(initialFormData.image);
     }
   }, [isOpen, initialFormData]);
 
@@ -35,6 +42,7 @@ const EditEventModal = ({ isOpen, onClose, initialFormData }) => {
       ...prevData,
       image: uploadedImageUrl,
     }));
+    setTempCoverImage(uploadedImageUrl);
   };
 
   const handleGalleryImageUpload = (result) => {
@@ -56,6 +64,7 @@ const EditEventModal = ({ isOpen, onClose, initialFormData }) => {
     try {
       const updatedEvent = { ...formData, gallery };
       await axios.put(`/api/v1/events/${formData.eventID}`, updatedEvent);
+      onEventUpdate();
       onClose();
     } catch (error) {
       console.error("Error updating event:", error);
@@ -89,9 +98,9 @@ const EditEventModal = ({ isOpen, onClose, initialFormData }) => {
               </span>
             </CldUploadButton>
           </div>
-          {formData.image && (
+          {tempCoverImage && (
             <img
-              src={formData.image}
+              src={tempCoverImage}
               alt="Uploaded Cover"
               className="rounded-lg w-full h-40 object-cover mb-4"
             />
