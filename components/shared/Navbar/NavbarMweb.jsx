@@ -66,6 +66,27 @@ const MobileNavbar = () => {
             >
               Home
             </NavLink>
+            <NavLink
+              href="/team"
+              currentPath={router.pathname}
+              toggleNavbar={toggleNavbar}
+            >
+              Team
+            </NavLink>
+            <NavLink
+              href="/events"
+              currentPath={router.pathname}
+              toggleNavbar={toggleNavbar}
+            >
+              Events
+            </NavLink>
+            <NavLink
+              href="/blogs"
+              currentPath={router.pathname}
+              toggleNavbar={toggleNavbar}
+            >
+              Blog
+            </NavLink>
             <div className="flex flex-col gap-4 justify-center items-center">
               <NavLink
                 href="/journal"
@@ -89,27 +110,7 @@ const MobileNavbar = () => {
                 </NavLink>
               </div>
             </div>
-            <NavLink
-              href="/events"
-              currentPath={router.pathname}
-              toggleNavbar={toggleNavbar}
-            >
-              Events
-            </NavLink>
-            <NavLink
-              href="/team"
-              currentPath={router.pathname}
-              toggleNavbar={toggleNavbar}
-            >
-              Team
-            </NavLink>
-            <NavLink
-              href="/blogs"
-              currentPath={router.pathname}
-              toggleNavbar={toggleNavbar}
-            >
-              Blog
-            </NavLink>
+
             {/* <NavLink
               href="/team"
               currentPath={router.pathname}

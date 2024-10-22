@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import logo from "@/public/ctrcr_pfp.png";
+import logo from "@/public/blog_logo.png";
 import loader from "@/public/loader.svg";
 
 const BlogDetailPage = () => {
@@ -58,7 +58,7 @@ const BlogDetailPage = () => {
           </h2>
         </div>
         <div>
-          <Image src={logo} alt="Blogs" width={150} height={150} />
+          <Image src={logo} alt="Blogs" width={200} height={200} />
         </div>
       </div>
       {blog ? (

@@ -13,16 +13,25 @@ const eventsSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  time: {
-    type: String,
-    required: true,
-  },
   regLink: {
     type: String,
     required: true,
   },
   image: {
     type: String,
+    required: true,
+  },
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
+  eventID: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  gallery: {
+    type: Array,
     required: true,
   },
 });
