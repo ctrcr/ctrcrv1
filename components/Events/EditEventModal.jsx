@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { CldUploadButton } from "next-cloudinary";
+import axios from "axios";
 
-const AddEventModal = ({ isOpen, onClose, onSubmit, initialFormData }) => {
+const EditEventModal = ({ isOpen, onClose, initialFormData }) => {
   const [formData, setFormData] = useState(initialFormData);
-  const [gallery, setGallery] = useState([]);
+  const [gallery, setGallery] = useState(initialFormData.gallery || []);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
     if (isOpen) {
-      setFormData(initialFormData);
-      setGallery([]);
+      const formattedDate = new Date(initialFormData.date)
+        .toISOString()
+        .split("T")[0];
+      setFormData({ ...initialFormData, date: formattedDate });
+      setGallery(initialFormData.gallery || []);
     }
   }, [isOpen, initialFormData]);
 
@@ -35,7 +39,6 @@ const AddEventModal = ({ isOpen, onClose, onSubmit, initialFormData }) => {
 
   const handleGalleryImageUpload = (result) => {
     if (gallery.length >= 3) return;
-
     const uploadedImageUrl = result.info.secure_url;
     setGallery((prevGallery) => [...prevGallery, uploadedImageUrl]);
   };
@@ -50,29 +53,13 @@ const AddEventModal = ({ isOpen, onClose, onSubmit, initialFormData }) => {
     setLoading(true);
     setError("");
 
-    // Validation
-    if (!formData.image) {
-      setError("Cover image is required.");
-      setLoading(false);
-      return;
-    }
-    if (
-      !formData.title ||
-      !formData.date ||
-      !formData.description ||
-      !formData.regLink
-    ) {
-      setError("Please fill all required fields.");
-      setLoading(false);
-      return;
-    }
-
     try {
-      const eventData = { ...formData, gallery };
-      await onSubmit(eventData);
+      const updatedEvent = { ...formData, gallery };
+      await axios.put(`/api/v1/events/${formData.eventID}`, updatedEvent);
       onClose();
     } catch (error) {
-      console.error("Error adding event:", error);
+      console.error("Error updating event:", error);
+      setError("Failed to update event");
     } finally {
       setLoading(false);
     }
@@ -88,7 +75,7 @@ const AddEventModal = ({ isOpen, onClose, onSubmit, initialFormData }) => {
         >
           &times;
         </button>
-        <h2 className="text-lg font-bold mb-4">Add New Event</h2>
+        <h2 className="text-lg font-bold mb-4">Edit Event</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <CldUploadButton
@@ -212,7 +199,7 @@ const AddEventModal = ({ isOpen, onClose, onSubmit, initialFormData }) => {
             }`}
             disabled={loading}
           >
-            {loading ? "Adding..." : "Add Event"}
+            {loading ? "Updating..." : "Update Event"}
           </button>
         </form>
       </div>
@@ -221,4 +208,4 @@ const AddEventModal = ({ isOpen, onClose, onSubmit, initialFormData }) => {
   );
 };
 
-export default AddEventModal;
+export default EditEventModal;

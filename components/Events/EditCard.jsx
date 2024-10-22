@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
 import { TbCalendarTime } from "react-icons/tb";
+import EditEventModal from "@/components/Events/EditEventModal";
 
 const EditCard = ({
   title,
@@ -14,10 +15,10 @@ const EditCard = ({
   eventID,
   isActive,
 }) => {
-  //   console.log("Event Title:", title);
   const [isHovered, setIsHovered] = useState(false);
   const [loading, setLoading] = useState(true);
   const [galleryLoading, setGalleryLoading] = useState(true);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const formatDate = (dateString) => {
     const dateObject = new Date(dateString);
@@ -32,7 +33,6 @@ const EditCard = ({
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setLoading(true);
   };
 
   const handleImageLoad = () => {
@@ -49,13 +49,13 @@ const EditCard = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      {/* Event Image */}
       <div className="w-full h-64 rounded-t-lg relative">
         {loading && (
           <div className="absolute inset-0 flex justify-center items-center">
             <img src="/loader.svg" alt="Loading..." className="w-12 h-12" />
           </div>
         )}
-
         {!isHovered || !gallery || gallery.length === 0 ? (
           <img
             src={image}
@@ -102,6 +102,7 @@ const EditCard = ({
         )}
       </div>
       <div className="py-4 px-6">
+        {/* Event Details */}
         <h2 className="text-lg font-semibold text-[#0F111F] leading-none mb-5">
           {title}
         </h2>
@@ -126,6 +127,30 @@ const EditCard = ({
         </div>
         <div className="text-gray-500">{eventID}</div>
         <div className="text-red-500">{isActive ? "Active" : "Inactive"}</div>
+        {/* Edit Event Button */}
+        <button
+          className="bg-green-500 text-white py-2 px-4 rounded mt-4 hover:bg-green-700"
+          onClick={() => setIsEditModalOpen(true)}
+        >
+          Edit Event
+        </button>
+        {/* Edit Event Modal */}
+        {isEditModalOpen && (
+          <EditEventModal
+            isOpen={isEditModalOpen}
+            onClose={() => setIsEditModalOpen(false)}
+            initialFormData={{
+              title,
+              description,
+              date,
+              regLink,
+              image,
+              gallery,
+              eventID,
+              isActive,
+            }}
+          />
+        )}
       </div>
     </div>
   );
