@@ -33,6 +33,15 @@ const Navbar = () => {
               <NavLink href="/" currentPath={router.pathname}>
                 Home
               </NavLink>
+              <NavLink href="/team" currentPath={router.pathname}>
+                Team
+              </NavLink>
+              <NavLink href="/events" currentPath={router.pathname}>
+                Events
+              </NavLink>
+              <NavLink href="/blogs" currentPath={router.pathname}>
+                Blog
+              </NavLink>
               <div
                 className="relative"
                 onMouseEnter={handleHover}
@@ -58,12 +67,7 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
-              <NavLink href="/events" currentPath={router.pathname}>
-                Events
-              </NavLink>
-              <NavLink href="/blogs" currentPath={router.pathname}>
-                Blog
-              </NavLink>
+
               {/* <NavLink href="/team" currentPath={router.pathname}>
                 Team
               </NavLink>
