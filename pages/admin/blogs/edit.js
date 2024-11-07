@@ -2,7 +2,7 @@ import React from "react";
 import EditBlog from "@/components/Blogs/EditBlog";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import logo from "@/public/ctrcr_pfp.png";
+import logo from "@/public/blog_logo.png";
 import withAuth from "@/components/Auth/withAuth";
 
 const EditBlogPage = () => {
@@ -27,8 +27,8 @@ const EditBlogPage = () => {
               <hr className="w-24 h-1 max-md:hidden bg-black" />
             </div>
             <p className="text-lg mt-2 max-md:text-sm text-gray-600">
-              Under the aegis of the Centre for Corporate and Commercial
-              Regulations
+              Under the aegis of the Centre for Training and Research in
+              Commercial Regulations
             </p>
           </h2>
         </div>

@@ -52,8 +52,8 @@ const BlogDetailPage = () => {
               <hr className="w-24 h-1 max-md:hidden bg-black" />
             </div>
             <p className="text-lg mt-2 max-md:text-sm text-gray-600">
-              Under the aegis of the Centre for Corporate and Commercial
-              Regulations
+              Under the aegis of the Centre for Training and Research in
+              Commercial Regulations
             </p>
           </h2>
         </div>
