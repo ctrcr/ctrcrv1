@@ -8,14 +8,14 @@ import withAuth from "@/components/Auth/withAuth";
 
 const BlogDetailPage = () => {
   const router = useRouter();
-  const { blogId } = router.query; // Get blogId from the URL
+  const { blogId } = router.query;
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchBlog = async () => {
-      if (!blogId) return; // Don't fetch until blogId is available
+      if (!blogId) return;
 
       try {
         const response = await axios.get(`/api/v1/blogs/${blogId}`);
@@ -45,7 +45,7 @@ const BlogDetailPage = () => {
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
             <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
-            <span className="text-5xl max-md:text-3xl italic font-bold ">
+            <span className="text-5xl max-md:text-3xl font-bold ">
               Forum for Commercial and Corporate Laws
             </span>
 

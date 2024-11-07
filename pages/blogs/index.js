@@ -38,7 +38,7 @@ const BlogsPage = () => {
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
             <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
-            <span className="text-5xl max-md:text-3xl italic font-bold ">
+            <span className="text-5xl max-md:text-3xl font-bold ">
               Forum for Commercial and Corporate Laws
             </span>
 
