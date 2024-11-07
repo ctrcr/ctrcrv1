@@ -27,12 +27,18 @@ const EventsPage = () => {
     <div className="bg-[#EBEBEB] overflow-y-hidden min-h-screen">
       <div className="px-[6%] mb-[6%] mt-20 container mx-auto text-[#0F111F] p-4 space-y-[10%] ">
         <div className="space-y-[5%]">
-          <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
-            <hr className="w-16 h-1 bg-black" />
-            <span className="font-bold ">OUR EVENTS</span>
-            <div className="flex justify-end font-bold">
-              <hr className="w-16 h-1 bg-black" />
+          <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
+            <hr className="w-16 max-md:hidden h-1 mb-2 bg-black" />
+            <span className="text-5xl max-md:text-4xl max-md:underline  italic font-bold ">
+              OUR EVENTS
+            </span>
+
+            <div className={"flex justify-end  mt-2 font-bold"}>
+              <hr className="w-16 h-1 max-md:hidden bg-black" />
             </div>
+            {/* <h1 className="hidden w-full max-md:block text-4xl flex justify-center items-center">
+          Our Team
+        </h1> */}
           </h2>
           {loading ? (
             <div className="flex justify-center items-center h-screen">

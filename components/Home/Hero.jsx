@@ -67,7 +67,7 @@ const Hero = () => {
             <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
               <hr className="w-24 h-1 bg-black" />
               <span className="font-bold ">ARCHIVES</span>
-              <div className={"flex justify-end w-60 font-bold"}>
+              <div className={"flex justify-end  font-bold"}>
                 <hr className="w-32 h-1 bg-black " />
               </div>
             </h2>
