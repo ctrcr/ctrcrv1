@@ -35,7 +35,7 @@ const BlogsPage = () => {
   if (error) return <p className="text-center">{error}</p>;
 
   return (
-    <div className="container mx-auto mt-8 max-md:mt-12 px-4 py-8">
+    <div className="container mx-auto mt-12 max-md:mt-12 px-4 py-8">
       <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
