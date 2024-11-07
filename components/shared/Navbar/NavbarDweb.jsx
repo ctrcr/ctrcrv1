@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import MobileNavbar from "./NavbarMweb";
+import mnlu from "@/public/mnlu_logo.png";
 
 const Navbar = () => {
   const router = useRouter();
@@ -19,7 +20,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 backdrop-blur-lg ">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 hidden md:block">
-        <div className="flex items-center justify-between h-16 pt-2">
+        <div className="flex items-center justify-between h-24 pt-2">
           <div className="flex-shrink-0">
             <Link href="/">
               <span className="text-black font-bold text-4xl cursor-pointer">
@@ -77,10 +78,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="">
-            <Link href="/about">
-              <Image width={125} height={40} src="btn.svg" />
-            </Link>
+          <div className="flex items-center justify-center my-auto">
+            <Image width={45} src={mnlu} />
           </div>
         </div>
       </div>
