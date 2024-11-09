@@ -62,23 +62,28 @@ const BlogDetailPage = () => {
         </div>
       </div>
       {blog ? (
-        <div className="bg-gray-200 shadow-lg rounded-lg overflow-hidden p-4">
-          <h1 className="text-5xl text-center font-bold mb-4">{blog.title}</h1>
+        <div className="bg-gray-200 shadow-lg rounded-lg border-2 border-black overflow-hidden p-4">
+          <h1 className="text-4xl max-md:text-3xl  text-center font-bold mb-4">
+            {blog.title}
+          </h1>
           {/* <img
             src={blog.image}
             alt={blog.title}
             className="w-full h-64 object-cover mb-4"
           /> */}
           {/* <p className="text-gray-600 mb-4">{blog.description}</p> */}
-          <p className="text-gray-500 mr-8 text-right text-xl">
+          <hr className=" h-1 mb-2 bg-black" />{" "}
+          <p className="text-gray-500 mr-8 text-right max-md:text-center text-xl">
             {new Date(blog.date).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
             })}
           </p>
-          <p className="text-gray-500 mr-8 text-right text-xl">{blog.author}</p>
-
+          <p className="text-gray-500 mr-8 text-right text-xl max-md:text-center mb-4">
+            By: {blog.author}
+          </p>
+          <hr className=" h-1 mb-2 bg-black" />{" "}
           <div
             dangerouslySetInnerHTML={{ __html: blog.content }}
             className="prose"

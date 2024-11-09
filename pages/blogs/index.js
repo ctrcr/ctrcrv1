@@ -74,10 +74,12 @@ const BlogsPage = () => {
               <img
                 src={blog.image}
                 alt={blog.title}
-                className="w-full h-48 object-contain"
+                className="w-full rounded-lg p-2 h-48 object-cover"
               />
               <div className="p-4">
-                <h2 className="text-xl font-semibold">{blog.title}</h2>
+                <h2 className="text-xl font-semibold text-justify">
+                  {blog.title}
+                </h2>
                 <p className="text-gray-600 line-clamp-2">{blog.description}</p>
                 <div>
                   <p className="text-gray-500 mt-4">
@@ -114,14 +116,14 @@ const BlogsPage = () => {
           </button>
         </div>
       )}
-      <h2 className="text-4xl max-md:text-2xl my-8  font-semibold mb-2 tracking-wide w-fit">
-        <hr className="w-20 h-1 max-md:hidden bg-black" />
-        <span className="font-bold max-md:hidden">Call For Submissions</span>
+      <h2 className="text-4xl max-md:text-3xl block max-xs:hidden overflow-hidden my-12  font-semibold mb-2 tracking-wide w-fit">
+        <hr className="w-16 h-1 bg-black" />
+        <span className="font-bold ">Call For Submissions</span>
         <div className={"flex justify-end  font-bold"}>
-          <hr className="w-20 max-md:hidden h-1 bg-black " />
+          <hr className="w-16  h-1 bg-black " />
         </div>
       </h2>
-      <div className="hidden max-md:block text-3xl text-center my-6 font-bold">
+      <div className="hidden max-xs:block text-3xl text-center my-6 font-bold">
         Call For Submissions
       </div>
       <p className="text-justify text-lg my-4">
