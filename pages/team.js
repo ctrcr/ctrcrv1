@@ -45,19 +45,15 @@ const TeamPage = () => {
 
   return (
     <div className="font-montserrat container mx-auto p-8 min-h-screen mt-16">
-      <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
-        <hr className="w-16 max-md:hidden h-1 mb-2 bg-black" />
-        <span className="text-5xl max-md:text-4xl max-md:underline  italic font-bold ">
-          OUR TEAM
-        </span>
-
-        <div className={"flex justify-end  mt-2 font-bold"}>
-          <hr className="w-16 h-1 max-md:hidden bg-black" />
-        </div>
-        {/* <h1 className="hidden w-full max-md:block text-4xl flex justify-center items-center">
-          Our Team
-        </h1> */}
-      </h2>
+      <div className="flex  my-12">
+        <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
+          <hr className="w-16 h-1 bg-black" />
+          <span className="font-bold ">OUR TEAM</span>
+          <div className={"flex justify-end  font-bold"}>
+            <hr className="w-16 h-1 bg-black " />
+          </div>
+        </h2>
+      </div>
       {Object.keys(teamMembers).map((position) => (
         <div key={position} className="my-8">
           <h2 className="text-2xl font-bold mb-6">{position}</h2>

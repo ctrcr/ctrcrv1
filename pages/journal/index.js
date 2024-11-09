@@ -6,12 +6,12 @@ import GuideLines from "@/components/Journal/GuideLines";
 const JournalPage = () => {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 bg-[#EBEBEB] mt-10 font-serif">
-      <div className="flex justify-center items-center">
+      <div className="container mx-auto px-4 lg:px-8 lg:py-8 pt-2">
         <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
-          <hr className="w-24 h-1 bg-black" />
+          <hr className="w-16 h-1 bg-black" />
           <span className="font-bold ">JOURNAL</span>
-          <div className={"flex justify-end w-60 font-bold"}>
-            <hr className="w-32 h-1 bg-black " />
+          <div className={"flex justify-end font-bold"}>
+            <hr className="w-16 h-1 bg-black " />
           </div>
         </h2>
       </div>
@@ -58,12 +58,12 @@ const JournalPage = () => {
       <div className="flex justify-around"></div>
       <GuideLines />
       <div>
-        <div className="flex justify-center items-center">
+        <div className="container mx-auto px-4 lg:px-8 lg:py-8 pt-2">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
-            <hr className="w-24 h-1 bg-black" />
+            <hr className="w-16 h-1 bg-black" />
             <span className="font-bold ">ISSUES</span>
-            <div className={"flex justify-end w-40 font-bold"}>
-              <hr className="w-24 h-1 bg-black " />
+            <div className={"flex justify-end  font-bold"}>
+              <hr className="w-16 h-1 bg-black " />
             </div>
           </h2>
         </div>
@@ -99,17 +99,17 @@ const JournalPage = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center">
+      <div className="container mx-auto px-4 lg:px-8 lg:py-8 pt-2">
         <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
-          <hr className="w-24 h-1 bg-black" />
+          <hr className="w-16 h-1 bg-black" />
           <span className="font-bold ">ARTICLES</span>
-          <div className={"flex justify-end w-60 font-bold"}>
-            <hr className="w-32 h-1 bg-black " />
+          <div className={"flex justify-end  font-bold"}>
+            <hr className="w-16 h-1 bg-black " />
           </div>
         </h2>
       </div>
       {/* Slider */}
-      <div>
+      <div className="container mx-auto">
         <JournalSlider />
       </div>
     </div>
