@@ -221,10 +221,10 @@ const AboutPage = () => {
   return (
     <div className="container  mx-auto py-16 px-8 flex flex-col gap-4 mt-12">
       <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
-        <hr className="w-32 h-1 bg-black" />
+        <hr className="w-16 h-1 bg-black" />
         <span className="font-bold ">Editorial Board</span>
-        <div className={"flex justify-end w-64 font-bold"}>
-          <hr className="w-32 h-1 bg-black " />
+        <div className={"flex justify-end  font-bold"}>
+          <hr className="w-16 h-1 bg-black " />
         </div>
       </h2>
       <motion.div

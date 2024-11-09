@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,25 +7,39 @@ import ctrcr from "@/public/ctrcr_logo_bg_half.png";
 
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const router = useRouter();
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [isOpen]);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   return (
     <div className="md:hidden w-full">
-      <div className="flex justify-between w-full items-center px-4 h-[8vh] py-2 bg-gray-900 text-white">
+      <div className="flex justify-between w-full items-center px-4 h-[8vh] py-2 bg-black text-white">
         <Link href="/">
           <div className="flex justify-center items-center gap-2">
-            <Image src={ctrcr} width={30} />
+            <Image src={ctrcr} width={30} alt="CTRCR logo" />
 
             <div className="text-white font-bold text-xl cursor-pointer">
               CTRCR
             </div>
           </div>
         </Link>
-        {/* <Image src={mnlu} width={25} /> */}
         <button
           onClick={toggleNavbar}
           className="text-white focus:outline-none"
@@ -64,8 +78,8 @@ const MobileNavbar = () => {
         </button>
       </div>
       {isOpen && (
-        <div className="bg-gray-900 text-white h-[90vh] w-full justify-center items-center flex flex-col gap-10">
-          <div className="w-full justify-center items-center -mt-[300px] flex flex-col space-y-4">
+        <div className="bg-black text-white h-screen w-full flex flex-col items-center justify-center">
+          <div className="w-full flex flex-col items-center -mt-[300px] space-y-4">
             <NavLink
               href="/"
               currentPath={router.pathname}
@@ -94,51 +108,34 @@ const MobileNavbar = () => {
             >
               Blog
             </NavLink>
-            <div className="flex flex-col gap-4 justify-center items-center">
-              <NavLink
-                href="/journal"
-                currentPath={router.pathname}
-                toggleNavbar={toggleNavbar}
+            <div className="relative">
+              <button
+                onClick={toggleDropdown}
+                className="text-xl font-semibold text-gray-400 hover:text-gray-300 py-2 px-4 rounded-md transition-colors duration-200"
               >
-                Journal
-              </NavLink>
-              <div className="flex flex-col gap-2 items-center">
-                <NavLink
-                  href="/journal/editorial-board"
-                  toggleNavbar={toggleNavbar}
-                >
-                  Editorial Board
-                </NavLink>
-                <NavLink
-                  href="/journal/board-of-advisors"
-                  toggleNavbar={toggleNavbar}
-                >
-                  Board of Advisors
-                </NavLink>
-              </div>
+                Journal <span className="ml-2">▼</span>
+              </button>
+              {showDropdown && (
+                <div className="absolute left-0 mt-2 bg-gray-800 rounded-md shadow-lg">
+                  <NavLink href={"/journal"} toggleNavbar={toggleNavbar}>
+                    Journal
+                  </NavLink>
+                  <NavLink
+                    href="/journal/editorial-board"
+                    toggleNavbar={toggleNavbar}
+                  >
+                    Editorial Board
+                  </NavLink>
+                  <NavLink
+                    href="/journal/board-of-advisors"
+                    toggleNavbar={toggleNavbar}
+                  >
+                    Board of Advisors
+                  </NavLink>
+                </div>
+              )}
             </div>
-
-            {/* <NavLink
-              href="/team"
-              currentPath={router.pathname}
-              toggleNavbar={toggleNavbar}
-            >
-              Team
-            </NavLink>
-            <NavLink
-              href="/esg"
-              currentPath={router.pathname}
-              toggleNavbar={toggleNavbar}
-            >
-              ESG
-            </NavLink> */}
           </div>
-
-          {/* <div className="">
-            <Link href="/">
-              <Image width={125} height={40} src="btn.svg" />
-            </Link>
-          </div> */}
         </div>
       )}
     </div>
@@ -150,20 +147,15 @@ const NavLink = ({ href, currentPath, children, toggleNavbar }) => {
 
   return (
     <Link href={href} onClick={toggleNavbar}>
-      <span
-        className={`text-gray-400 hover:text-gray-300 text-xl font-semibold ${
-          isActive ? " text-gray-300" : ""
+      <div
+        className={`block w-[100%] text-gray-400 hover:text-gray-300 py-2 px-4 rounded-md transition-colors duration-200 text-xl font-semibold ${
+          isActive ? "text-gray-300 bg-gray-700" : ""
         }`}
-        style={{ textDecoration: "none" }}
       >
-        <span
-          style={{
-            borderBottom: isActive ? "2px solid" : "none",
-          }}
-        >
+        <div className={`${isActive ? "border-b-2 border-gray-300" : ""}`}>
           {children}
-        </span>
-      </span>
+        </div>
+      </div>
     </Link>
   );
 };

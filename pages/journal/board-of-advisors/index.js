@@ -51,7 +51,7 @@ export default function BoardAdvisors() {
     },
     {
       domain: "Editorial Board Members",
-      style: "w-96",
+      style: "",
       members: [
         {
           name: "Dr. Anindhya Tiwari",
@@ -113,10 +113,10 @@ export default function BoardAdvisors() {
           className="lg:space-y-12 sm:space-y-12 space-y-6"
         >
           <h2 className="text-3xl font-semibold mb-2 tracking-wide w-fit">
-            <hr className="w-32 h-1 bg-black" />
+            <hr className="w-16 h-1 bg-black" />
             <span className="">{domain}</span>
             <div className={`flex justify-end ${domain.style}`}>
-              <hr className="w-32 h-1 bg-black " />
+              <hr className="w-16 h-1 bg-black " />
             </div>
           </h2>
 

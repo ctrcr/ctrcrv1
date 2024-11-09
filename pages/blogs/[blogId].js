@@ -7,14 +7,14 @@ import loader from "@/public/loader.svg";
 
 const BlogDetailPage = () => {
   const router = useRouter();
-  const { blogId } = router.query; // Get blogId from the URL
+  const { blogId } = router.query;
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchBlog = async () => {
-      if (!blogId) return; // Don't fetch until blogId is available
+      if (!blogId) return;
 
       try {
         const response = await axios.get(`/api/v1/blogs/${blogId}`);
@@ -77,6 +77,7 @@ const BlogDetailPage = () => {
               day: "numeric",
             })}
           </p>
+          <p className="text-gray-500 mr-8 text-right text-xl">{blog.author}</p>
 
           <div
             dangerouslySetInnerHTML={{ __html: blog.content }}

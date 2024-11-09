@@ -41,10 +41,10 @@ const Hero = () => {
           </div>
           <div className="flex max-sm:block hidden justify-center items-center text-black my-12">
             <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
-              <hr className="w-24 h-1 bg-black" />
+              <hr className="w-16 h-1 bg-black" />
               <span className="font-bold ">LATEST EVENTS</span>
-              <div className={"flex justify-end w-72 font-bold"}>
-                <hr className="w-32 h-1 bg-black " />
+              <div className={"flex justify-end font-bold"}>
+                <hr className="w-16 h-1 bg-black " />
               </div>
             </h2>
           </div>
@@ -65,10 +65,10 @@ const Hero = () => {
         <section>
           <div className="flex justify-center items-center my-12">
             <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
-              <hr className="w-24 h-1 bg-black" />
+              <hr className="w-16 h-1 bg-black" />
               <span className="font-bold ">ARCHIVES</span>
               <div className={"flex justify-end  font-bold"}>
-                <hr className="w-32 h-1 bg-black " />
+                <hr className="w-16 h-1 bg-black " />
               </div>
             </h2>
           </div>
