@@ -11,6 +11,7 @@ const BlogDetailPage = () => {
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -29,6 +30,23 @@ const BlogDetailPage = () => {
 
     fetchBlog();
   }, [blogId]);
+
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hdden");
+    }
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [selectedImage]);
+
+  const handleImageClick = (src) => {
+    setSelectedImage(src);
+  };
+
+  const handleCloseZoom = () => {
+    setSelectedImage(null);
+  };
 
   if (loading)
     return (
@@ -63,16 +81,10 @@ const BlogDetailPage = () => {
       </div>
       {blog ? (
         <div className="bg-gray-200 shadow-lg rounded-lg border-2 border-black overflow-hidden p-4">
-          <h1 className="text-4xl max-md:text-3xl  text-center font-bold mb-4">
+          <h1 className="text-4xl max-md:text-3xl text-center font-bold mb-4">
             {blog.title}
           </h1>
-          {/* <img
-            src={blog.image}
-            alt={blog.title}
-            className="w-full h-64 object-cover mb-4"
-          /> */}
-          {/* <p className="text-gray-600 mb-4">{blog.description}</p> */}
-          <hr className=" h-1 mb-2 bg-black" />{" "}
+          <hr className="h-1 mb-2 bg-black" />
           <p className="text-gray-500 mr-8 text-right max-md:text-center text-xl">
             {new Date(blog.date).toLocaleDateString("en-US", {
               year: "numeric",
@@ -83,14 +95,41 @@ const BlogDetailPage = () => {
           <p className="text-gray-500 mr-8 text-right text-xl max-md:text-center mb-4">
             By: {blog.author}
           </p>
-          <hr className=" h-1 mb-2 bg-black" />{" "}
+          <hr className="h-1 mb-2 bg-black" />
           <div
             dangerouslySetInnerHTML={{ __html: blog.content }}
-            className="prose"
+            className="prose max-w-full mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:h-auto"
+            onClick={(e) => {
+              if (e.target.tagName === "IMG") {
+                handleImageClick(e.target.src);
+              }
+            }}
           ></div>
         </div>
       ) : (
         <p>Blog not found</p>
+      )}
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={handleCloseZoom}
+        >
+          <div className="relative max-w-4xl w-full h-full flex items-center justify-center">
+            <button
+              onClick={handleCloseZoom}
+              className="absolute top-4 right-4 text-white text-xl font-bold p-2"
+            >
+              ✕
+            </button>
+            <img
+              src={selectedImage}
+              alt="Zoomed"
+              className="max-w-full max-h-full object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
       )}
     </div>
   );
