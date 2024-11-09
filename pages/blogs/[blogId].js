@@ -85,14 +85,14 @@ const BlogDetailPage = () => {
             {blog.title}
           </h1>
           <hr className="h-1 mb-2 bg-black" />
-          <p className="text-gray-500 mr-8 text-right max-md:text-center text-xl">
+          <p className="text-gray-500 mr-8 max-md:mr-0 text-right max-md:text-center text-xl">
             {new Date(blog.date).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
             })}
           </p>
-          <p className="text-gray-500 mr-8 text-right text-xl max-md:text-center mb-4">
+          <p className="text-gray-500 mr-8 max-md:mr-0 text-right text-xl max-md:text-center mb-4">
             By: {blog.author}
           </p>
           <hr className="h-1 mb-2 bg-black" />
