@@ -44,11 +44,11 @@ const TeamPage = () => {
   }
 
   return (
-    <div className="font-montserrat container mx-auto p-8 min-h-screen mt-10">
+    <div className="font-montserrat container mx-auto p-8 min-h-screen mt-16">
       <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
         <hr className="w-16 max-md:hidden h-1 mb-2 bg-black" />
         <span className="text-5xl max-md:text-4xl max-md:underline  italic font-bold ">
-          Our Team
+          OUR TEAM
         </span>
 
         <div className={"flex justify-end  mt-2 font-bold"}>

@@ -33,12 +33,12 @@ const BlogsPage = () => {
   if (error) return <p className="text-center">{error}</p>;
 
   return (
-    <div className="container min-h-screen mx-auto mt-8 max-md:mt-12 px-4 py-8">
+    <div className="container min-h-screen mx-auto mt-12 max-md:mt-12 px-4 py-8">
       <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
             <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
-            <span className="text-5xl max-md:text-3xl italic font-bold ">
+            <span className="text-5xl max-md:text-3xl font-bold ">
               Forum for Commercial and Corporate Laws
             </span>
 
@@ -46,8 +46,8 @@ const BlogsPage = () => {
               <hr className="w-24 h-1 max-md:hidden bg-black" />
             </div>
             <p className="text-lg mt-2 max-md:text-sm text-gray-600">
-              Under the aegis of the Centre for Corporate and Commercial
-              Regulations
+              Under the aegis of the Centre for Training and Research in
+              Commercial Regulations
             </p>
           </h2>
         </div>
