@@ -1,6 +1,6 @@
 import React from "react";
 import mnlu from "@/public/mnlu_logo.png";
-import ctrcr from "@/public/ctrcr_pfp.png";
+import ctrcr from "@/public/ctrcr_logo.png";
 import Image from "next/image";
 
 const Content = () => {
@@ -17,6 +17,9 @@ const Content = () => {
         </h1>
         <h1 className="lg:text-5xl md:text-4xl text-3xl font-serif font-bold"></h1>
       </div>
+      <h2 className="max-sm:text-xl text-center text-4xl font-serif font-bold">
+        Mumbai National Law University
+      </h2>
       <h2 className="max-sm:text-lg font-serif font-bold">
         Uncovering the Latest Findings
       </h2>

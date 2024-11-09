@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import mnlu from "@/public/mnlu_logo.png";
-import ctrcr from "@/public/ctrcr_pfp.png";
+import mnlu from "@/public/mnlu_logo_bg.png";
+import ctrcr from "@/public/ctrcr_logo_bg.png";
 
 const Footer = () => {
   const [clickCount, setClickCount] = useState(0);
@@ -40,8 +40,8 @@ const Footer = () => {
             <a href="mailto:ctrcr@mnluminbai.edu.in">ctrcr@mnlumumbai.edu.in</a>
           </p>
           <div className="flex max-md:justify-center gap-10 mt-6">
-            <Image src={mnlu} alt="MNLU" width={30} />
-            <Image src={ctrcr} alt="CTRCR" width={30} />
+            <Image src={mnlu} alt="MNLU" width={40} />
+            <Image src={ctrcr} alt="CTRCR" width={40} />
           </div>
         </div>
       </div>

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import mnlu from "@/public/mnlu_logo_bg.png";
+import ctrcr from "@/public/ctrcr_logo_bg_half.png";
 
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,10 +17,15 @@ const MobileNavbar = () => {
     <div className="md:hidden w-full">
       <div className="flex justify-between w-full items-center px-4 h-[8vh] py-2 bg-gray-900 text-white">
         <Link href="/">
-          <span className="text-white font-bold text-xl cursor-pointer">
-            CTRCR
-          </span>
+          <div className="flex justify-center items-center gap-2">
+            <Image src={ctrcr} width={30} />
+
+            <div className="text-white font-bold text-xl cursor-pointer">
+              CTRCR
+            </div>
+          </div>
         </Link>
+        {/* <Image src={mnlu} width={25} /> */}
         <button
           onClick={toggleNavbar}
           className="text-white focus:outline-none"
