@@ -159,16 +159,16 @@ const TeamPage = () => {
           <Image src={logo} alt="Blogs" width={200} height={200} />
         </div>
       </div>
-      <div className="flex  my-12">
-        <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
-          <hr className="w-16 h-1 bg-black" />
-          <span className="font-bold ">Editorial Board</span>
-          <div className={"flex justify-end  font-bold"}>
-            <hr className="w-16 h-1 bg-black " />
-          </div>
-        </h2>
-      </div>
       <div className="flex justify-between items-center">
+        <div className="flex  my-12">
+          <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
+            <hr className="w-16 h-1 bg-black" />
+            <span className="font-bold ">Editorial Board</span>
+            <div className={"flex justify-end  font-bold"}>
+              <hr className="w-16 h-1 bg-black " />
+            </div>
+          </h2>
+        </div>
         <h1 className="text-red-500 text-3xl">
           <strong>⚠</strong>ADMIN PAGE<strong>⚠</strong>
         </h1>
