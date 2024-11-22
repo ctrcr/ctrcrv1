@@ -8,14 +8,17 @@ import ctrcr from "@/public/ctrcr_logo.png";
 
 const Navbar = () => {
   const router = useRouter();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState({
+    blog: false,
+    journal: false,
+  });
 
-  const handleHover = () => {
-    setIsDropdownOpen(true);
+  const handleHover = (menu) => {
+    setDropdownOpen((prev) => ({ ...prev, [menu]: true }));
   };
 
-  const handleMouseLeave = () => {
-    setIsDropdownOpen(false);
+  const handleMouseLeave = (menu) => {
+    setDropdownOpen((prev) => ({ ...prev, [menu]: false }));
   };
 
   return (
@@ -42,20 +45,43 @@ const Navbar = () => {
               <NavLink href="/events" currentPath={router.pathname}>
                 Events
               </NavLink>
-              <NavLink href="/blogs" currentPath={router.pathname}>
-                Blog
-              </NavLink>
               <div
                 className="relative"
-                onMouseEnter={handleHover}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={() => handleHover("blog")}
+                onMouseLeave={() => handleMouseLeave("blog")}
+              >
+                <NavLink href="/blogs" currentPath={router.pathname}>
+                  Blog
+                </NavLink>
+                {dropdownOpen.blog && (
+                  <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg w-60">
+                    <ul>
+                      <li>
+                        <NavLink href="/blogs/">Blog</NavLink>
+                      </li>
+                      <li>
+                        <NavLink href="/blogs/editorial-board">
+                          Editorial Board
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+              <div
+                className="relative"
+                onMouseEnter={() => handleHover("journal")}
+                onMouseLeave={() => handleMouseLeave("journal")}
               >
                 <NavLink href="/journal" currentPath={router.pathname}>
                   Journal
                 </NavLink>
-                {isDropdownOpen && (
+                {dropdownOpen.journal && (
                   <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg w-60">
                     <ul>
+                      <li>
+                        <NavLink href="/journal">Journal</NavLink>
+                      </li>
                       <li>
                         <NavLink href="/journal/editorial-board">
                           Editorial Board
@@ -70,13 +96,6 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
-
-              {/* <NavLink href="/team" currentPath={router.pathname}>
-                Team
-              </NavLink>
-              <NavLink href="/esg" currentPath={router.pathname}>
-                ESG
-              </NavLink> */}
             </div>
           </div>
 

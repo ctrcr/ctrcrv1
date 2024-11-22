@@ -7,7 +7,8 @@ import ctrcr from "@/public/ctrcr_logo_bg_half.png";
 
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showBlogDropdown, setShowBlogDropdown] = useState(false);
+  const [showJournalDropdown, setShowJournalDropdown] = useState(false);
   const router = useRouter();
 
   const toggleNavbar = () => {
@@ -24,8 +25,12 @@ const MobileNavbar = () => {
     return () => document.body.classList.remove("overflow-hidden");
   }, [isOpen]);
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
+  const toggleBlogDropdown = () => {
+    setShowBlogDropdown(!showBlogDropdown);
+  };
+
+  const toggleJournalDropdown = () => {
+    setShowJournalDropdown(!showJournalDropdown);
   };
 
   return (
@@ -101,23 +106,37 @@ const MobileNavbar = () => {
             >
               Events
             </NavLink>
-            <NavLink
-              href="/blogs"
-              currentPath={router.pathname}
-              toggleNavbar={toggleNavbar}
-            >
-              Blog
-            </NavLink>
             <div className="relative">
               <button
-                onClick={toggleDropdown}
+                onClick={toggleBlogDropdown}
+                className="text-xl font-semibold text-gray-400 hover:text-gray-300 py-2 px-4 rounded-md transition-colors duration-200"
+              >
+                Blog <span className="ml-2">▼</span>
+              </button>
+              {showBlogDropdown && (
+                <div className="absolute left-0 mt-2 bg-gray-800 rounded-md shadow-lg z-50">
+                  <NavLink href="/blogs" toggleNavbar={toggleNavbar}>
+                    Blog
+                  </NavLink>
+                  <NavLink
+                    href="/blogs/editorial-board"
+                    toggleNavbar={toggleNavbar}
+                  >
+                    Editorial Board
+                  </NavLink>
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                onClick={toggleJournalDropdown}
                 className="text-xl font-semibold text-gray-400 hover:text-gray-300 py-2 px-4 rounded-md transition-colors duration-200"
               >
                 Journal <span className="ml-2">▼</span>
               </button>
-              {showDropdown && (
+              {showJournalDropdown && (
                 <div className="absolute left-0 mt-2 bg-gray-800 rounded-md shadow-lg">
-                  <NavLink href={"/journal"} toggleNavbar={toggleNavbar}>
+                  <NavLink href="/journal" toggleNavbar={toggleNavbar}>
                     Journal
                   </NavLink>
                   <NavLink
