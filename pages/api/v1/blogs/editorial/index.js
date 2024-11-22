@@ -22,7 +22,7 @@ export default async function handler(req, res) {
           .json({ success: false, error: "All fields are required." });
       }
 
-      const newMember = new Team({
+      const newMember = new BlogEditorial({
         image,
         name,
         isCurrent,

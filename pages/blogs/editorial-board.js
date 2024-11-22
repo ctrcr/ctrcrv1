@@ -12,7 +12,7 @@ const TeamPage = () => {
   useEffect(() => {
     const fetchTeamMembers = async () => {
       try {
-        const response = await axios.get("/api/v1/team");
+        const response = await axios.get("/api/v1/blogs/editorial");
         const members = response.data.data
           .filter((member) => member.isCurrent)
           .filter((member) => member.index)
