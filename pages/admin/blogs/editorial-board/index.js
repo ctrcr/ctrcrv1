@@ -161,11 +161,11 @@ const TeamPage = () => {
       </div>
       <div className="flex justify-between items-center">
         <div className="flex  my-12">
-          <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
-            <hr className="w-16 h-1 bg-black" />
-            <span className="font-bold ">Editorial Board</span>
+          <h2 className="text-5xl font-semibold  max-md:text-4xl max-md:text-center mb-2 tracking-wide w-fit">
+            <hr className="w-16 max-md:hidden h-1 bg-black" />
+            <span className="font-bold">Editorial Board</span>
             <div className={"flex justify-end  font-bold"}>
-              <hr className="w-16 h-1 bg-black " />
+              <hr className="w-16 max-md:hidden h-1 bg-black " />
             </div>
           </h2>
         </div>
