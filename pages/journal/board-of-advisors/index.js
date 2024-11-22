@@ -10,42 +10,42 @@ export default function BoardAdvisors() {
         {
           name: "Kapil Sharma",
           role: "Partner, LKS",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284375/Kapil_Sharma_doeagn.jpg",
         },
         {
           name: "Samir Malik",
           role: "Partner, DSK Legal",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284419/Samir_Malik_fgvst6.jpg",
         },
         {
           name: "Smriti Yadav",
           role: "Partner, Khaitan",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284461/Smriti_Yadav_yzfzb8.jpg",
         },
         {
           name: "Sandeep Parekh",
           role: "Managing Partner, Finsec Law Advisors",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284516/Sandeep_Parekh_zviyaz.jpg",
         },
         {
           name: "Nitin Podar",
           role: "Partner, JSA",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284575/Nitin_Podar_jzzods.jpg",
         },
         {
           name: "Jatin Arora",
           role: "Partner, Phoenix Legal",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284607/Jatin_Arora_vocirf.jpg",
         },
         {
           name: "Sahil Kanuga",
           role: "Partner, NDA",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284644/Sahil_Kanuga_sklmat.jpg",
         },
         {
           name: "Piyush Mishra",
           role: "Partner, Luthra & Lutha",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284688/Piyush_Mishra_a0p0lq.jpg",
         },
       ],
     },
@@ -56,17 +56,17 @@ export default function BoardAdvisors() {
         {
           name: "Dr. Anindhya Tiwari",
           role: "Assistant Professor, HNLU",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284756/Anindhya_Tiwari.jpg_xpgxqt.webp",
         },
         {
           name: "Dr. Rosmy Joan",
           role: "Assistant Professor, NLUJ",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284803/DrRosmyJoan_fvtp47.png",
         },
         {
           name: "Prof. Subhash Chandra Roy",
           role: "Associate Professor, CNLU",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284834/Prof.-S.C.Roy-Dr.-subhash-chandra-Roy_cg8qpd.png",
         },
         {
           name: "Manoj Kumar",
@@ -76,27 +76,22 @@ export default function BoardAdvisors() {
         {
           name: "Janhavee Pise",
           role: "Alumni, MNLU Mumbai",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
-        },
-        {
-          name: "Rahul Singh",
-          role: "Associate Professor, NLSIU",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732284903/Janhavee_Pise_uc8d9q.jpg",
         },
         {
           name: "Dr. Jeet Singh Maan",
           role: "Associate Professor, NLUD",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732285018/Dr._Jeet_Singh_Maan_u6go0g.jpg",
         },
         {
           name: "Dr. Rajesh Kumar",
           role: "Associate Professor, NISM",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732285051/Dr._Rajesh_Kumar_ytw5nh.jpg",
         },
         {
           name: "Devashree Nimbhorkar",
           role: "Practising Advocate",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732285085/Devashree_Nimbhorkar_jtg3bd.jpg",
         },
       ],
     },
