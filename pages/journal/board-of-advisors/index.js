@@ -71,7 +71,7 @@ export default function BoardAdvisors() {
         {
           name: "Manoj Kumar",
           role: "Associate Professor, NLUJ",
-          img: "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png",
+          img: "https://res.cloudinary.com/daagkkrlr/image/upload/v1732538222/manoj_kumar_ckqaio.png",
         },
         {
           name: "Janhavee Pise",
