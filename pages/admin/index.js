@@ -49,6 +49,12 @@ const AdminLogin = () => {
           Go to Blogs Page
         </button>
         <button
+          onClick={() => router.push("/admin/blogs/editorial-board")}
+          className="mb-4  px-4 py-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-700"
+        >
+          Go to Blogs Editorial Board Page
+        </button>
+        <button
           onClick={() => router.push("/admin/team")}
           className="mb-4  px-4 py-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-700"
         >

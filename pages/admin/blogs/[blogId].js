@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import logo from "@/public/ctrcr_pfp.png";
+import logo from "@/public/blog_logo.png";
 import loader from "@/public/loader.svg";
 import withAuth from "@/components/Auth/withAuth";
 
 const BlogDetailPage = () => {
   const router = useRouter();
-  const { blogId } = router.query; // Get blogId from the URL
+  const { blogId } = router.query;
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchBlog = async () => {
-      if (!blogId) return; // Don't fetch until blogId is available
+      if (!blogId) return;
 
       try {
         const response = await axios.get(`/api/v1/blogs/${blogId}`);
@@ -45,7 +45,7 @@ const BlogDetailPage = () => {
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
             <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
-            <span className="text-5xl max-md:text-3xl italic font-bold ">
+            <span className="text-5xl max-md:text-3xl font-bold ">
               Forum for Commercial and Corporate Laws
             </span>
 
@@ -53,8 +53,8 @@ const BlogDetailPage = () => {
               <hr className="w-24 h-1 max-md:hidden bg-black" />
             </div>
             <p className="text-lg mt-2 max-md:text-sm text-gray-600">
-              Under the aegis of the Centre for Corporate and Commercial
-              Regulations
+              Under the aegis of the Centre for Training and Research in
+              Commercial Regulations
             </p>
           </h2>
         </div>

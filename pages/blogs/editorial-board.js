@@ -3,6 +3,7 @@ import axios from "axios";
 import TeamCard from "@/components/Team/TeamCard";
 import loader from "@/public/loader.svg";
 import Image from "next/image";
+import logo from "@/public/blog_logo.png";
 
 const TeamPage = () => {
   const [teamMembers, setTeamMembers] = useState({});
@@ -11,7 +12,7 @@ const TeamPage = () => {
   useEffect(() => {
     const fetchTeamMembers = async () => {
       try {
-        const response = await axios.get("/api/v1/team");
+        const response = await axios.get("/api/v1/blogs/editorial");
         const members = response.data.data
           .filter((member) => member.isCurrent)
           .filter((member) => member.index)
@@ -45,12 +46,33 @@ const TeamPage = () => {
 
   return (
     <div className="font-montserrat container mx-auto p-8 min-h-screen mt-16">
+      <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
+        <div className="flex justify-center items-center max-md:text-center">
+          <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
+            <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
+            <span className="text-5xl max-md:text-4xl font-bold ">
+              Forum for Commercial and Corporate Laws
+            </span>
+
+            <div className={"flex justify-end  mt-2 font-bold"}>
+              <hr className="w-24 h-1 max-md:hidden bg-black" />
+            </div>
+            <p className="text-lg mt-2 max-md:text-sm text-gray-600">
+              Under the aegis of the Centre for Training and Research in
+              Commercial Regulations
+            </p>
+          </h2>
+        </div>
+        <div>
+          <Image src={logo} alt="Blogs" width={200} height={200} />
+        </div>
+      </div>
       <div className="flex  my-12">
-        <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
-          <hr className="w-16 h-1 bg-black" />
-          <span className="font-bold ">OUR TEAM</span>
+        <h2 className="text-5xl font-semibold  max-md:text-4xl max-md:text-center mb-2 tracking-wide w-fit">
+          <hr className="w-16 max-md:hidden h-1 bg-black" />
+          <span className="font-bold">Editorial Board</span>
           <div className={"flex justify-end  font-bold"}>
-            <hr className="w-16 h-1 bg-black " />
+            <hr className="w-16 max-md:hidden h-1 bg-black " />
           </div>
         </h2>
       </div>

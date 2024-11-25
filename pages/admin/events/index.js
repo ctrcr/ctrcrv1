@@ -49,6 +49,9 @@ const AdminEventsPage = () => {
               <hr className="w-16 h-1 bg-black" />
               <span className="font-bold">OUR EVENTS</span>
             </h2>
+            <h1 className="text-red-500 text-3xl">
+              <strong>⚠</strong>ADMIN PAGE<strong>⚠</strong>
+            </h1>
             <button
               className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
               onClick={() => setIsModalOpen(true)}

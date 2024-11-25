@@ -24,16 +24,18 @@ const EventsPage = () => {
   }, []);
 
   return (
-    <div className="bg-[#EBEBEB] overflow-y-hidden min-h-screen">
+    <div className=" overflow-y-hidden min-h-screen">
       <div className="px-[6%] mb-[6%] mt-20 container mx-auto text-[#0F111F] p-4 space-y-[10%] ">
         <div className="space-y-[5%]">
-          <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
-            <hr className="w-16 h-1 bg-black" />
-            <span className="font-bold ">OUR EVENTS</span>
-            <div className="flex justify-end font-bold">
+          <div className="flex my-12">
+            <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
               <hr className="w-16 h-1 bg-black" />
-            </div>
-          </h2>
+              <span className="font-bold ">OUR EVENTS</span>
+              <div className={"flex justify-end  font-bold"}>
+                <hr className="w-16 h-1 bg-black " />
+              </div>
+            </h2>
+          </div>
           {loading ? (
             <div className="flex justify-center items-center h-screen">
               <Image src={loader} alt="Loading" />
