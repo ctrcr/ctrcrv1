@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.ctrcr.com/
+
+# Sitemaps
+Sitemap: https://www.ctrcr.com/sitemap.xml
