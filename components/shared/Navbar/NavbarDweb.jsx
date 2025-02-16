@@ -45,6 +45,9 @@ const Navbar = () => {
               <NavLink href="/events" currentPath={router.pathname}>
                 Events
               </NavLink>
+              <NavLink href="/ncccc" currentPath={router.pathname}>
+                NCCCC
+              </NavLink>
               <div
                 className="relative"
                 onMouseEnter={() => handleHover("blog")}
@@ -117,9 +120,8 @@ const NavLink = ({ href, currentPath, children }) => {
   return (
     <Link href={href}>
       <span
-        className={`text-black hover:text-gray-400 px-3 py-2 rounded-md text-xl font-medium ${
-          isActive ? " text-gray-600" : ""
-        }`}
+        className={`text-black hover:text-gray-400 px-3 py-2 rounded-md text-xl font-medium ${isActive ? " text-gray-600" : ""
+          }`}
         style={{ textDecoration: "none" }}
       >
         <span
