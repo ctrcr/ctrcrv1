@@ -16,12 +16,12 @@ const NCCCC = () => {
         {
             name: "Ashlar Law",
             type: "Strategic Partner",
-            logo: "https://ashlarlaw.com/wp-content/themes/ashlarlaw_theme/images/latest_logo.webp"
+            logo: "/ncccc/ashlarlaw.png"
         },
         {
             name: "Ex Curia",
             type: "Networking Partner",
-            logo: "https://excuriainternational.com/wp-content/uploads/2023/06/cropped-thumbnail_ECI-FINAL-Logo2-08-June-20-193x59.png"
+            logo: "/ncccc/excuria.png"
         },
         {
             name: "SCC Times",
@@ -31,7 +31,7 @@ const NCCCC = () => {
         {
             name: "SCC Online",
             type: "Knowledge and Media Partner",
-            logo: "https://www.scconline.com/blog/wp-content/uploads/2024/02/scc-blog-logo.png"
+            logo: "/ncccc/scconline.png"
         }
     ];
 
