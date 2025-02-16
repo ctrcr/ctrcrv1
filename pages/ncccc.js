@@ -97,7 +97,7 @@ const NCCCC = () => {
                 </h1>
             </div>
 
-            <div className="mb-12">
+            <div className="mb-12 text-justify">
                 <p className="text-lg mb-4">
                     The MNLU-M National Corporate Client Counselling Competition (NCCCC), organised by the Centre for Training & Research in Commercial Regulations (CTRCR) at Maharashtra National Law University Mumbai, sets a new benchmark in corporate client counselling by challenging participants in critical areas of Competition Law, Contract Law, Insolvency Law, Company Law, Securities Law, Taxation Law, and other commercial laws.
                 </p>
@@ -120,7 +120,7 @@ const NCCCC = () => {
                 </ul>
             </div>
 
-            <div className="mb-8">
+            {/* <div className="mb-8">
                 <h2 className="text-3xl font-bold mb-6 text-center">Leadership & Organizing Committee</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {committee.map((member, index) => (
@@ -129,6 +129,43 @@ const NCCCC = () => {
                             <p className="text-gray-600">{member.role}</p>
                         </div>
                     ))}
+                </div>
+            </div> */}
+            <div className="mb-8">
+                <h2 className="text-3xl font-bold mb-6 text-center">Leadership & Organizing Committee</h2>
+                <div className="flex flex-col items-center gap-6">
+                    <div className="w-80">
+                        {committee
+                            .filter(member => member.role === "Faculty Convenor")
+                            .map((member, index) => (
+                                <div key={index} className="p-4 border rounded-lg text-center">
+                                    <h3 className="font-semibold text-lg">{member.name}</h3>
+                                    <p className="text-gray-600">{member.role}</p>
+                                </div>
+                            ))}
+                    </div>
+
+                    <div className="flex gap-6 flex-col md:flex-row justify-center">
+                        {committee
+                            .filter(member => member.role.includes("Convenor") && !member.role.includes("Faculty"))
+                            .map((member, index) => (
+                                <div key={index} className="w-80 p-4 border rounded-lg text-center">
+                                    <h3 className="font-semibold text-lg">{member.name}</h3>
+                                    <p className="text-gray-600">{member.role}</p>
+                                </div>
+                            ))}
+                    </div>
+
+                    <div className="flex gap-6 flex-col md:flex-row justify-center">
+                        {committee
+                            .filter(member => member.role === "Event Coordinator")
+                            .map((member, index) => (
+                                <div key={index} className="w-80 p-4 border rounded-lg text-center">
+                                    <h3 className="font-semibold text-lg">{member.name}</h3>
+                                    <p className="text-gray-600">{member.role}</p>
+                                </div>
+                            ))}
+                    </div>
                 </div>
             </div>
 
