@@ -75,7 +75,7 @@ const NCCCC = () => {
             image: "/ncccc/Itinerary.png"
         },
         {
-            name: "Guidelines",
+            name: "Competition Brochure",
             filename: "1stMNLU-MNCCCC.pdf",
             image: "/ncccc/MNLU-MNCCCC.png"
         }
