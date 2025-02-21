@@ -106,6 +106,13 @@ const MobileNavbar = () => {
             >
               Events
             </NavLink>
+            <NavLink
+              href="/ncccc"
+              currentPath={router.pathname}
+              toggleNavbar={toggleNavbar}
+            >
+              Ncccc
+            </NavLink>
             <div className="relative">
               <button
                 onClick={toggleBlogDropdown}
@@ -115,11 +122,11 @@ const MobileNavbar = () => {
               </button>
               {showBlogDropdown && (
                 <div className="absolute left-0 mt-2 bg-gray-800 rounded-md shadow-lg z-50">
-                  <NavLink href="/blogs" toggleNavbar={toggleNavbar}>
-                    Blog
+                  <NavLink href="/fccl" toggleNavbar={toggleNavbar}>
+                    Fccl
                   </NavLink>
                   <NavLink
-                    href="/blogs/editorial-board"
+                    href="/fccl/editorial-board"
                     toggleNavbar={toggleNavbar}
                   >
                     Editorial Board
@@ -167,9 +174,8 @@ const NavLink = ({ href, currentPath, children, toggleNavbar }) => {
   return (
     <Link href={href} onClick={toggleNavbar}>
       <div
-        className={`block w-[100%] text-gray-400 hover:text-gray-300 py-2 px-4 rounded-md transition-colors duration-200 text-xl font-semibold ${
-          isActive ? "text-gray-300 bg-gray-700" : ""
-        }`}
+        className={`block w-[100%] text-gray-400 hover:text-gray-300 py-2 px-4 rounded-md transition-colors duration-200 text-xl font-semibold ${isActive ? "text-gray-300 bg-gray-700" : ""
+          }`}
       >
         <div className={`${isActive ? "border-b-2 border-gray-300" : ""}`}>
           {children}
