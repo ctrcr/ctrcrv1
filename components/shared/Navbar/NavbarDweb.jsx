@@ -46,24 +46,24 @@ const Navbar = () => {
                 Events
               </NavLink>
               <NavLink href="/ncccc" currentPath={router.pathname}>
-                NCCCC
+                Ncccc
               </NavLink>
               <div
                 className="relative"
                 onMouseEnter={() => handleHover("blog")}
                 onMouseLeave={() => handleMouseLeave("blog")}
               >
-                <NavLink href="/blogs" currentPath={router.pathname}>
-                  Blog
+                <NavLink href="/fccl" currentPath={router.pathname}>
+                Fccl
                 </NavLink>
                 {dropdownOpen.blog && (
                   <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg w-60">
                     <ul>
                       <li>
-                        <NavLink href="/blogs/">Blog</NavLink>
+                        <NavLink href="/fccl/">Blog</NavLink>
                       </li>
                       <li>
-                        <NavLink href="/blogs/editorial-board">
+                        <NavLink href="/fccl/editorial-board">
                           Editorial Board
                         </NavLink>
                       </li>
