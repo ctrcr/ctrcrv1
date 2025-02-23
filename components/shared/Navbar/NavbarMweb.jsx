@@ -111,19 +111,19 @@ const MobileNavbar = () => {
               currentPath={router.pathname}
               toggleNavbar={toggleNavbar}
             >
-              Ncccc
+              NCCCC
             </NavLink>
             <div className="relative">
               <button
                 onClick={toggleBlogDropdown}
                 className="text-xl font-semibold text-gray-400 hover:text-gray-300 py-2 px-4 rounded-md transition-colors duration-200"
               >
-                Blog <span className="ml-2">▼</span>
+                FCCL <span className="ml-2">▼</span>
               </button>
               {showBlogDropdown && (
                 <div className="absolute left-0 mt-2 bg-gray-800 rounded-md shadow-lg z-50">
                   <NavLink href="/fccl" toggleNavbar={toggleNavbar}>
-                    Fccl
+                    FCCL
                   </NavLink>
                   <NavLink
                     href="/fccl/editorial-board"

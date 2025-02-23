@@ -46,7 +46,7 @@ const Navbar = () => {
                 Events
               </NavLink>
               <NavLink href="/ncccc" currentPath={router.pathname}>
-                Ncccc
+              NCCCC
               </NavLink>
               <div
                 className="relative"
@@ -54,7 +54,7 @@ const Navbar = () => {
                 onMouseLeave={() => handleMouseLeave("blog")}
               >
                 <NavLink href="/fccl" currentPath={router.pathname}>
-                Fccl
+                FCCL
                 </NavLink>
                 {dropdownOpen.blog && (
                   <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg w-60">
