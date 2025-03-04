@@ -82,9 +82,7 @@ const Card = ({ image, title, description, date, regLink, gallery }) => {
         </div>
         <div className="py-4 px-6">
           <h2 className="text-lg font-semibold text-[#0F111F] leading-none mb-5">{title}</h2>
-          <p className="text-[#677685] leading-none text-base line-clamp-2">
-            {description}
-          </p>
+          <p className="text-[#677685] leading-none text-base line-clamp-2">{description}</p>
           <button
             className="text-blue-500 hover:underline mt-2"
             onClick={() => setIsModalOpen(true)}
@@ -115,7 +113,9 @@ const Card = ({ image, title, description, date, regLink, gallery }) => {
             >
               <IoClose size={24} />
             </button>
-            <img src={image} alt="Event" className="w-full h-64 object-cover rounded-md" />
+            <div className="w-full h-auto flex justify-center">
+              <img src={image} alt="Event" className="w-full max-h-[40vh] object-contain rounded-md" />
+            </div>
             <h2 className="text-lg font-semibold text-[#0F111F] mt-4">{title}</h2>
             <p className="text-[#677685] text-base mt-2">{description}</p>
           </div>
