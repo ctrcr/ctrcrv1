@@ -7,6 +7,11 @@ import { TbCalendarTime } from "react-icons/tb";
 const Card = ({ image, title, description, date, regLink, gallery }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleViewMore = () => {
+    setIsExpanded(!isExpanded);
+  };
 
   const formatDate = (dateString) => {
     const dateObject = new Date(dateString);
@@ -89,9 +94,15 @@ const Card = ({ image, title, description, date, regLink, gallery }) => {
         <h2 className="text-lg font-semibold text-[#0F111F] leading-none mb-5">
           {title}
         </h2>
-        <p className="text-[#677685] leading-none text-base line-clamp-2">
+        <p className={`text-[#677685] leading-none text-base ${isExpanded ? "" : "line-clamp-2"}`}>
           {description}
         </p>
+        <button
+          className="text-blue-500 hover:underline mt-2"
+          onClick={handleViewMore}
+        >
+          {isExpanded ? "View Less" : "View More"}
+        </button>
         <div className="flex text-[#4C555D] mt-10 border-t-2 py-2 text-xs justify-between">
           <span className="flex items-center gap-1">
             <TbCalendarTime size={20} />
