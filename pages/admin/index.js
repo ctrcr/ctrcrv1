@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
-import { set } from "mongoose";
 
 const AdminLogin = () => {
   const [password, setPassword] = useState("");
@@ -18,7 +17,6 @@ const AdminLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
     if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
       Cookies.set("admin-auth", true, { expires: 0.25 });
       router.push("/admin");
@@ -37,67 +35,82 @@ const AdminLogin = () => {
 
   if (isAuthenticated) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        <h1 className="text-red-500 text-3xl">
-          <strong>⚠</strong>ADMIN PAGE<strong>⚠</strong>
-        </h1>
-        <h2 className="mb-4 text-xl font-bold">Welcome to CTRCR Admin Page</h2>
-        <button
-          onClick={() => router.push("/admin/blogs")}
-          className="mb-4  px-4 py-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-700"
-        >
-          Go to Blogs Page
-        </button>
-        <button
-          onClick={() => router.push("/admin/blogs/editorial-board")}
-          className="mb-4  px-4 py-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-700"
-        >
-          Go to Blogs Editorial Board Page
-        </button>
-        <button
-          onClick={() => router.push("/admin/team")}
-          className="mb-4  px-4 py-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-700"
-        >
-          Go to Team Page
-        </button>
-        <button
-          onClick={() => router.push("/admin/events")}
-          className="mb-4  px-4 py-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-700"
-        >
-          Go to Events Page
-        </button>
-        <button
-          onClick={handleLogout}
-          className=" px-4 py-2 font-semibold text-white bg-red-500 rounded hover:bg-red-700"
-        >
-          Logout
-        </button>
+      <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+        <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md text-center">
+          <h1 className="text-3xl font-bold text-gray-800 mb-6">⚠ ADMIN DASHBOARD ⚠</h1>
+          <p className="text-gray-600 mb-4">Welcome to CTRCR Admin Panel</p>
+
+          <div className="grid gap-4">
+            <button
+              onClick={() => router.push("/admin/blogs")}
+              className="w-full px-4 py-3 font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 transition"
+            >
+              📖 Manage Blogs
+            </button>
+
+            <button
+              onClick={() => router.push("/admin/blogs/editorial-board")}
+              className="w-full px-4 py-3 font-semibold text-white bg-green-500 rounded-lg shadow-md hover:bg-green-700 transition"
+            >
+              📝 Editorial Board
+            </button>
+
+            <button
+              onClick={() => router.push("/admin/books")}
+              className="w-full px-4 py-3 font-semibold text-white bg-orange-500 rounded-lg shadow-md hover:bg-orange-700 transition"
+            >
+              📚 Books management
+            </button>
+
+            <button
+              onClick={() => router.push("/admin/team")}
+              className="w-full px-4 py-3 font-semibold text-white bg-yellow-500 rounded-lg shadow-md hover:bg-yellow-700 transition"
+            >
+              👥 Team Management
+            </button>
+
+            <button
+              onClick={() => router.push("/admin/events")}
+              className="w-full px-4 py-3 font-semibold text-white bg-purple-500 rounded-lg shadow-md hover:bg-purple-700 transition"
+            >
+              🎉 Events Management
+            </button>
+          </div>
+
+          <button
+            onClick={handleLogout}
+            className="mt-6 w-full px-4 py-3 font-semibold text-white bg-red-500 rounded-lg shadow-md hover:bg-red-700 transition"
+          >
+            🚪 Logout
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <form onSubmit={handleLogin} className="p-4 bg-white rounded shadow-md">
-        <h1 className="text-red-500 text-3xl">
-          <strong>⚠</strong>ADMIN PAGE<strong>⚠</strong>
-        </h1>
-        <h2 className="mb-4 text-xl font-bold">Enter Admin Password</h2>
-        {error && <p className="mb-2 text-red-500">{error}</p>}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md text-center">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">⚠ ADMIN LOGIN ⚠</h1>
+        <p className="text-gray-600 mb-4">Enter Admin Password</p>
+
+        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 mb-4 border rounded"
+          className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+
         <button
-          type="submit"
-          className="w-full px-4 py-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-700"
+          onClick={handleLogin}
+          className="mt-4 w-full px-4 py-3 font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 transition"
         >
-          Login
+          🔑 Login
         </button>
-      </form>
+      </div>
     </div>
   );
 };
