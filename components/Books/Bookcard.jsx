@@ -1,8 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
+
 const BookCard = ({ book }) => {
+    const trackView = async () => {
+        await fetch(`/api/v1/books/views?bookName=${book.title}`, { method: "POST" });
+    };
+
+    const trackDownload = async () => {
+        await fetch(`/api/v1/books/downloads?bookName=${book.title}`, { method: "POST" });
+    };
+
     return (
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" onClick={trackView}>
             <div className="relative h-64 w-full">
                 {book.coverImage ? (
                     <Image
@@ -23,13 +32,20 @@ const BookCard = ({ book }) => {
                 <p className="text-gray-600 mb-4">by {book.editor}</p>
                 <p className="text-gray-700 mb-6 line-clamp-3">{book.description}</p>
 
-                <Link href={book.pdfPath} passHref>
-                    <button
-                        className="w-full bg-gray-800 hover:bg-gray-950 text-white py-3 rounded-md font-medium transition-colors duration-300"
-                    >
-                        Read Now
-                    </button>
-                </Link>
+                <div className="flex gap-4 items-center justify-center">
+
+                    <Link href={book.pdfPath} passHref target="_blank">
+                        <button className="w-40 bg-gray-800 hover:bg-gray-950 text-white py-3 rounded-md font-medium transition-colors duration-300">
+                            Read Now
+                        </button>
+                    </Link>
+
+                    <a href={book.pdfPath} download onClick={trackDownload}>
+                        <button className="w-40 bg-blue-600 hover:bg-blue-800 text-white py-3 rounded-md font-medium transition-colors duration-300">
+                            Download
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     );
