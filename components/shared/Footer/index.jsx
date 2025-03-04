@@ -26,7 +26,8 @@ const Footer = () => {
           <a href="/">HOME</a>
           <a href="/team">TEAM</a>
           <a href="/events">EVENTS</a>
-          <a href="/blogs">BLOG</a>
+          <a href="/ncccc">NCCCC</a>
+          <a href="/fccl">FCCL</a>
           <a href="/journal">JOURNAL</a>
         </div>
         <div className="flex-col items-center justify-center max-md:text-center">
