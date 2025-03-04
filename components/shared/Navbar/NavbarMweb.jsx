@@ -1,187 +1,155 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import mnlu from "@/public/mnlu_logo_bg.png";
-import ctrcr from "@/public/ctrcr_logo_bg_half.png";
+import { motion, AnimatePresence } from "framer-motion";
+import ctrcr from "@/public/ctrcr_logo.png";
+import mnlu from "@/public/mnlu_logo.png";
 
-const MobileNavbar = () => {
+const MobileNavbar = ({ navItems }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showBlogDropdown, setShowBlogDropdown] = useState(false);
-  const [showJournalDropdown, setShowJournalDropdown] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState(null);
   const router = useRouter();
 
-  const toggleNavbar = () => {
+  const toggleMenu = () => {
     setIsOpen(!isOpen);
+    setOpenSubMenu(null);
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-
-    return () => document.body.classList.remove("overflow-hidden");
-  }, [isOpen]);
-
-  const toggleBlogDropdown = () => {
-    setShowBlogDropdown(!showBlogDropdown);
-  };
-
-  const toggleJournalDropdown = () => {
-    setShowJournalDropdown(!showJournalDropdown);
+  const toggleSubMenu = (menu) => {
+    setOpenSubMenu(openSubMenu === menu ? null : menu);
   };
 
   return (
-    <div className="md:hidden w-full">
-      <div className="flex justify-between w-full items-center px-4 h-[8vh] py-2 bg-black text-white">
+    <div className="md:hidden">
+      <div className="flex justify-between items-center px-4 py-2">
         <Link href="/">
-          <div className="flex justify-center items-center gap-2">
-            <Image src={ctrcr} width={30} alt="CTRCR logo" />
-
-            <div className="text-white font-bold text-xl cursor-pointer">
-              CTRCR
-            </div>
+          <div className="text-black font-bold text-2xl cursor-pointer flex items-center gap-2">
+            <Image src={ctrcr} width={35} alt="CTRCR Logo" />
+            CTRCR
           </div>
         </Link>
-        <button
-          onClick={toggleNavbar}
-          className="text-white focus:outline-none"
-        >
-          {isOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          )}
-        </button>
-      </div>
-      {isOpen && (
-        <div className="bg-black text-white h-screen w-full flex flex-col items-center justify-center">
-          <div className="w-full flex flex-col items-center -mt-[300px] space-y-4">
-            <NavLink
-              href="/"
-              currentPath={router.pathname}
-              toggleNavbar={toggleNavbar}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              href="/team"
-              currentPath={router.pathname}
-              toggleNavbar={toggleNavbar}
-            >
-              Team
-            </NavLink>
-            <NavLink
-              href="/events"
-              currentPath={router.pathname}
-              toggleNavbar={toggleNavbar}
-            >
-              Events
-            </NavLink>
-            <NavLink
-              href="/ncccc"
-              currentPath={router.pathname}
-              toggleNavbar={toggleNavbar}
-            >
-              NCCCC
-            </NavLink>
-            <div className="relative">
-              <button
-                onClick={toggleBlogDropdown}
-                className="text-xl font-semibold text-gray-400 hover:text-gray-300 py-2 px-4 rounded-md transition-colors duration-200"
+
+        <div className="flex items-center gap-4">
+          <Link href="https://mnlumumbai.edu.in/">
+            <Image width={35} src={mnlu} alt="MNLU Logo" />
+          </Link>
+          <button
+            onClick={toggleMenu}
+            className="text-black focus:outline-none"
+          >
+            {isOpen ? (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                FCCL <span className="ml-2">▼</span>
-              </button>
-              {showBlogDropdown && (
-                <div className="absolute left-0 mt-2 bg-gray-800 rounded-md shadow-lg z-50">
-                  <NavLink href="/fccl" toggleNavbar={toggleNavbar}>
-                    FCCL
-                  </NavLink>
-                  <NavLink
-                    href="/fccl/editorial-board"
-                    toggleNavbar={toggleNavbar}
-                  >
-                    Editorial Board
-                  </NavLink>
-                </div>
-              )}
-            </div>
-            <div className="relative">
-              <button
-                onClick={toggleJournalDropdown}
-                className="text-xl font-semibold text-gray-400 hover:text-gray-300 py-2 px-4 rounded-md transition-colors duration-200"
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            ) : (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                Journal <span className="ml-2">▼</span>
-              </button>
-              {showJournalDropdown && (
-                <div className="absolute left-0 mt-2 bg-gray-800 rounded-md shadow-lg">
-                  <NavLink href="/journal" toggleNavbar={toggleNavbar}>
-                    Journal
-                  </NavLink>
-                  <NavLink
-                    href="/journal/editorial-board"
-                    toggleNavbar={toggleNavbar}
-                  >
-                    Editorial Board
-                  </NavLink>
-                  <NavLink
-                    href="/journal/board-of-advisors"
-                    toggleNavbar={toggleNavbar}
-                  >
-                    Board of Advisors
-                  </NavLink>
-                </div>
-              )}
-            </div>
-          </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            )}
+          </button>
         </div>
-      )}
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="bg-white shadow-lg"
+          >
+            <div className="px-4 py-2 space-y-2">
+              {navItems.map((item) => (
+                <div key={item.name}>
+                  {item.dropdown ? (
+                    <div>
+                      <button
+                        onClick={() => toggleSubMenu(item.name)}
+                        className={`w-full text-left px-3 py-2 text-lg font-medium flex justify-between items-center ${router.pathname === item.href ? "text-gray-600" : "text-black"
+                          }`}
+                      >
+                        {item.name}
+                        <svg
+                          className={`w-4 h-4 transition-transform ${openSubMenu === item.name ? "rotate-180" : ""
+                            }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 9l-7 7-7-7"
+                          ></path>
+                        </svg>
+                      </button>
+                      <AnimatePresence>
+                        {openSubMenu === item.name && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="pl-6 space-y-2 mt-2"
+                          >
+                            {item.dropdownItems.map((subItem) => (
+                              <Link
+                                key={subItem.name}
+                                href={subItem.href}
+                                className={`block px-3 py-1 text-base ${router.pathname === subItem.href
+                                  ? "text-gray-600"
+                                  : "text-black"
+                                  }`}
+                                onClick={toggleMenu}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={`block px-3 py-2 text-lg font-medium ${router.pathname === item.href ? "text-gray-600" : "text-black"
+                        }`}
+                      onClick={toggleMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
-  );
-};
-
-const NavLink = ({ href, currentPath, children, toggleNavbar }) => {
-  const isActive = href === currentPath;
-
-  return (
-    <Link href={href} onClick={toggleNavbar}>
-      <div
-        className={`block w-[100%] text-gray-400 hover:text-gray-300 py-2 px-4 rounded-md transition-colors duration-200 text-xl font-semibold ${isActive ? "text-gray-300 bg-gray-700" : ""
-          }`}
-      >
-        <div className={`${isActive ? "border-b-2 border-gray-300" : ""}`}>
-          {children}
-        </div>
-      </div>
-    </Link>
   );
 };
 
