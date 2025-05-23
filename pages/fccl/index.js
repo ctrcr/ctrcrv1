@@ -137,6 +137,7 @@ const BlogsPage = () => {
       <div className="">
         <ul className="list-disc list-inside text-lg max-md:px-4 px-8">
           <li>A maximum of two authors per submission is allowed.</li>
+          <li>Simultaneous submission shall lead to a ban from publication on FCCL for a period of 6months.</li>
           <li>
             Manuscripts should be between 1500-2000 words (excluding citations).
           </li>
