@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import CompetitionPhotos from "@/components/NCCCC/CompetitionPhotos";
 
 const NCCCC = () => {
   const partners = [
@@ -283,6 +284,8 @@ const NCCCC = () => {
           ))}
         </div>
       </div>
+
+      <CompetitionPhotos />
 
       <div className="bg-gray-50 p-8 rounded-lg">
         <h2 className="text-2xl font-semibold mb-4">
