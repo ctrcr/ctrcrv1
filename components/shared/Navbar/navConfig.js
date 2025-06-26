@@ -5,21 +5,6 @@ export const navItems = [
         dropdown: false
     },
     {
-        name: "Team",
-        href: "/team",
-        dropdown: false
-    },
-    {
-        name: "Events",
-        href: "/events",
-        dropdown: false
-    },
-    {
-        name: "NCCCC",
-        href: "/ncccc",
-        dropdown: false
-    },
-    {
         name: "FCCL",
         href: "/fccl",
         dropdown: true,
@@ -33,6 +18,21 @@ export const navItems = [
                 href: "/fccl/editorial-board"
             }
         ]
+    },
+    {
+        name: "Team",
+        href: "/team",
+        dropdown: false
+    },
+    {
+        name: "Events",
+        href: "/events",
+        dropdown: false
+    },
+    {
+        name: "NCCCC",
+        href: "/ncccc",
+        dropdown: false
     },
     {
         name: "Books",

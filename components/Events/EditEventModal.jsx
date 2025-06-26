@@ -14,6 +14,7 @@ const EditEventModal = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [tempCoverImage, setTempCoverImage] = useState(formData.image);
+  const [noRegLink, setNoRegLink] = useState(!initialFormData.regLink || initialFormData.regLink.trim() === '');
 
   useEffect(() => {
     if (isOpen) {
@@ -23,6 +24,7 @@ const EditEventModal = ({
       setFormData({ ...initialFormData, date: formattedDate });
       setGallery(initialFormData.gallery || []);
       setTempCoverImage(initialFormData.image);
+      setNoRegLink(!initialFormData.regLink || initialFormData.regLink.trim() === '');
     }
   }, [isOpen, initialFormData]);
 
@@ -34,6 +36,11 @@ const EditEventModal = ({
       ...prevData,
       [name]: type === "checkbox" ? checked : value,
     }));
+    
+    // If user starts typing in regLink, uncheck the N/A checkbox
+    if (name === 'regLink' && value.trim() !== '') {
+      setNoRegLink(false);
+    }
   };
 
   const handleCoverImageUpload = (result) => {
@@ -197,14 +204,31 @@ const EditEventModal = ({
 
           <div className="mb-4">
             <label className="block mb-2">Registration Link</label>
+            <div className="flex items-center gap-2 mb-2">
+              <input
+                type="checkbox"
+                id="noRegLinkEdit"
+                checked={noRegLink}
+                onChange={(e) => {
+                  setNoRegLink(e.target.checked);
+                  if (e.target.checked) {
+                    setFormData(prev => ({ ...prev, regLink: '' }));
+                  }
+                }}
+                className="h-4 w-4"
+              />
+              <label htmlFor="noRegLinkEdit" className="text-sm text-gray-600">
+                N/A (No registration link)
+              </label>
+            </div>
             <input
               type="text"
               name="regLink"
               value={formData.regLink}
               onChange={handleChange}
-              required
               className="border border-gray-300 rounded p-2 w-full"
               disabled={loading}
+              placeholder="Enter registration link or check N/A above"
             />
           </div>
 
