@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
@@ -27,6 +27,36 @@ const Card = ({ image, title, description, date, regLink, gallery }) => {
 
   const handleImageLoad = () => {
     setLoading(false);
+  };
+
+  // Disable background scroll when modal is open and handle ESC key
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+      
+      // Handle ESC key to close modal
+      const handleEscKey = (event) => {
+        if (event.key === 'Escape') {
+          setIsModalOpen(false);
+        }
+      };
+      
+      document.addEventListener('keydown', handleEscKey);
+      
+      return () => {
+        document.body.style.overflow = 'unset';
+        document.removeEventListener('keydown', handleEscKey);
+      };
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isModalOpen]);
+
+  // Close modal when clicking outside
+  const handleModalBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      setIsModalOpen(false);
+    }
   };
 
   return (
@@ -107,22 +137,44 @@ const Card = ({ image, title, description, date, regLink, gallery }) => {
 
       {/* Modal Pop-up */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg p-6 w-11/12 md:w-2/3 lg:w-1/2 shadow-xl relative">
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4"
+          onClick={handleModalBackdropClick}
+        >
+          <div className="bg-white rounded-lg w-full max-w-lg md:max-w-2xl lg:max-w-3xl max-h-[90vh] shadow-xl relative">
+            {/* Fixed Close Button */}
             <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              className="fixed top-4 right-4 text-gray-500 hover:text-gray-700 z-50 bg-white rounded-full p-2 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors"
               onClick={() => setIsModalOpen(false)}
             >
-              <IoClose size={24} />
+              <IoClose size={20} />
             </button>
-            <div className="w-full h-auto flex justify-center">
-              <img src={image} alt="Event" className="w-full max-h-[40vh] object-contain rounded-md" />
-            </div>
-            <h2 className="text-lg font-semibold text-[#0F111F] mt-4">{title}</h2>
-            <p className="text-[#677685] text-base mt-2">{description}</p>
-          </div>
-        </div>
-      )}
+            {/* Scrollable Content */}
+            <div className="max-h-[90vh] overflow-y-auto">
+            <div className="p-4 sm:p-6">
+              <div className="w-full h-auto flex justify-center mb-4">
+                <img src={image} alt="Event" className="w-full max-h-[50vh] sm:max-h-[40vh] object-contain rounded-md" />
+              </div>
+              <h2 className="text-lg sm:text-xl font-semibold text-[#0F111F] mb-3">{title}</h2>
+              <p className="text-[#677685] text-sm sm:text-base leading-relaxed mb-4">{description}</p>
+              <div className={`flex flex-col sm:flex-row text-[#4C555D] pt-4 border-t-2 text-sm gap-3 sm:gap-0 ${regLink && regLink.trim() !== '' ? 'sm:justify-between' : 'sm:justify-start'}`}>
+                <span className="flex items-center gap-2">
+                  <TbCalendarTime size={18} />
+                  <span className="text-xs sm:text-sm">{formatDate(date)}</span>
+                </span>
+                {regLink && regLink.trim() !== '' && (
+                  <span className="flex items-center justify-center gap-1 bg-blue-400 py-2 px-4 text-white rounded-full hover:bg-blue-500 transition-colors cursor-pointer">
+                    <a href={regLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs sm:text-sm">
+                      Registration Link
+                    </a>
+                  </span>
+                                 )}
+               </div>
+             </div>
+             </div>
+           </div>
+         </div>
+       )}
     </>
   );
 };
