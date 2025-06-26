@@ -11,12 +11,12 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>
-          Center for Training and Research in Commercial Regulations | MNLU
+          CTRCR: Center for Training and Research in Commercial Regulations
         </title>
         <link rel="icon" href="/ctrcr_logo.png" />
         <meta
           name="title"
-          content="Center for Training and Research in Commercial Regulations, Maharashtra National Law University, Mumbai"
+          content="CTRCR: Center for Training and Research in Commercial Regulations"
         />
         <meta
           name="description"
@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }) {
         />
         <meta
           property="og:title"
-          content="Center for Training and Research in Commercial Regulations, Maharashtra National Law University, Mumbai"
+          content="CTRCR: Center for Training and Research in Commercial Regulations"
         />
         <meta
           property="og:description"

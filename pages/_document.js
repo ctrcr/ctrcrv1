@@ -5,8 +5,7 @@ export default function Document() {
 		<Html lang="en">
 			<Head>
 				<title>
-					CTRCR | Mumbai National Law University - Corporate &
-					Commercial Law Research
+					CTRCR: Center for Training and Research in Commercial Regulations
 				</title>
 				<meta charSet="UTF-8" />
 				<meta
