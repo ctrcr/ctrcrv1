@@ -49,6 +49,12 @@ const serviceData = [
   {
     path: "https://ik.imagekit.io/ctrcr/Images/Home/12.jpeg?updatedAt=1712915004920",
   },
+  {
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/13.jpeg?updatedAt=1750937207661",
+  },
+  {
+    path: "https://ik.imagekit.io/ctrcr/Images/Home/14.jpeg?updatedAt=1750937207832",
+  },
 ];
 
 const ServiceSlider = () => {
@@ -59,7 +65,7 @@ const ServiceSlider = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const newSlidesPerView = window.innerWidth <= 767 ? 1 : 6;
+      const newSlidesPerView = window.innerWidth <= 767 ? 1 : 3;
       setSlidesPerView(newSlidesPerView);
     };
 
@@ -114,8 +120,8 @@ const ServiceSlider = () => {
               src={item.path}
               alt="Latest Events Images"
               className="object-cover"
-              height={1300}
-              width={1000}
+              height={2000}
+              width={4000}
               onLoad={() => handleImageLoad(index)}
             />
           </div>
