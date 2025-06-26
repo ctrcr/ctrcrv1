@@ -7,11 +7,13 @@ const AddEventModal = ({ isOpen, onClose, onSubmit, initialFormData }) => {
   const [gallery, setGallery] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [noRegLink, setNoRegLink] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       setFormData(initialFormData);
       setGallery([]);
+      setNoRegLink(!initialFormData.regLink || initialFormData.regLink.trim() === '');
     }
   }, [isOpen, initialFormData]);
 
@@ -23,6 +25,11 @@ const AddEventModal = ({ isOpen, onClose, onSubmit, initialFormData }) => {
       ...prevData,
       [name]: type === "checkbox" ? checked : value,
     }));
+    
+    // If user starts typing in regLink, uncheck the N/A checkbox
+    if (name === 'regLink' && value.trim() !== '') {
+      setNoRegLink(false);
+    }
   };
 
   const handleCoverImageUpload = (result) => {
@@ -59,8 +66,7 @@ const AddEventModal = ({ isOpen, onClose, onSubmit, initialFormData }) => {
     if (
       !formData.title ||
       !formData.date ||
-      !formData.description ||
-      !formData.regLink
+      !formData.description
     ) {
       setError("Please fill all required fields.");
       setLoading(false);
@@ -180,14 +186,31 @@ const AddEventModal = ({ isOpen, onClose, onSubmit, initialFormData }) => {
 
           <div className="mb-4">
             <label className="block mb-2">Registration Link</label>
+            <div className="flex items-center gap-2 mb-2">
+              <input
+                type="checkbox"
+                id="noRegLink"
+                checked={noRegLink}
+                onChange={(e) => {
+                  setNoRegLink(e.target.checked);
+                  if (e.target.checked) {
+                    setFormData(prev => ({ ...prev, regLink: '' }));
+                  }
+                }}
+                className="h-4 w-4"
+              />
+              <label htmlFor="noRegLink" className="text-sm text-gray-600">
+                N/A (No registration link)
+              </label>
+            </div>
             <input
               type="text"
               name="regLink"
               value={formData.regLink}
               onChange={handleChange}
-              required
               className="border border-gray-300 rounded p-2 w-full"
               disabled={loading}
+              placeholder="Enter registration link or check N/A above"
             />
           </div>
 

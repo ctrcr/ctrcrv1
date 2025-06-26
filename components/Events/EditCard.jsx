@@ -107,7 +107,7 @@ const EditCard = ({
         <h2 className="text-lg font-semibold text-[#0F111F] leading-none mb-5">
           {title}
         </h2>
-        <p className="text-[#677685] leading-none text-base">
+        <p className="text-[#677685] leading-none text-base line-clamp-2">
           {description}
         </p>
         <div className="flex text-[#4C555D] mt-10 border-t-2 py-2 text-xs justify-between">
