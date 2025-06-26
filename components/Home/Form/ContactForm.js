@@ -110,7 +110,7 @@ export default function Contact() {
         phone: formData.phone,
         subject: formData.subject,
         message: formData.message,
-        to_email: 'tech.ctrcr@gmail.com'
+        to_email: "ctrcr@mnlumumbai.edu.in",
       };
 
       const result = await emailjs.send(serviceID, templateID, templateParams, publicKey);
