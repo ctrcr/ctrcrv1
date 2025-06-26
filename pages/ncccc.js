@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import CompetitionPhotos from "@/components/NCCCC/CompetitionPhotos";
 
 const NCCCC = () => {
   const partners = [
@@ -83,6 +84,11 @@ const NCCCC = () => {
       name: "Competition Brochure",
       filename: "1stMNLU-MNCCCC.pdf",
       image: "/ncccc/MNLU-MNCCCC.png",
+    },
+    {
+      name: "Competition Report",
+      filename: "report.pdf",
+      image: "/ncccc/report.png",
     },
   ];
 
@@ -261,6 +267,7 @@ const NCCCC = () => {
             <a
               key={index}
               href={`/ncccc/${doc.filename}`}
+              target="_blank"
               className="block p-6 border rounded-lg text-center hover:bg-gray-50 transition duration-300"
             >
               <div className="relative w-32 h-32 mx-auto mb-4">
@@ -277,6 +284,8 @@ const NCCCC = () => {
           ))}
         </div>
       </div>
+
+      <CompetitionPhotos />
 
       <div className="bg-gray-50 p-8 rounded-lg">
         <h2 className="text-2xl font-semibold mb-4">

@@ -151,6 +151,14 @@ const BlogsPage = () => {
             peer review.
           </li>
           <li>Works will be published on a rolling basis.</li>
+          <li>
+            Expected timeline for the review of the Blog: 14 Days from the date
+            of submission.
+          </li>
+          <li>
+            Already published blogs and blogs sent for consideration to other
+            places will result in blacklisting of the author(s)
+          </li>
         </ul>
         <p className="text-lg my-4 font-bold">
           We look forward to your contributions!
