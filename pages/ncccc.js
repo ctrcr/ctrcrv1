@@ -84,6 +84,11 @@ const NCCCC = () => {
       filename: "1stMNLU-MNCCCC.pdf",
       image: "/ncccc/MNLU-MNCCCC.png",
     },
+    {
+      name: "Competition Report",
+      filename: "report.pdf",
+      image: "/ncccc/report.png",
+    },
   ];
 
   return (
@@ -261,6 +266,7 @@ const NCCCC = () => {
             <a
               key={index}
               href={`/ncccc/${doc.filename}`}
+              target="_blank"
               className="block p-6 border rounded-lg text-center hover:bg-gray-50 transition duration-300"
             >
               <div className="relative w-32 h-32 mx-auto mb-4">
