@@ -1,5 +1,6 @@
 import Blogs from "@/utils/models/blogs.model";
 import DBInstance from "@/utils/db";
+import { generateSlug, generateUniqueSlug, generateMetaTitle, generateMetaDescription, calculateReadingTime, extractKeywords } from "@/utils/seoHelpers";
 
 DBInstance();
 
@@ -14,7 +15,7 @@ export default async function handler(req, res) {
     }
   } else if (req.method === "POST") {
     try {
-      const { title, content, image, author, description, approved } = req.body;
+      const { title, content, image, author, description, approved, category, metaTitle, metaDescription, keywords } = req.body;
 
       if (
         !title ||
@@ -29,6 +30,14 @@ export default async function handler(req, res) {
           .json({ success: false, error: "All fields are required." });
       }
 
+      // Generate SEO fields automatically
+      const baseSlug = generateSlug(title);
+      const uniqueSlug = await generateUniqueSlug(baseSlug, Blogs);
+      const autoMetaTitle = metaTitle || generateMetaTitle(title);
+      const autoMetaDescription = metaDescription || generateMetaDescription(description, title);
+      const readingTime = calculateReadingTime(content);
+      const autoKeywords = keywords || extractKeywords(title, content);
+
       const newBlog = new Blogs({
         title,
         content,
@@ -37,7 +46,14 @@ export default async function handler(req, res) {
         description,
         date: new Date(),
         approved,
-        blogId: Date.now(),
+        blogId: Date.now().toString(),
+        slug: uniqueSlug,
+        metaTitle: autoMetaTitle,
+        metaDescription: autoMetaDescription,
+        keywords: autoKeywords,
+        category: category || 'Corporate Law',
+        readingTime,
+        featuredImage: image,
       });
 
       await newBlog.save();
