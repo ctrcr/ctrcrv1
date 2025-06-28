@@ -1,5 +1,7 @@
 import React from "react";
+import Head from "next/head";
 import { motion } from "framer-motion";
+import { generateTeamSchema, generateBreadcrumbSchema } from "@/utils/seoHelpers";
 
 const SectionHeader = ({ text }) => (
   <h2 className="text-3xl font-bold mb-6">{text}</h2>
@@ -218,8 +220,70 @@ const AboutPage = () => {
     ],
   };
 
+  // Generate dynamic SEO data
+  const allMembers = [...Object.values(data.leadership), ...data.members, ...data.student_editorial_board];
+  const memberNames = allMembers.map(member => member.name).join(', ');
+  const totalLeadership = Object.keys(data.leadership).length;
+  const totalMembers = data.members.length;
+  const totalStudents = data.student_editorial_board.length;
+
   return (
-    <div className="container  mx-auto py-16 px-8 flex flex-col gap-4 mt-12">
+    <>
+      <Head>
+        <title>Journal Editorial Board | Corporate Law & Commercial Regulations Journal - CTRCR</title>
+        <meta 
+          name="description" 
+          content={`Meet our journal editorial board: ${totalLeadership} leadership members, ${totalMembers} faculty members, and ${totalStudents} student editors for the Journal on Corporate Law and Commercial Regulations. Board includes ${memberNames.split(', ').slice(0, 5).join(', ')}.`} 
+        />
+        <meta 
+          name="keywords" 
+          content={`journal editorial board, corporate law journal editors, commercial regulations journal, legal journal editorial, ${memberNames}, law journal student editors, academic journal board`}
+        />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Journal Editorial Board - Corporate Law Journal - CTRCR" />
+        <meta 
+          property="og:description" 
+          content={`Editorial board of ${allMembers.length} members for our Journal on Corporate Law and Commercial Regulations`} 
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ctrcr.com/journal/editorial-board" />
+        <meta property="og:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Journal Editorial Board - CTRCR" />
+        <meta 
+          name="twitter:description" 
+          content={`Editorial board for our Journal on Corporate Law and Commercial Regulations`} 
+        />
+        <meta name="twitter:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
+        
+        {/* Structured Data */}
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateTeamSchema(allMembers.map(member => ({
+              name: member.name,
+              image: null,
+              position: member.designation,
+              role: member.designation
+            }))))
+          }}
+        />
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://www.ctrcr.com' },
+              { name: 'Journal', url: 'https://www.ctrcr.com/journal' },
+              { name: 'Editorial Board', url: 'https://www.ctrcr.com/journal/editorial-board' }
+            ]))
+          }}
+        />
+      </Head>
+      
+      <div className="container  mx-auto py-16 px-8 flex flex-col gap-4 mt-12">
       <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
         <hr className="w-16 h-1 bg-black" />
         <span className="font-bold ">Editorial Board</span>
@@ -265,6 +329,7 @@ const AboutPage = () => {
         </div>
       </motion.div>
     </div>
+    </>
   );
 };
 

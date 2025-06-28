@@ -1,5 +1,7 @@
 import React from "react";
+import Head from "next/head";
 import { motion } from "framer-motion";
+import { generateTeamSchema, generateBreadcrumbSchema } from "@/utils/seoHelpers";
 
 export default function BoardAdvisors() {
   const teamMembers = [
@@ -97,8 +99,64 @@ export default function BoardAdvisors() {
     },
   ];
 
+  // Generate dynamic SEO data
+  const allMembers = teamMembers.flatMap(group => group.members);
+  const memberNames = allMembers.map(member => member.name).join(', ');
+  const totalAdvisors = teamMembers[0].members.length;
+  const totalEditorial = teamMembers[1].members.length;
+
   return (
-    <section className="min-h-screen px-[4%] max-md:px-[6%] lg:space-y-24 sm:space-y-12 space-y-6 py-20 mt-12">
+    <>
+      <Head>
+        <title>Journal Board of Advisors & Editorial Board | Corporate Law Journal - CTRCR</title>
+        <meta 
+          name="description" 
+          content={`Meet our distinguished board of ${totalAdvisors} advisors and ${totalEditorial} editorial board members for the Journal on Corporate Law and Commercial Regulations. Leading experts including ${memberNames.split(', ').slice(0, 5).join(', ')}.`} 
+        />
+        <meta 
+          name="keywords" 
+          content={`journal board advisors, editorial board, corporate law journal, commercial regulations journal, ${memberNames}, legal journal board, law journal editorial`}
+        />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Journal Board of Advisors & Editorial Board - CTRCR" />
+        <meta 
+          property="og:description" 
+          content={`Distinguished board of ${totalAdvisors + totalEditorial} experts for our corporate law journal`} 
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ctrcr.com/journal/board-of-advisors" />
+        <meta property="og:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Journal Board - CTRCR" />
+        <meta 
+          name="twitter:description" 
+          content={`Distinguished board of experts for our corporate law journal`} 
+        />
+        <meta name="twitter:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
+        
+        {/* Structured Data */}
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateTeamSchema(allMembers))
+          }}
+        />
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://www.ctrcr.com' },
+              { name: 'Journal', url: 'https://www.ctrcr.com/journal' },
+              { name: 'Board of Advisors', url: 'https://www.ctrcr.com/journal/board-of-advisors' }
+            ]))
+          }}
+        />
+      </Head>
+      
+      <section className="min-h-screen px-[4%] max-md:px-[6%] lg:space-y-24 sm:space-y-12 space-y-6 py-20 mt-12">
       {teamMembers.map(({ domain, members }, domainIndex) => (
         <motion.div
           key={domainIndex}
@@ -145,5 +203,6 @@ export default function BoardAdvisors() {
         </motion.div>
       ))}
     </section>
+    </>
   );
 }
