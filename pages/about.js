@@ -1,7 +1,59 @@
+import Head from "next/head";
 import ContactForm from "@/components/Home/Form/ContactForm";
+import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/utils/seoHelpers";
+
 const About = () => {
   return (
-    <section className=" flex items-center justify-center text-white text-2xl max-lg:min-h-[65vh]">
+    <>
+      <Head>
+        <title>About CTRCR - Center for Training and Research in Commercial Regulations | Contact Us</title>
+        <meta 
+          name="description" 
+          content="Learn about CTRCR, the premier center for corporate law and commercial regulations research at Maharashtra National Law University Mumbai. Contact us for inquiries about our programs, research, and events." 
+        />
+        <meta 
+          name="keywords" 
+          content="about CTRCR, contact CTRCR, corporate law center, commercial regulations research, MNLU Mumbai, legal education center, corporate law training, contact information"
+        />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="About CTRCR - Corporate Law & Commercial Regulations Center" />
+        <meta 
+          property="og:description" 
+          content="Premier center for corporate law and commercial regulations research at MNLU Mumbai"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ctrcr.com/about" />
+        <meta property="og:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About CTRCR - Contact Us" />
+        <meta 
+          name="twitter:description" 
+          content="Premier center for corporate law and commercial regulations research"
+        />
+        <meta name="twitter:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
+        
+        {/* Structured Data */}
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateOrganizationSchema())
+          }}
+        />
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://www.ctrcr.com' },
+              { name: 'About', url: 'https://www.ctrcr.com/about' }
+            ]))
+          }}
+        />
+      </Head>
+      
+      <section className=" flex items-center justify-center text-white text-2xl max-lg:min-h-[65vh]">
       <div className=" w-[80vw] flex overflow-hidden  items-center justify-center">
         <img src="boxframehorizontal.svg" className="h-full hidden xl:block" />
         <div className="h-screen xl:h-0"></div>
@@ -23,6 +75,7 @@ const About = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

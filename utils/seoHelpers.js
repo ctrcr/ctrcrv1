@@ -100,4 +100,95 @@ export const generateArticleSchema = (blog, siteUrl = 'https://www.ctrcr.com') =
       "@id": `${siteUrl}/fccl/${blog.slug}`
     }
   };
+};
+
+export const generateOrganizationSchema = (siteUrl = 'https://www.ctrcr.com') => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CTRCR - Center for Training and Research in Commercial Regulations",
+    "url": siteUrl,
+    "logo": `${siteUrl}/ctrcr_logo.png`,
+    "description": "Leading center for training and research in commercial regulations, corporate law, and legal education",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mumbai",
+      "@addressRegion": "Maharashtra",
+      "addressCountry": "India"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "general",
+      "url": siteUrl
+    }
+  };
+};
+
+export const generatePersonSchema = (person, siteUrl = 'https://www.ctrcr.com') => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": person.name,
+    "image": person.image,
+    "jobTitle": person.position || person.role,
+    "worksFor": {
+      "@type": "Organization",
+      "name": "CTRCR - Center for Training and Research in Commercial Regulations"
+    }
+  };
+};
+
+export const generateTeamSchema = (members, siteUrl = 'https://www.ctrcr.com') => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CTRCR - Center for Training and Research in Commercial Regulations",
+    "url": siteUrl,
+    "employee": members.map(member => ({
+      "@type": "Person",
+      "name": member.name,
+      "image": member.image,
+      "jobTitle": member.position || member.role
+    }))
+  };
+};
+
+export const generateEventSchema = (event, siteUrl = 'https://www.ctrcr.com') => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": event.title,
+    "description": event.description,
+    "image": event.image,
+    "startDate": event.date,
+    "organizer": {
+      "@type": "Organization",
+      "name": "CTRCR - Center for Training and Research in Commercial Regulations",
+      "url": siteUrl
+    },
+    "location": {
+      "@type": "Organization",
+      "name": "CTRCR - Center for Training and Research in Commercial Regulations"
+    },
+    ...(event.regLink && { url: event.regLink })
+  };
+};
+
+export const generateBookSchema = (book, siteUrl = 'https://www.ctrcr.com') => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": book.title,
+    "description": book.description,
+    "image": book.coverImage,
+    "author": {
+      "@type": "Person",
+      "name": book.editor
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CTRCR - Center for Training and Research in Commercial Regulations"
+    },
+    "url": `${siteUrl}/books`
+  };
 }; 

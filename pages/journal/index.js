@@ -1,11 +1,69 @@
 import React from "react";
-
+import Head from "next/head";
 import JournalSlider from "@/components/Journal/JournalSlider";
 import GuideLines from "@/components/Journal/GuideLines";
+import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/utils/seoHelpers";
 
 const JournalPage = () => {
   return (
-    <div className="min-h-screen pt-16 lg:pt-20 bg-[#EBEBEB] mt-10 font-serif">
+    <>
+      <Head>
+        <title>Journal on Corporate Law and Commercial Regulations | CTRCR</title>
+        <meta 
+          name="description" 
+          content="The Journal on Corporate Law and Commercial Regulations, established in 2023, is a bi-annual publication dedicated to advancing research in corporate law and commercial regulations. Submit your scholarly articles for peer review." 
+        />
+        <meta 
+          name="keywords" 
+          content="corporate law journal, commercial regulations journal, legal journal, academic journal, law review, legal research, scholarly articles, corporate law research, legal publication"
+        />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Journal on Corporate Law and Commercial Regulations - CTRCR" />
+        <meta 
+          property="og:description" 
+          content="Bi-annual journal dedicated to advancing research in corporate law and commercial regulations"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ctrcr.com/journal" />
+        <meta property="og:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Journal on Corporate Law - CTRCR" />
+        <meta 
+          name="twitter:description" 
+          content="Bi-annual journal for corporate law and commercial regulations research"
+        />
+        <meta name="twitter:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
+        
+        {/* Structured Data */}
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Periodical",
+              "name": "Journal on Corporate Law and Commercial Regulations",
+              "description": "Bi-annual publication dedicated to advancing research in corporate law and commercial regulations",
+              "publisher": generateOrganizationSchema(),
+              "issn": "2023-CTRCR",
+              "url": "https://www.ctrcr.com/journal"
+            })
+          }}
+        />
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://www.ctrcr.com' },
+              { name: 'Journal', url: 'https://www.ctrcr.com/journal' }
+            ]))
+          }}
+        />
+      </Head>
+      
+      <div className="min-h-screen pt-16 lg:pt-20 bg-[#EBEBEB] mt-10 font-serif">
       <div className="container mx-auto px-4 lg:px-8 lg:py-8 pt-2">
         <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
           <hr className="w-16 h-1 bg-black" />
@@ -113,6 +171,7 @@ const JournalPage = () => {
         <JournalSlider />
       </div>
     </div>
+    </>
   );
 };
 
