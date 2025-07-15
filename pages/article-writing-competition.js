@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from "next/head"
 import Image from "next/image"
+import linkedin from "@/public/linkedin_logo.png";
+import instagram from "@/public/instagram-logo.png";
 
 const ArticleWritingCompetition = () => {
     const committee = [
@@ -363,8 +365,8 @@ const ArticleWritingCompetition = () => {
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Social Media</h3>
                                 <div className="space-y-2">
-                                    <p>📘 <a href="https://www.linkedin.com/company/ctrcr-centre-for-training-research-in-commercial-regulations/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">LinkedIn</a></p>
-                                    <p>📘 <a href="https://www.instagram.com/ctrcr_mnlu/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Instagram</a></p>
+                                    <p> <img src="/linkedin_logo.png" width={22} alt="LinkedIn" className="inline-block mr-2" /> <a href="https://www.linkedin.com/in/ctrcr-centre-for-training-and-research-in-commercial-regulations-895a8024a/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">LinkedIn</a></p>
+                                    <p> <img src="/instagram-logo.png" width={22} alt="Instagram" className="inline-block mr-2" /> <a href="https://www.instagram.com/ctrcr_mnlu/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Instagram</a></p>
                                 </div>
                             </div>
                         </div>
