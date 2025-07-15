@@ -35,6 +35,11 @@ export const navItems = [
         dropdown: false
     },
     {
+        name: "Article Writing Competition",
+        href: "/article-writing-competition",
+        dropdown: false
+    },
+    {
         name: "Books",
         href: "/books",
         dropdown: false,

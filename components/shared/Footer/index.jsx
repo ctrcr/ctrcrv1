@@ -32,6 +32,7 @@ const Footer = () => {
           <a href="/team">TEAM</a>
           <a href="/events">EVENTS</a>
           <a href="/ncccc">NCCCC</a>
+          <a href="/article-writing-competition"> ARTICLE WRITING COMPETITION</a>
           <a href="/books">BOOKS</a>
           <a href="/journal">JOURNAL</a>
         </div>
