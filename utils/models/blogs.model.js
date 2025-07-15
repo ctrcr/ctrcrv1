@@ -10,6 +10,39 @@ const blogsSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  slug: {
+    type: String,
+    required: true,
+    unique: true,
+    index: true,
+  },
+  metaTitle: {
+    type: String,
+    required: false,
+    maxlength: 60,
+  },
+  metaDescription: {
+    type: String,
+    required: false,
+    maxlength: 160,
+  },
+  keywords: {
+    type: [String],
+    required: false,
+  },
+  category: {
+    type: String,
+    required: false,
+    enum: ['Corporate Law', 'Commercial Law', 'Trade Law', 'Regulatory Law', 'Research', 'Analysis', 'Case Study', 'Opinion'],
+  },
+  readingTime: {
+    type: Number,
+    required: false,
+  },
+  featuredImage: {
+    type: String,
+    required: false,
+  },
   content: {
     type: String,
     required: true,

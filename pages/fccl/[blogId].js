@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import Image from "next/image";
 import logo from "@/public/blog_logo.png";
 import loader from "@/public/loader.svg";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/utils/seoHelpers";
 
 const BlogDetailPage = () => {
   const router = useRouter();
@@ -56,30 +58,87 @@ const BlogDetailPage = () => {
     );
   if (error) return <p>{error}</p>;
 
-  return (
-    <div className="container mx-auto mt-12 px-4 py-8">
-      <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
-        <div className="flex justify-center items-center max-md:text-center">
-          <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
-            <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
-            <span className="text-5xl max-md:text-3xl font-bold ">
-              Forum for Commercial and Corporate Laws
-            </span>
+  if (!blog) return <p>Blog not found</p>;
 
-            <div className={"flex justify-end  mt-2 font-bold"}>
-              <hr className="w-24 h-1 max-md:hidden bg-black" />
-            </div>
-            <p className="text-lg mt-2 max-md:text-sm text-gray-600">
-              Under the aegis of the Centre for Training and Research in
-              Commercial Regulations
-            </p>
-          </h2>
+  // Generate SEO data
+  const pageTitle = blog.metaTitle || `${blog.title} | CTRCR - FCCL Blog`;
+  const pageDescription = blog.metaDescription || blog.description;
+  const pageUrl = `https://www.ctrcr.com/fccl/${blog.slug || blog.blogId}`;
+  const breadcrumbs = [
+    { name: 'Home', url: 'https://www.ctrcr.com' },
+    { name: 'FCCL Blog', url: 'https://www.ctrcr.com/fccl' },
+    { name: blog.title, url: pageUrl }
+  ];
+
+  return (
+    <>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={blog.keywords?.join(', ') || 'corporate law, commercial law, legal research'} />
+        <meta name="author" content={blog.author} />
+        <link rel="canonical" href={pageUrl} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={blog.featuredImage || blog.image} />
+        <meta property="og:site_name" content="CTRCR - Center for Training and Research in Commercial Regulations" />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={pageUrl} />
+        <meta property="twitter:title" content={pageTitle} />
+        <meta property="twitter:description" content={pageDescription} />
+        <meta property="twitter:image" content={blog.featuredImage || blog.image} />
+        
+        {/* Article specific meta tags */}
+        <meta property="article:published_time" content={new Date(blog.date).toISOString()} />
+        <meta property="article:author" content={blog.author} />
+        <meta property="article:section" content={blog.category || 'Corporate Law'} />
+        {blog.keywords?.map(keyword => (
+          <meta key={keyword} property="article:tag" content={keyword} />
+        ))}
+        
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateArticleSchema(blog))
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateBreadcrumbSchema(breadcrumbs))
+          }}
+        />
+      </Head>
+
+      <div className="container mx-auto mt-12 px-4 py-8">
+        <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
+          <div className="flex justify-center items-center max-md:text-center">
+            <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
+              <hr className="w-24 max-md:hidden h-1 mb-2 bg-black" />
+              <span className="text-5xl max-md:text-3xl font-bold ">
+                Forum for Commercial and Corporate Laws
+              </span>
+
+              <div className={"flex justify-end  mt-2 font-bold"}>
+                <hr className="w-24 h-1 max-md:hidden bg-black" />
+              </div>
+              <p className="text-lg mt-2 max-md:text-sm text-gray-600">
+                Under the aegis of the Centre for Training and Research in
+                Commercial Regulations
+              </p>
+            </h2>
+          </div>
+          <div>
+            <Image src={logo} alt="Blogs" width={200} height={200} />
+          </div>
         </div>
-        <div>
-          <Image src={logo} alt="Blogs" width={200} height={200} />
-        </div>
-      </div>
-      {blog ? (
         <div className="bg-gray-200 shadow-lg rounded-lg border-2 border-black overflow-hidden p-4">
           <h1 className="text-4xl max-md:text-3xl text-center font-bold mb-4">
             {blog.title}
@@ -106,32 +165,30 @@ const BlogDetailPage = () => {
             }}
           ></div>
         </div>
-      ) : (
-        <p>Blog not found</p>
-      )}
 
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
-          onClick={handleCloseZoom}
-        >
-          <div className="relative max-w-4xl w-full h-full flex items-center justify-center">
-            <button
-              onClick={handleCloseZoom}
-              className="absolute top-4 right-4 text-white text-xl font-bold p-2"
-            >
-              ✕
-            </button>
-            <img
-              src={selectedImage}
-              alt="Zoomed"
-              className="max-w-full max-h-full object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
+        {selectedImage && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+            onClick={handleCloseZoom}
+          >
+            <div className="relative max-w-4xl w-full h-full flex items-center justify-center">
+              <button
+                onClick={handleCloseZoom}
+                className="absolute top-4 right-4 text-white text-xl font-bold p-2"
+              >
+                ✕
+              </button>
+              <img
+                src={selectedImage}
+                alt="Zoomed"
+                className="max-w-full max-h-full object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

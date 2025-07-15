@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Head from "next/head";
 import Image from "next/image";
 import loader from "@/public/loader.svg";
 import logo from "@/public/blog_logo.png";
@@ -33,7 +34,52 @@ const BlogsPage = () => {
   if (error) return <p className="text-center">{error}</p>;
 
   return (
-    <div className="container min-h-screen mx-auto mt-12 max-md:mt-12 px-4 py-8">
+    <>
+      <Head>
+        <title>FCCL Blog - Forum for Commercial and Corporate Laws | CTRCR</title>
+        <meta 
+          name="description" 
+          content="Explore the latest insights on corporate law, commercial regulations, and legal research from the Forum for Commercial and Corporate Laws at CTRCR, Mumbai National Law University." 
+        />
+        <meta 
+          name="keywords" 
+          content="corporate law blog, commercial law, legal research, CTRCR, MNLU Mumbai, corporate governance, trade law, regulatory compliance" 
+        />
+        <link rel="canonical" href="https://www.ctrcr.com/fccl" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="FCCL Blog - Forum for Commercial and Corporate Laws | CTRCR" />
+        <meta property="og:description" content="Explore the latest insights on corporate law, commercial regulations, and legal research from the Forum for Commercial and Corporate Laws." />
+        <meta property="og:url" content="https://www.ctrcr.com/fccl" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/blog_logo.png" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="FCCL Blog - Forum for Commercial and Corporate Laws | CTRCR" />
+        <meta name="twitter:description" content="Explore the latest insights on corporate law, commercial regulations, and legal research." />
+        
+        {/* Structured Data for Blog */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              "name": "Forum for Commercial and Corporate Laws",
+              "description": "Legal research and insights on corporate law and commercial regulations",
+              "url": "https://www.ctrcr.com/fccl",
+              "publisher": {
+                "@type": "Organization",
+                "name": "CTRCR - Center for Training and Research in Commercial Regulations",
+                "logo": "https://www.ctrcr.com/ctrcr_logo.png"
+              }
+            })
+          }}
+        />
+      </Head>
+      
+      <div className="container min-h-screen mx-auto mt-12 max-md:mt-12 px-4 py-8">
       <div className="flex justify-between items-center mb-6 max-md:flex-col-reverse ">
         <div className="flex justify-center items-center max-md:text-center">
           <h2 className="text-5xl font-semibold mb-2 tracking-wide w-fit">
@@ -93,7 +139,7 @@ const BlogsPage = () => {
                 </div>
                 <span className="flex items-center gap-1 my-2 cursor-pointer">
                   <a
-                    href={`/fccl/${blog.blogId}`}
+                    href={`/fccl/${blog.slug || blog.blogId}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
@@ -176,6 +222,7 @@ const BlogsPage = () => {
         </a>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,6 +1,8 @@
 import React from "react";
+import Head from "next/head";
 import Image from "next/image";
 import CompetitionPhotos from "@/components/NCCCC/CompetitionPhotos";
+import { generateBreadcrumbSchema, generateEventSchema } from "@/utils/seoHelpers";
 
 const NCCCC = () => {
   const partners = [
@@ -93,7 +95,79 @@ const NCCCC = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 pt-20">
+    <>
+      <Head>
+        <title>MNLU-M National Corporate Client Counselling Competition 2025 | NCCCC - CTRCR</title>
+        <meta 
+          name="description" 
+          content="Join the inaugural MNLU-M National Corporate Client Counselling Competition (NCCCC) 2025. Test your skills in Competition Law, Contract Law, Insolvency Law, Company Law, Securities Law, and Taxation Law. Organized by CTRCR at Maharashtra National Law University Mumbai." 
+        />
+        <meta 
+          name="keywords" 
+          content="NCCCC 2025, National Corporate Client Counselling Competition, MNLU Mumbai, CTRCR, corporate law competition, legal competition, client counselling, competition law, contract law, company law, securities law, taxation law"
+        />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="MNLU-M National Corporate Client Counselling Competition 2025 | NCCCC" />
+        <meta 
+          property="og:description" 
+          content="Inaugural national corporate client counselling competition testing skills in corporate and commercial laws"
+        />
+        <meta property="og:type" content="event" />
+        <meta property="og:url" content="https://www.ctrcr.com/ncccc" />
+        <meta property="og:image" content="https://www.ctrcr.com/ncccc/MNLU-MNCCCC.png" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="NCCCC 2025 - Corporate Client Counselling Competition" />
+        <meta 
+          name="twitter:description" 
+          content="National competition testing corporate law and client counselling skills"
+        />
+        <meta name="twitter:image" content="https://www.ctrcr.com/ncccc/MNLU-MNCCCC.png" />
+        
+        {/* Structured Data */}
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Event",
+              "name": "MNLU-M National Corporate Client Counselling Competition 2025",
+              "description": "National competition in corporate client counselling covering Competition Law, Contract Law, Insolvency Law, Company Law, Securities Law, and Taxation Law",
+              "startDate": "2025-02-21",
+              "endDate": "2025-04-14",
+              "location": {
+                "@type": "Place",
+                "name": "Maharashtra National Law University Mumbai",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Mumbai",
+                  "addressRegion": "Maharashtra",
+                  "addressCountry": "India"
+                }
+              },
+              "organizer": {
+                "@type": "Organization",
+                "name": "CTRCR - Center for Training and Research in Commercial Regulations",
+                "url": "https://www.ctrcr.com"
+              },
+              "url": "https://www.ctrcr.com/ncccc"
+            })
+          }}
+        />
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateBreadcrumbSchema([
+              { name: 'Home', url: 'https://www.ctrcr.com' },
+              { name: 'NCCCC 2025', url: 'https://www.ctrcr.com/ncccc' }
+            ]))
+          }}
+        />
+      </Head>
+      
+      <div className="max-w-6xl mx-auto px-4 py-8 pt-20">
       <div className="text-center mb-12">
         <div className="relative w-64 h-64 mx-auto mb-6">
           <Image
@@ -302,6 +376,7 @@ const NCCCC = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 
