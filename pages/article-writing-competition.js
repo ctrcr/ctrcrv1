@@ -332,11 +332,11 @@ const ArticleWritingCompetition = () => {
 
                 <div className="mb-8">
                     <h2 className="text-2xl font-semibold mb-6 text-center">Organizing Committee</h2>
-                    <div className="flex gap-6 flex-col md:flex-row justify-center">
+                    <div className="flex gap-6 flex-col md:flex-row justify-center items-center">
                         {committee.map((member, index) => (
                             <div
                                 key={index}
-                                className="w-80 p-6 border rounded-lg text-center bg-white shadow-sm"
+                                className="w-full max-w-sm p-6 border rounded-lg text-center bg-white shadow-sm"
                             >
                                 <h3 className="font-semibold text-lg">{member.name}</h3>
                                 <p className="text-gray-600 mb-2">{member.role}</p>
