@@ -3,6 +3,7 @@ import Head from "next/head"
 import Image from "next/image"
 import linkedin from "@/public/linkedin_logo.png";
 import instagram from "@/public/instagram-logo.png";
+import Partners from "@/components/Partners";
 
 const ArticleWritingCompetition = () => {
     const committee = [
@@ -134,6 +135,8 @@ const ArticleWritingCompetition = () => {
                     </p>
                 </div>
 
+                <Partners />
+
                 <div className="mb-12">
                     <h2 className="text-2xl font-semibold mb-6 text-center">Competition Document</h2>
                     <div className="flex justify-center">
@@ -168,7 +171,7 @@ const ArticleWritingCompetition = () => {
                                 undergraduate law degrees from any recognised university/college in India
                             </p>
                             <p className="text-lg">
-                                <span className="font-semibold">Last Date of Registration:</span> 20th July 2025
+                                <span className="font-semibold">Last Date of Registration:</span> 25th July 2025 (Extended)
                             </p>
                             <div className="flex flex-col md:flex-row md:items-start">
                                 <span className="font-semibold md:w-48">Registration Fees:</span>

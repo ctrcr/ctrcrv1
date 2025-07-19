@@ -82,7 +82,7 @@ export default function Document() {
 				/>
 				<meta
 					property="og:image"
-					content="/ctrcr_logo.png"
+					content="https://www.ctrcr.com/ctrcr_logo.png"
 				/>
 				<meta
 					property="og:description"
@@ -98,15 +98,15 @@ export default function Document() {
 				{/* Favicon */}
 				<link
 					rel="shortcut icon"
-					href="/ctrcr_logo.png"
+					href="https://www.ctrcr.com/ctrcr_logo.png"
 				/>
 				<link
 					rel="icon"
-					href="/ctrcr_logo.png"
+					href="https://www.ctrcr.com/ctrcr_logo.png"
 				/>
 				<link
 					rel="apple-touch-icon"
-					href="/ctrcr_logo.png"
+					href="https://www.ctrcr.com/ctrcr_logo.png"
 				/>
 
 				{/* Google Fonts */}
@@ -140,7 +140,7 @@ export default function Document() {
 							'name': 'Mumbai National Law University',
 							'alternateName': 'MNLU Mumbai',
 							'url': 'https://www.mnlumumbai.edu.in/',
-							'logo': '/mnlu_logo.png',
+							'logo': 'https://www.ctrcr.com/mnlu_logo.png',
 							'sameAs': [
 								'https://www.facebook.com/mnlumumbai',
 								'https://twitter.com/mnlumumbai',
@@ -152,7 +152,7 @@ export default function Document() {
 								'alternateName': 'CTRCR',
 								'url': 'https://www.ctrcr.com/',
 								'email': 'mailto:ctrcr@mnlumumbai.edu.in',
-								'logo': '/ctrcr_logo.png',
+								'logo': 'https://www.ctrcr.com/ctrcr_logo.png',
 							},
 						}),
 					}}></script>
