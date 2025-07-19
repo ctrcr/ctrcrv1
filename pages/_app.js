@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }) {
         <meta property="og:url" content="https://ctrcr.com" />
         <link rel="canonical" href="https://ctrcr.com" />
 
-        <meta property="image" content="../public/ctrcr_logo.png" />
+        <meta property="image" content="https://www.ctrcr.com/ctrcr_logo.png" />
 
         <meta
           property="og:site_name"
@@ -50,7 +50,7 @@ export default function App({ Component, pageProps }) {
           content="Center for Training and Research in Commercial Regulations, Maharashtra National Law University, Mumbai"
         />
         <meta property="og:url" content="https://ctrcr.com" />
-        <meta property="og:image" content="/public/ctrcr_logo.png" />
+        <meta property="og:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
         <meta property="og:type" content="website" />
         <meta property="og:see_also" content="https://ctrcr.com" />
 

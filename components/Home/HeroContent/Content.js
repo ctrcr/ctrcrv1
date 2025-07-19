@@ -12,7 +12,7 @@ const Content = () => {
           <Image src={ctrcr} alt="CTRCR" width={70} />
         </div>
         <h1 className="lg:text-5xl md:text-4xl max-md:text-center text-3xl font-serif font-bold">
-          Welcome to the Center for Training and Research in Commercial
+          Welcome to the Centre for Training and Research in Commercial
           Regulations
         </h1>
         <h1 className="lg:text-5xl md:text-4xl text-3xl font-serif font-bold"></h1>
