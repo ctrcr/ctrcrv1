@@ -4,6 +4,11 @@ import Image from "next/image";
 const Partners = () => {
   const partners = [
     {
+      name: "Luthra and Luthra",
+      type: "Title Partner",
+      logo: "/article-competition/luthra.png",
+    },
+    {
       name: "Shardul Amarchand Mangaldas",
       type: "Law Firm Partner",
       logo: "/article-competition/sam.jpg",
@@ -22,6 +27,11 @@ const Partners = () => {
       name: "SCC Online",
       type: "Media Partner",
       logo: "/article-competition/scc.jpg",
+    },
+    {
+      name: "HSA Advocates",
+      type: "Partner",
+      logo: "/article-competition/HSA.png",
     }
   ];
 
