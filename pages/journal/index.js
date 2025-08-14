@@ -176,7 +176,7 @@ const JournalPage = () => {
 							<a
 								href="https://docs.google.com/forms/d/e/1FAIpQLSefZqpe5oHrcXdvPtPSMQrT-3Bikgw9WKOiIWq0DoUOQ_lwmg/viewform?pli=1"
 								className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-600 hover:text-white transition duration-300">
-								SUBMIT
+								SUBMIT YOUR PAPER
 							</a>
 						</button>
 					</div>
