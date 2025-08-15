@@ -291,7 +291,20 @@ const AboutPage = () => {
           <hr className="w-16 h-1 bg-black " />
         </div>
       </h2>
-      <motion.div
+      
+      <div className="flex items-center justify-center min-h-[400px]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center"
+        >
+          <h3 className="text-6xl font-bold text-gray-300 mb-4">Coming Soon</h3>
+          <p className="text-xl text-gray-500">Editorial board information will be available shortly.</p>
+        </motion.div>
+      </div>
+
+      {/* <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -327,7 +340,7 @@ const AboutPage = () => {
             <MemberCard key={index} {...member} />
           ))}
         </div>
-      </motion.div>
+      </motion.div> */}
     </div>
     </>
   );
