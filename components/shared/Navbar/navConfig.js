@@ -36,8 +36,18 @@ export const navItems = [
     },
     {
         name: "Article Writing Competition",
-        href: "/article-writing-competition",
-        dropdown: false
+        href: "/article-writing-competition-edition2",
+        dropdown: true,
+        dropdownItems: [
+            {
+                name: "Edition 1",
+                href: "/article-writing-competition-edition1"
+            },
+            {
+                name: "Edition 2",
+                href: "/article-writing-competition-edition2"
+            }
+        ]
     },
     {
         name: "Books",

@@ -3,8 +3,10 @@ import React from "react";
 const GuideLines = () => {
   const submissionGuidelinesURL =
     "https://ik.imagekit.io/ctrcr/PDF/Submission%20Guidelines%20-%20clcr%20vol%201%20issue%202%20.pdf?updatedAt=1712670524099";
+  // const styleGuideURL =
+  //   "https://ik.imagekit.io/ctrcr/PDF/style%20guide.pdf?updatedAt=1712670864523";
   const styleGuideURL =
-    "https://ik.imagekit.io/ctrcr/PDF/style%20guide.pdf?updatedAt=1712670864523";
+    "/journal/CLCR Style Guide.pdf";
 
   return (
     <div className="flex max-md:flex-col max-md:gap-4 my-16 max-sm:mt-12 ">
