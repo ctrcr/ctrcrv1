@@ -147,7 +147,7 @@ const ArticleWritingCompetition = () => {
                         >
                             <div className="relative w-32 h-32 mx-auto mb-4">
                                 <Image
-                                    src="/blog_logo.png"
+                                    src="/article-competition/2nd edition.png"
                                     alt="Competition Brochure"
                                     fill
                                     className="object-contain rounded-xl"
