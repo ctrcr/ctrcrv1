@@ -167,7 +167,7 @@ const JournalPage = () => {
 						</h2>
 
 						<p className="text-lg lg:text-xl mb-6">
-							Volume I, Issue II is out now! Share your research
+							Volume III, Issue I is out now! Share your research
 							and insights with our global audience. Let your
 							voice be heard.
 						</p>
