@@ -16,6 +16,12 @@ const image2 =
 const title2 = "VOLUME I ISSUE II";
 const link2 =
   "https://ik.imagekit.io/ctrcr/PDF/Vol%201%20Issue%20II%20Updated.pdf?updatedAt=1718186589867";
+
+const image3 =
+  "/journal/vol2ISs1.png";
+const title3 = "VOLUME II ISSUE I";
+const link3 =
+  "/journal/Vol 2. Issue 1 Dec 2024.pdf";
 const Hero = () => {
   return (
     <>
@@ -73,6 +79,10 @@ const Hero = () => {
             </h2>
           </div>
           <div className="flex max-md:flex-col w-[80%] items-center justify-evenly max-md:gap-24 mx-auto">
+            <div className=" ">
+              {" "}
+              <Card image={image3} title={title3} regLink={link3} />
+            </div>
             <div className=" ">
               {" "}
               <Card image={image} title={title} regLink={link} />
