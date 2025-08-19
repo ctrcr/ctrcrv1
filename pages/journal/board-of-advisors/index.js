@@ -44,7 +44,7 @@ export default function BoardAdvisors() {
 				},
 				{
 					name: 'Sahil Kanuga',
-					role: 'Partner, NDA',
+					role: 'Partner, CAM',
 					img: 'https://res.cloudinary.com/daagkkrlr/image/upload/v1732284644/Sahil_Kanuga_sklmat.jpg',
 				},
 				{
