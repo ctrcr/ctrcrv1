@@ -33,7 +33,7 @@ export default function BoardAdvisors() {
 					img: 'https://res.cloudinary.com/daagkkrlr/image/upload/v1732284516/Sandeep_Parekh_zviyaz.jpg',
 				},
 				{
-					name: 'Nitin Podar',
+					name: 'Nitin Potdar',
 					role: 'Partner, JSA',
 					img: 'https://res.cloudinary.com/daagkkrlr/image/upload/v1732284575/Nitin_Podar_jzzods.jpg',
 				},
@@ -49,7 +49,7 @@ export default function BoardAdvisors() {
 				},
 				{
 					name: 'Piyush Mishra',
-					role: 'Partner, Luthra & Lutha',
+					role: 'Partner, Phoenix Legal',
 					img: 'https://res.cloudinary.com/daagkkrlr/image/upload/v1732284688/Piyush_Mishra_a0p0lq.jpg',
 				},
 			],
