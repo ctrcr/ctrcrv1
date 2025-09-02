@@ -22,6 +22,12 @@ const image3 =
 const title3 = "VOLUME II ISSUE I";
 const link3 =
   "/journal/Vol 2. Issue 1 Dec 2024.pdf";
+
+const image4 =
+  "/journal/vol2ISs2.png";
+const title4 = "VOLUME II ISSUE II";
+const link4 =
+  "/journal/Vol 2. Issue 2.pdf";
 const Hero = () => {
   return (
     <>
@@ -81,11 +87,11 @@ const Hero = () => {
           <div className="flex max-md:flex-col w-[80%] items-center justify-evenly max-md:gap-24 mx-auto">
             <div className=" ">
               {" "}
-              <Card image={image3} title={title3} regLink={link3} />
+              <Card image={image4} title={title4} regLink={link4} />
             </div>
             <div className=" ">
               {" "}
-              <Card image={image} title={title} regLink={link} />
+              <Card image={image3} title={title3} regLink={link3} />
             </div>
             <div className="">
               {" "}
