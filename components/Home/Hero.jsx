@@ -126,9 +126,7 @@ const Hero = () => {
                   width="400"
                   height="500"
                   style={{ border: "0" }}
-                  allowfullscreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
             </div>
