@@ -27,7 +27,7 @@ const image4 =
   "/journal/vol2ISs2.png";
 const title4 = "VOLUME II ISSUE II";
 const link4 =
-  "/journal/Vol 2. Issue 2.pdf";
+  "/journal/Vol 2 Issue 2.pdf";
 const Hero = () => {
   return (
     <>
