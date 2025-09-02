@@ -233,7 +233,19 @@ const JournalPage = () => {
 								</h2>
 
 								<a
-									href="/journal/Vol 2. Issue 1 Dec 2024.pdf"
+									href="/journal/Vol 2. Issue 2.pdf"
+									target="_blank"
+									className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-600 hover:text-white transition duration-300">
+									DOWNLOAD NOW
+								</a>
+							</div>
+							<div className="rounded-md w-[80%] max-md:w-[100%] shadow-md bg-gradient-to-r bg-black text-white p-8 flex flex-col items-center justify-center">
+								<h2 className="text-2xl lg:text-4xl font-semibold mb-12">
+									VOLUME II, ISSUE II
+								</h2>
+
+								<a
+									href="/journal/Vol 2. Issue 2.pdf"
 									target="_blank"
 									className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-600 hover:text-white transition duration-300">
 									DOWNLOAD NOW
