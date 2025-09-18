@@ -20,7 +20,7 @@ const ArticleWritingCompetition = () => {
         {
             name: "Touchstone Partners",
             type: "Partner",
-            logo: "https://touchstonepartners.com/wp-content/uploads/2020/09/touchstone-logo-retine.png",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Touchstone_Partners_Logo.jpg",
         },
         {
             name: "Axiom5",
