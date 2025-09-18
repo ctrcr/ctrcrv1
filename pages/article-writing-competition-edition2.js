@@ -6,6 +6,28 @@ import instagram from "@/public/instagram-logo.png";
 import Partners from "@/components/Partners";
 
 const ArticleWritingCompetition = () => {
+    const partners = [
+        {
+            name: "Trilegal",
+            type: "Partner",
+            logo: "https://upload.wikimedia.org/wikipedia/en/e/ee/Trilegal_Logo.png",
+        },
+        {
+            name: "LKS",
+            type: "Title Partner",
+            logo: "https://www.lakshmisri.com/media/qbdduizb/lks-new-logo-191.png",
+        },
+        {
+            name: "Touchstone Partners",
+            type: "Partner",
+            logo: "https://touchstonepartners.com/wp-content/uploads/2020/09/touchstone-logo-retine.png",
+        },
+        {
+            name: "Axiom5",
+            type: "Assessment Partner",
+            logo: "https://axiom5.in/wp-content/uploads/2022/11/Logo.svg",
+        },
+    ];
     const committee = [
         {
             name: "Veeha Gupta",
@@ -135,7 +157,30 @@ const ArticleWritingCompetition = () => {
                     </p>
                 </div>
 
-                {/* <Partners /> */}
+                <div className="mb-12">
+                    <h2 className="text-3xl font-bold mb-6 text-center">Our Partners</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+                        {partners.map((partner, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col shadow-md items-center transition-transform duration-300 hover:scale-105 rounded-lg overflow-hidden"
+                            >
+                                <div className="relative h-44 w-44 md:h-64 md:w-64 lg:h-64 lg:w-64 mb-2 mx-auto rounded-xl">
+                                    <Image
+                                        src={partner.logo}
+                                        alt={`${partner.name} logo`}
+                                        fill
+                                        className="object-contain w-full rounded-lg"
+                                    />
+                                </div>
+                                <h3 className="text-center font-semibold text-lg">
+                                    {partner.name}
+                                </h3>
+                                <p className="text-gray-600 text-center">{partner.type}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
                 <div className="mb-12">
                     <h2 className="text-2xl font-semibold mb-6 text-center">Competition Document</h2>
@@ -170,7 +215,7 @@ const ArticleWritingCompetition = () => {
                                 enrolled in 3-year or 5-year LL.B. programmes from recognised institutions in India
                             </p>
                             <p className="text-lg">
-                                <span className="font-semibold">Last Date of Registration:</span> 20th September 2025
+                                <span className="font-semibold">Last Date of Registration:</span> 25th September 2025
                             </p>
                             <div className="flex flex-col md:flex-row md:items-start">
                                 <span className="font-semibold md:w-48">Registration Fees:</span>
@@ -192,7 +237,10 @@ const ArticleWritingCompetition = () => {
                                 <span className="font-semibold">Date:</span> 4th October 2025
                             </p>
                             <p className="text-lg">
-                                <span className="font-semibold">Last Date of Registration:</span> 20th September 2025
+                                <span className="font-semibold">Mode:</span> Online
+                            </p>
+                            <p className="text-lg">
+                                <span className="font-semibold">Last Date of Registration:</span> 25th September 2025
                             </p>
                             <p className="text-lg">
                                 <span className="font-semibold">Registration Fee:</span> INR 200 (Free for competition participants)
