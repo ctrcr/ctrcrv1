@@ -24,17 +24,22 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white p-4">
       <div className="w-[60%] max-md:w-[90%] mx-auto flex max-md:flex-col max-md:gap-6 mb-8 justify-between items-center">
-        <div className="max-md:hidden flex flex-col my-2 justify-center gap-2 items-center">
+        <div className="max-md:hidden flex flex-col my-2 justify-center gap-4 items-center">
           <div className="text-2xl">Navigate</div>
 
-          <a href="/">HOME</a>
-          <a href="/fccl">FCCL</a>
-          <a href="/team">TEAM</a>
-          <a href="/events">EVENTS</a>
-          <a href="/ncccc">NCCCC</a>
-          <a href="/article-writing-competition"> ARTICLE WRITING COMPETITION</a>
-          <a href="/books">BOOKS</a>
-          <a href="/journal">JOURNAL</a>
+          <div className="grid grid-cols-3 gap-x-8 gap-y-2 text-center">
+            <a href="/" className="hover:text-gray-300 transition-colors">HOME</a>
+            <a href="/fccl" className="hover:text-gray-300 transition-colors">FCCL</a>
+            <a href="/team" className="hover:text-gray-300 transition-colors">TEAM</a>
+
+            <a href="/events" className="hover:text-gray-300 transition-colors">EVENTS</a>
+            <a href="/ncccc" className="hover:text-gray-300 transition-colors">NCCCC</a>
+            <a href="/ncddc" className="hover:text-gray-300 transition-colors">NCDDC</a>
+
+            <a href="/article-writing-competition" className="hover:text-gray-300 transition-colors">ARTICLE WRITING</a>
+            <a href="/books" className="hover:text-gray-300 transition-colors">BOOKS</a>
+            <a href="/journal" className="hover:text-gray-300 transition-colors">JOURNAL</a>
+          </div>
         </div>
         <div className="flex-col items-center justify-center max-md:text-center">
           <div className="text-2xl ">Contact</div>
