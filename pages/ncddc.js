@@ -266,9 +266,20 @@ const NCDDC = () => {
                         <p className="text-xl">
                             Join the inaugural National Corporate Due Diligence Competition and showcase your legal expertise!
                         </p>
-                        <p className="text-lg opacity-90">
+                        <p className="text-lg opacity-90 mb-6">
                             Registrations are now open until 20th October 2025
                         </p>
+                        <a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSeFhMkDFvgkASwG4QTth4FK6uwdOC9wThitxuEhyBJoMEjYIQ/viewform?usp=header"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-8 py-4 bg-white text-[#0F111F] font-bold text-lg rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+                        >
+                            <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                            Register Here
+                        </a>
                     </div>
 
                 </div>
