@@ -6,14 +6,14 @@ import { generateBreadcrumbSchema, generateEventSchema } from "@/utils/seoHelper
 const NCDDC = () => {
     const partners = [
         {
-            name: "Ashlar Law",
-            type: "Partner",
-            logo: "/DD/Ashlar-Law.jpg",
-        },
-        {
             name: "SAM",
             type: "Assessment and Internship Partner",
             logo: "/DD/sam.jpg",
+        },
+        {
+            name: "Ashlar Law",
+            type: "Partner",
+            logo: "/DD/Ashlar-Law.jpg",
         },
         {
             name: "Hammurabi Solomon Partners",
