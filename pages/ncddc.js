@@ -19,6 +19,16 @@ const NCDDC = () => {
             name: "LKS",
             type: "Advisory Partner",
             logo: "/DD/24798.jpg",
+        },
+        {
+            name: "SCC",
+            type: "Knowledge Partner",
+            logo: "/DD/scc.png",
+        },
+        {
+            name: "SAM",
+            type: "Assessment and Internship Partner",
+            logo: "/DD/sam.jpg",
         }
     ];
     const timelineItems = [
