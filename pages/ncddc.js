@@ -11,6 +11,11 @@ const NCDDC = () => {
             logo: "/DD/Ashlar-Law.jpg",
         },
         {
+            name: "SAM",
+            type: "Assessment and Internship Partner",
+            logo: "/DD/sam.jpg",
+        },
+        {
             name: "Hammurabi Solomon Partners",
             type: "Advisory Partner",
             logo: "/DD/Hammurabi-Solomon-Partners.jpg",
@@ -24,11 +29,6 @@ const NCDDC = () => {
             name: "SCC",
             type: "Knowledge Partner",
             logo: "/DD/scc.png",
-        },
-        {
-            name: "SAM",
-            type: "Assessment and Internship Partner",
-            logo: "/DD/sam.jpg",
         }
     ];
     const timelineItems = [
@@ -38,13 +38,13 @@ const NCDDC = () => {
             status: "active"
         },
         {
-            title: "Registrations Close",
-            date: "20th October 2025",
-            status: "upcoming"
+            title: "Registrations Close (Extended)",
+            date: "22nd October 2025",
+            status: "extended"
         },
         {
             title: "Announcement of Selected Teams",
-            date: "22nd October 2025",
+            date: "25th October 2025",
             status: "upcoming"
         },
         {
@@ -127,7 +127,7 @@ const NCDDC = () => {
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify(generateBreadcrumbSchema([
                             { name: 'Home', url: 'ctrcr.mnlumumbai.edu.in' },
-                            { name: 'NCDDC', url: 'https://www.ctrcr.com/ncddc' }
+                            { name: 'NCDDC', url: 'https://ctrcr.mnlumumbai.edu.in/ncddc' }
                         ]))
                     }}
                 />
@@ -319,7 +319,7 @@ const NCDDC = () => {
                             Join the inaugural National Corporate Due Diligence Competition and showcase your legal expertise!
                         </p>
                         <p className="text-lg opacity-90 mb-6">
-                            Registrations are now open until 20th October 2025
+                            Registrations are now open until 22th October 2025 (extended)
                         </p>
                         <a
                             href="https://docs.google.com/forms/d/e/1FAIpQLSeFhMkDFvgkASwG4QTth4FK6uwdOC9wThitxuEhyBJoMEjYIQ/viewform?usp=header"
