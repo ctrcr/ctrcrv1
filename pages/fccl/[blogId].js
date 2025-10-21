@@ -14,6 +14,11 @@ const BlogDetailPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [voices, setVoices] = useState([]);
+  const [selectedVoice, setSelectedVoice] = useState(null);
+  const [showVoiceSelector, setShowVoiceSelector] = useState(false);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -42,6 +47,41 @@ const BlogDetailPage = () => {
     return () => document.body.classList.remove("overflow-hidden");
   }, [selectedImage]);
 
+  // Load available voices
+  useEffect(() => {
+    const loadVoices = () => {
+      const availableVoices = window.speechSynthesis.getVoices();
+      // Filter for English voices only
+      const englishVoices = availableVoices.filter(voice =>
+        voice.lang.startsWith('en')
+      );
+      setVoices(englishVoices);
+
+      // Auto-select a high-quality voice if none selected
+      if (!selectedVoice && englishVoices.length > 0) {
+        const premiumVoice = englishVoices.find(voice =>
+          voice.name.includes('Google') ||
+          voice.name.includes('Natural') ||
+          voice.name.includes('Premium') ||
+          voice.name.includes('Enhanced') ||
+          voice.name.includes('Samantha') ||
+          voice.name.includes('Daniel') ||
+          voice.name.includes('Karen') ||
+          voice.name.includes('Microsoft Zira') ||
+          voice.name.includes('Microsoft David')
+        );
+        setSelectedVoice(premiumVoice || englishVoices[0]);
+      }
+    };
+
+    loadVoices();
+
+    // Some browsers load voices asynchronously
+    if (window.speechSynthesis.onvoiceschanged !== undefined) {
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+  }, []);
+
   const handleImageClick = (src) => {
     setSelectedImage(src);
   };
@@ -49,6 +89,86 @@ const BlogDetailPage = () => {
   const handleCloseZoom = () => {
     setSelectedImage(null);
   };
+
+  // Text-to-Speech functionality
+  const stripHtmlTags = (html) => {
+    const tmp = document.createElement("DIV");
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || "";
+  };
+
+  const handleTextToSpeech = () => {
+    if (!blog) return;
+    // Check if browser supports Speech Synthesis
+    if (!('speechSynthesis' in window)) {
+      alert('Sorry, your browser does not support text-to-speech.');
+      return;
+    }
+
+    const synthesis = window.speechSynthesis;
+
+    if (isSpeaking && !isPaused) {
+      // Pause speech
+      synthesis.pause();
+      setIsPaused(true);
+    } else if (isSpeaking && isPaused) {
+      // Resume speech
+      synthesis.resume();
+      setIsPaused(false);
+    } else {
+      // Start new speech
+      // Extract text from HTML content
+      const textContent = stripHtmlTags(blog.content);
+      const fullText = `${blog.title}. By ${blog.author}. ${textContent}`;
+
+      const utterance = new SpeechSynthesisUtterance(fullText);
+
+      // Configure speech settings for more natural sound
+      utterance.rate = 1.2; // Slightly slower for better clarity
+      utterance.pitch = 1.0; // Natural pitch
+      utterance.volume = 1.0; // Full volume
+
+      // Use the selected voice
+      if (selectedVoice) {
+        utterance.voice = selectedVoice;
+      }
+
+      utterance.onstart = () => {
+        setIsSpeaking(true);
+        setIsPaused(false);
+      };
+
+      utterance.onend = () => {
+        setIsSpeaking(false);
+        setIsPaused(false);
+      };
+
+      utterance.onerror = (event) => {
+        console.error('Speech error:', event);
+        setIsSpeaking(false);
+        setIsPaused(false);
+      };
+
+      synthesis.speak(utterance);
+    }
+  };
+
+  const handleStopSpeech = () => {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    setIsSpeaking(false);
+    setIsPaused(false);
+  };
+
+  // Cleanup speech on component unmount
+  useEffect(() => {
+    return () => {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
 
   if (loading)
     return (
@@ -78,7 +198,7 @@ const BlogDetailPage = () => {
         <meta name="keywords" content={blog.keywords?.join(', ') || 'corporate law, commercial law, legal research'} />
         <meta name="author" content={blog.author} />
         <link rel="canonical" href={pageUrl} />
-        
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content={pageUrl} />
@@ -86,14 +206,14 @@ const BlogDetailPage = () => {
         <meta property="og:description" content={pageDescription} />
         <meta property="og:image" content={blog.featuredImage || blog.image} />
         <meta property="og:site_name" content="CTRCR - Center for Training and Research in Commercial Regulations" />
-        
+
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={pageUrl} />
         <meta property="twitter:title" content={pageTitle} />
         <meta property="twitter:description" content={pageDescription} />
         <meta property="twitter:image" content={blog.featuredImage || blog.image} />
-        
+
         {/* Article specific meta tags */}
         <meta property="article:published_time" content={new Date(blog.date).toISOString()} />
         <meta property="article:author" content={blog.author} />
@@ -101,7 +221,7 @@ const BlogDetailPage = () => {
         {blog.keywords?.map(keyword => (
           <meta key={keyword} property="article:tag" content={keyword} />
         ))}
-        
+
         {/* Structured Data */}
         <script
           type="application/ld+json"
@@ -155,6 +275,87 @@ const BlogDetailPage = () => {
             By: {blog.author}
           </p>
           <hr className="h-1 mb-2 bg-black" />
+
+          {/* Text-to-Speech Controls */}
+          <div className="flex justify-end items-center gap-2 my-4 flex-wrap">
+            {/* Voice Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setShowVoiceSelector(!showVoiceSelector)}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300 rounded-md text-sm font-medium transition-all"
+                title="Select voice"
+              >
+                <span className="text-base">🎤</span>
+                <span className="max-w-[150px] truncate">
+                  {selectedVoice ? selectedVoice.name : 'Select Voice'}
+                </span>
+                <span className="text-xs">▼</span>
+              </button>
+
+              {showVoiceSelector && (
+                <div className="absolute right-0 mt-1 w-64 max-h-60 overflow-y-auto bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                  {voices.length === 0 ? (
+                    <div className="px-3 py-2 text-sm text-gray-500">Loading voices...</div>
+                  ) : (
+                    voices.map((voice, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setSelectedVoice(voice);
+                          setShowVoiceSelector(false);
+                        }}
+                        className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 transition-colors ${selectedVoice?.name === voice.name ? 'bg-gray-200 font-semibold' : ''
+                          }`}
+                      >
+                        <div className="font-medium">{voice.name}</div>
+                        <div className="text-xs text-gray-500">
+                          {voice.lang} {voice.localService ? '(Local)' : '(Online)'}
+                        </div>
+                      </button>
+                    ))
+                  )}
+                </div>
+              )}
+            </div>
+
+            <button
+              onClick={handleTextToSpeech}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${isSpeaking && !isPaused
+                ? 'bg-gray-300 hover:bg-gray-400 text-gray-800'
+                : 'bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300'
+                }`}
+              title={isSpeaking && !isPaused ? 'Pause reading' : isPaused ? 'Resume reading' : 'Listen to article'}
+            >
+              {isSpeaking && !isPaused ? (
+                <>
+                  <span className="text-base">⏸</span>
+                  <span>Pause</span>
+                </>
+              ) : isPaused ? (
+                <>
+                  <span className="text-base">▶️</span>
+                  <span>Resume</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-base">🔊</span>
+                  <span>Listen</span>
+                </>
+              )}
+            </button>
+
+            {isSpeaking && (
+              <button
+                onClick={handleStopSpeech}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300 rounded-md text-sm font-medium transition-all"
+                title="Stop reading"
+              >
+                <span className="text-base">⏹</span>
+                <span>Stop</span>
+              </button>
+            )}
+          </div>
+
           <div
             dangerouslySetInnerHTML={{ __html: blog.content }}
             className="prose max-w-full mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:h-auto"
