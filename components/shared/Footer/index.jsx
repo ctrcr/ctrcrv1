@@ -36,7 +36,6 @@ const Footer = () => {
             <a href="/ncccc" className="hover:text-gray-300 transition-colors">NCCCC</a>
             <a href="/ncddc" className="hover:text-gray-300 transition-colors">NCDDC</a>
 
-            <a href="/article-writing-competition" className="hover:text-gray-300 transition-colors">ARTICLE WRITING</a>
             <a href="/books" className="hover:text-gray-300 transition-colors">BOOKS</a>
             <a href="/journal" className="hover:text-gray-300 transition-colors">JOURNAL</a>
           </div>
