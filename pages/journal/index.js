@@ -154,10 +154,20 @@ const JournalPage = () => {
 							the understanding of commercial and corporate laws.
 						</p>
 
-						<p className="text-sm lg:text-xl">
+						<p className="text-sm lg:text-xl mb-6">
 							Join us in our mission to promote knowledge and
 							innovation in the field. Submit your work and become
 							part of our vibrant community.
+						</p>
+
+						<p className="text-sm lg:text-xl">
+							For inquiries, contact us at:{" "}
+							<a
+								href="mailto:journalclcr@mnlumumbai.edu.in"
+								className="text-blue-600 hover:underline"
+							>
+								journalclcr@mnlumumbai.edu.in
+							</a>
 						</p>
 					</div>
 
