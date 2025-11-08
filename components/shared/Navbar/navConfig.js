@@ -39,45 +39,45 @@ export const navItems = [
         href: "/ncddc",
         dropdown: false
     },
-    {
-        name: "Article Writing Competition",
-        href: "/article-writing-competition-edition2",
-        dropdown: true,
-        dropdownItems: [
-            {
-                name: "Edition 1",
-                href: "/article-writing-competition-edition1"
-            },
-            {
-                name: "Edition 2",
-                href: "/article-writing-competition-edition2"
-            }
-        ]
-    },
+    // {
+    //     name: "Article Writing Competition",
+    //     href: "/article-writing-competition-edition2",
+    //     dropdown: true,
+    //     dropdownItems: [
+    //         {
+    //             name: "Edition 1",
+    //             href: "/article-writing-competition-edition1"
+    //         },
+    //         {
+    //             name: "Edition 2",
+    //             href: "/article-writing-competition-edition2"
+    //         }
+    //     ]
+    // },
     {
         name: "Books",
         href: "/books",
         dropdown: false,
     },
-    {
-        name: "Journal",
-        href: "/journal",
-        dropdown: true,
-        dropdownItems: [
-            {
-                name: "Journal",
-                href: "/journal"
-            },
-            {
-                name: "Editorial Board",
-                href: "/journal/editorial-board"
-            },
-            {
-                name: "Board of Advisors",
-                href: "/journal/board-of-advisors"
-            }
-        ]
-    }
+    // {
+    //     name: "Journal",
+    //     href: "/journal",
+    //     dropdown: true,
+    //     dropdownItems: [
+    //         {
+    //             name: "Journal",
+    //             href: "/journal"
+    //         },
+    //         {
+    //             name: "Editorial Board",
+    //             href: "/journal/editorial-board"
+    //         },
+    //         {
+    //             name: "Board of Advisors",
+    //             href: "/journal/board-of-advisors"
+    //         }
+    //     ]
+    // }
 ];
 
 export const externalLinks = [
