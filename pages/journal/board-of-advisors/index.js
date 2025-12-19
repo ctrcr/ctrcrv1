@@ -36,37 +36,37 @@ export default function BoardAdvisors() {
 				{
 					name: 'Prof. Anurag Agarwal',
 					role: 'Faculty, Indian Institute of Management, Ahmedabad',
-					img: 'https://via.placeholder.com/300x400?text=Prof.+Anurag+Agarwal', // Placeholder - needs actual image
+					img: 'https://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg', // Placeholder - needs actual image
 				},
 				{
 					name: 'Kosha Thaker',
 					role: 'Partner, Trilegal',
-					img: 'https://via.placeholder.com/300x400?text=Kosha+Thaker', // Placeholder - needs actual image
+					img: 'https://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg', // Placeholder - needs actual image
 				},
 				{
 					name: 'Avaantika Kakker',
 					role: 'Partner, Cyril Amarchand Mangaldas',
-					img: 'https://via.placeholder.com/300x400?text=Avaantika+Kakker', // Placeholder - needs actual image
+					img: 'https://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg', // Placeholder - needs actual image
 				},
 				{
 					name: 'Vandana Pai',
 					role: 'Partner, Bharucha & Partners',
-					img: 'https://via.placeholder.com/300x400?text=Vandana+Pai', // Placeholder - needs actual image
+					img: 'https://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg', // Placeholder - needs actual image
 				},
 				{
 					name: 'Biplab Lenin',
 					role: 'Partner, Cyril Amarchand Mangaldas',
-					img: 'https://via.placeholder.com/300x400?text=Biplab+Lenin', // Placeholder - needs actual image
+					img: 'https://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg', // Placeholder - needs actual image
 				},
 				{
 					name: 'Dr. Milind Antani',
 					role: 'Partner, Nishith Desai Associates',
-					img: 'https://via.placeholder.com/300x400?text=Dr.+Milind+Antani', // Placeholder - needs actual image
+					img: 'https://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg', // Placeholder - needs actual image
 				},
 				{
 					name: 'Satyam Sharma',
 					role: '',
-					img: 'https://via.placeholder.com/300x400?text=Satyam+Sharma', // Placeholder - needs actual image
+					img: 'https://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg', // Placeholder - needs actual image
 				},
 			],
 		},
