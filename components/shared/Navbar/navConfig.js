@@ -59,25 +59,25 @@ export const navItems = [
         href: "/books",
         dropdown: false,
     },
-    // {
-    //     name: "Journal",
-    //     href: "/journal",
-    //     dropdown: true,
-    //     dropdownItems: [
-    //         {
-    //             name: "Journal",
-    //             href: "/journal"
-    //         },
-    //         {
-    //             name: "Editorial Board",
-    //             href: "/journal/editorial-board"
-    //         },
-    //         {
-    //             name: "Board of Advisors",
-    //             href: "/journal/board-of-advisors"
-    //         }
-    //     ]
-    // }
+    {
+        name: "Journal",
+        href: "/journal",
+        dropdown: true,
+        dropdownItems: [
+            {
+                name: "Journal",
+                href: "/journal"
+            },
+            {
+                name: "Editorial Board",
+                href: "/journal/editorial-board"
+            },
+            {
+                name: "Board of Advisors",
+                href: "/journal/board-of-advisors"
+            }
+        ]
+    }
 ];
 
 export const externalLinks = [
