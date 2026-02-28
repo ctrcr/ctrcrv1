@@ -5,29 +5,11 @@ import ContactForm from "./Form/ContactForm";
 import Content from "./HeroContent/Content";
 import Card from "../Home/Archives/Card";
 
-const image =
-  "https://ik.imagekit.io/ctrcr/Images/Issue_1_cover%20.png?updatedAt=1713427902926";
-const title = "VOLUME I ISSUE I";
-const link =
-  "https://ik.imagekit.io/ctrcr/PDF/Volume%201%20Issue%201.pdf?updatedAt=1712685237604";
+import { journalIssues } from "@/data/journalData";
 
-const image2 =
-  "https://ik.imagekit.io/ctrcr/Images/issue_2_cover.png?updatedAt=1713427903966";
-const title2 = "VOLUME I ISSUE II";
-const link2 =
-  "https://ik.imagekit.io/ctrcr/PDF/Vol%201%20Issue%20II%20Updated.pdf?updatedAt=1718186589867";
+// Show the 3 most-recent issues in the Archives section
+const recentIssues = journalIssues.slice(0, 3);
 
-const image3 =
-  "/journal/vol2ISs1.png";
-const title3 = "VOLUME II ISSUE I";
-const link3 =
-  "/journal/Vol 2. Issue 1 Dec 2024.pdf";
-
-const image4 =
-  "/journal/vol2ISs2.png";
-const title4 = "VOLUME II ISSUE II";
-const link4 =
-  "/journal/Vol 2 Issue 2.pdf";
 const Hero = () => {
   return (
     <>
@@ -47,9 +29,6 @@ const Hero = () => {
               alt="Latest Events"
               className="sm:block hidden"
             />
-            {/* <h1 className="text-center max-sm:block hidden text-4xl text-black font-bold mt-8 mb-6">
-              Latest Events
-            </h1> */}
           </div>
           <div className="flex max-sm:block hidden justify-center items-center text-black my-12">
             <h2 className="text-4xl font-semibold mb-2 tracking-wide w-fit">
@@ -85,18 +64,14 @@ const Hero = () => {
             </h2>
           </div>
           <div className="flex max-md:flex-col w-[80%] items-center justify-evenly max-md:gap-24 mx-auto">
-            <div className=" ">
-              {" "}
-              <Card image={image4} title={title4} regLink={link4} />
-            </div>
-            <div className=" ">
-              {" "}
-              <Card image={image3} title={title3} regLink={link3} />
-            </div>
-            <div className="">
-              {" "}
-              <Card image={image2} title={title2} regLink={link2} />
-            </div>{" "}
+            {recentIssues.map((issue) => (
+              <Card
+                key={issue.id}
+                image={issue.archiveCover}
+                title={issue.title}
+                regLink={issue.pdf}
+              />
+            ))}
           </div>
           <div className="text-black flex justify-center items-center text-center w-[60vw] mx-auto mt-24 mb-12 text-2xl">
             <button>
