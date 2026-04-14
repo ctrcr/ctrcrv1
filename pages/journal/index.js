@@ -4,6 +4,7 @@ import Head from 'next/head';
 import JournalSlider from '@/components/Journal/JournalSlider';
 import GuideLines from '@/components/Journal/GuideLines';
 import { journalIssues } from '@/data/journalData';
+import { CONTACT_DETAILS, GOOGLE_FORM_LINKS, SITE_URLS } from '@/data/constants';
 
 import {
 	generateBreadcrumbSchema,
@@ -38,8 +39,8 @@ const JournalPage = () => {
 					content="Bi-annual journal dedicated to advancing research in corporate law and commercial regulations"
 				/>
 				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://www.ctrcr.com/journal" />
-				<meta property="og:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
+				<meta property="og:url" content={`${SITE_URLS.ctrcr}/journal`} />
+				<meta property="og:image" content={`${SITE_URLS.ctrcr}/ctrcr_logo.png`} />
 
 				{/* Twitter Card Tags */}
 				<meta name="twitter:card" content="summary_large_image" />
@@ -48,7 +49,7 @@ const JournalPage = () => {
 					name="twitter:description"
 					content="Bi-annual journal for corporate law and commercial regulations research"
 				/>
-				<meta name="twitter:image" content="https://www.ctrcr.com/ctrcr_logo.png" />
+				<meta name="twitter:image" content={`${SITE_URLS.ctrcr}/ctrcr_logo.png`} />
 
 				{/* Structured Data */}
 				<script
@@ -62,7 +63,7 @@ const JournalPage = () => {
 								'Bi-annual publication dedicated to advancing research in corporate law and commercial regulations',
 							'publisher': generateOrganizationSchema(),
 							'issn': '2023-CTRCR',
-							'url': 'https://www.ctrcr.com/journal',
+							'url': `${SITE_URLS.ctrcr}/journal`,
 						}),
 					}}
 				/>
@@ -72,8 +73,8 @@ const JournalPage = () => {
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify(
 							generateBreadcrumbSchema([
-								{ name: 'Home', url: 'https://www.ctrcr.com' },
-								{ name: 'Journal', url: 'https://www.ctrcr.com/journal' },
+								{ name: 'Home', url: SITE_URLS.ctrcr },
+								{ name: 'Journal', url: `${SITE_URLS.ctrcr}/journal` },
 							])
 						),
 					}}
@@ -120,10 +121,10 @@ const JournalPage = () => {
 						<p className="text-sm lg:text-xl">
 							For inquiries, contact us at:{' '}
 							<a
-								href="mailto:journalclcr@mnlumumbai.edu.in"
+								href={CONTACT_DETAILS.journalMailto}
 								className="text-blue-600 hover:underline"
 							>
-								journalclcr@mnlumumbai.edu.in
+								{CONTACT_DETAILS.journalEmail}
 							</a>
 						</p>
 					</div>
@@ -140,8 +141,9 @@ const JournalPage = () => {
 
 						<button>
 							<a
-								href="https://docs.google.com/forms/d/e/1FAIpQLSefZqpe5oHrcXdvPtPSMQrT-3Bikgw9WKOiIWq0DoUOQ_lwmg/viewform?pli=1"
+								href={GOOGLE_FORM_LINKS.journalSubmission}
 								className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-600 hover:text-white transition duration-300"
+								target='_blank'
 							>
 								SUBMIT YOUR PAPER
 							</a>

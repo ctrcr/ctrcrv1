@@ -1,3 +1,5 @@
+import { SITE_URLS } from "@/data/constants";
+
 export const navItems = [
     {
         name: "Home",
@@ -83,7 +85,7 @@ export const navItems = [
 export const externalLinks = [
     {
         name: "MNLU Mumbai",
-        href: "https://mnlumumbai.edu.in/",
+        href: SITE_URLS.mnlu,
         image: "mnlu"
     }
 ];

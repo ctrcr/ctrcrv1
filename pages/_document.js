@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import { CONTACT_DETAILS, SITE_URLS, SOCIAL_LINKS } from '@/data/constants';
 
 export default function Document() {
 	return (
@@ -140,19 +141,19 @@ export default function Document() {
 							'name': 'Mumbai National Law University',
 							'alternateName': 'MNLU Mumbai',
 							'url': 'https://www.mnlumumbai.edu.in/',
-							'logo': 'https://www.ctrcr.com/mnlu_logo.png',
+							'logo': `${SITE_URLS.ctrcr}/mnlu_logo.png`,
 							'sameAs': [
-								'https://www.facebook.com/mnlumumbai',
-								'https://twitter.com/mnlumumbai',
-								'https://www.linkedin.com/school/mnlumumbai/',
+								SOCIAL_LINKS.mnluFacebook,
+								SOCIAL_LINKS.mnluTwitter,
+								SOCIAL_LINKS.mnluLinkedIn,
 							],
 							'department': {
 								'@type': 'EducationalOrganization',
 								'name': 'Center for Training and Research in Commercial Regulations',
 								'alternateName': 'CTRCR',
-								'url': 'https://www.ctrcr.com/',
-								'email': 'mailto:ctrcr@mnlumumbai.edu.in',
-								'logo': 'https://www.ctrcr.com/ctrcr_logo.png',
+								'url': SITE_URLS.ctrcrWithSlash,
+								'email': CONTACT_DETAILS.ctrcrMailto,
+								'logo': `${SITE_URLS.ctrcr}/ctrcr_logo.png`,
 							},
 						}),
 					}}></script>

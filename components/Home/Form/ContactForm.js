@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
 import FormFooter from "./FormFooter";
+import { CONTACT_DETAILS } from "@/data/constants";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -82,7 +83,7 @@ export default function Contact() {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    
+
     // Validate form before submission
     if (!validateForm()) {
       toast.error("Please fix the errors below");
@@ -110,15 +111,15 @@ export default function Contact() {
         phone: formData.phone,
         subject: formData.subject,
         message: formData.message,
-        to_email: "ctrcr@mnlumumbai.edu.in",
+        to_email: CONTACT_DETAILS.ctrcrEmail,
       };
 
       const result = await emailjs.send(serviceID, templateID, templateParams, publicKey);
-      
+
       if (result.status === 200) {
         // Dismiss loading toast
         toast.dismiss(loadingToast);
-        
+
         // Show success toast
         toast.success("Message sent successfully! We'll get back to you soon.", {
           duration: 5000,
@@ -137,10 +138,10 @@ export default function Contact() {
       }
     } catch (error) {
       console.error('EmailJS Error:', error);
-      
+
       // Dismiss loading toast
       toast.dismiss(loadingToast);
-      
+
       // Show error toast
       toast.error("Failed to send message. Please try again.", {
         duration: 4000,
@@ -153,17 +154,17 @@ export default function Contact() {
 
   const getInputClassName = (fieldName) => {
     const baseClass = "w-full px-3 py-2 border rounded-md text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500";
-    
+
     if (errors[fieldName]) {
       return `${baseClass} border-red-500 bg-red-50 focus:ring-red-500`;
     }
-    
+
     return `${baseClass} border-gray-300 focus:border-blue-500`;
   };
 
   return (
     <div className="lg:w-[23vw]">
-      <Toaster 
+      <Toaster
         position="top-right"
         toastOptions={{
           duration: 4000,
@@ -183,7 +184,7 @@ export default function Contact() {
           },
         }}
       />
-      
+
       <div className="">
         <div className="lg:flex flex-col gap-y-5 mb-8 hidden">
           <h1 className="text-5xl font-bold">
@@ -202,7 +203,7 @@ export default function Contact() {
             </div>
           </h2>
         </div>
-        
+
         <form onSubmit={submitForm} className="space-y-4">
           <div className="mb-4">
             <input
@@ -295,11 +296,10 @@ export default function Contact() {
           </div>
 
           <button
-            className={`w-full px-5 py-2.5 text-white font-medium rounded-lg text-sm transition-all duration-200 flex items-center justify-center space-x-2 ${
-              isSubmitting 
-                ? 'bg-gray-400 cursor-not-allowed' 
+            className={`w-full px-5 py-2.5 text-white font-medium rounded-lg text-sm transition-all duration-200 flex items-center justify-center space-x-2 ${isSubmitting
+                ? 'bg-gray-400 cursor-not-allowed'
                 : 'bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 hover:scale-[1.02] active:scale-[0.98]'
-            }`}
+              }`}
             type="submit"
             disabled={isSubmitting}
           >

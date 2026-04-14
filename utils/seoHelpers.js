@@ -1,3 +1,5 @@
+import { SITE_URLS } from '@/data/constants';
+
 export const generateSlug = (title) => {
   return title
     .toLowerCase()
@@ -10,17 +12,17 @@ export const generateSlug = (title) => {
 export const generateUniqueSlug = async (baseSlug, BlogModel, excludeId = null) => {
   let slug = baseSlug;
   let counter = 1;
-  
+
   while (true) {
-    const existingBlog = await BlogModel.findOne({ 
+    const existingBlog = await BlogModel.findOne({
       slug: slug,
       ...(excludeId && { _id: { $ne: excludeId } })
     });
-    
+
     if (!existingBlog) {
       return slug;
     }
-    
+
     slug = `${baseSlug}-${counter}`;
     counter++;
   }
@@ -49,14 +51,14 @@ export const extractKeywords = (title, content) => {
   const words = text.split(/\s+/)
     .filter(word => word.length > 3 && !commonWords.includes(word))
     .filter(word => /^[a-z]+$/.test(word));
-  
+
   const frequency = {};
   words.forEach(word => {
     frequency[word] = (frequency[word] || 0) + 1;
   });
-  
+
   return Object.entries(frequency)
-    .sort(([,a], [,b]) => b - a)
+    .sort(([, a], [, b]) => b - a)
     .slice(0, 10)
     .map(([word]) => word);
 };
@@ -74,7 +76,7 @@ export const generateBreadcrumbSchema = (breadcrumbs) => {
   };
 };
 
-export const generateArticleSchema = (blog, siteUrl = 'https://www.ctrcr.com') => {
+export const generateArticleSchema = (blog, siteUrl = SITE_URLS.ctrcr) => {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -102,7 +104,7 @@ export const generateArticleSchema = (blog, siteUrl = 'https://www.ctrcr.com') =
   };
 };
 
-export const generateOrganizationSchema = (siteUrl = 'https://www.ctrcr.com') => {
+export const generateOrganizationSchema = (siteUrl = SITE_URLS.ctrcr) => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -124,7 +126,7 @@ export const generateOrganizationSchema = (siteUrl = 'https://www.ctrcr.com') =>
   };
 };
 
-export const generatePersonSchema = (person, siteUrl = 'https://www.ctrcr.com') => {
+export const generatePersonSchema = (person, siteUrl = SITE_URLS.ctrcr) => {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -138,7 +140,7 @@ export const generatePersonSchema = (person, siteUrl = 'https://www.ctrcr.com') 
   };
 };
 
-export const generateTeamSchema = (members, siteUrl = 'https://www.ctrcr.com') => {
+export const generateTeamSchema = (members, siteUrl = SITE_URLS.ctrcr) => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -153,7 +155,7 @@ export const generateTeamSchema = (members, siteUrl = 'https://www.ctrcr.com') =
   };
 };
 
-export const generateEventSchema = (event, siteUrl = 'https://www.ctrcr.com') => {
+export const generateEventSchema = (event, siteUrl = SITE_URLS.ctrcr) => {
   return {
     "@context": "https://schema.org",
     "@type": "Event",
@@ -174,7 +176,7 @@ export const generateEventSchema = (event, siteUrl = 'https://www.ctrcr.com') =>
   };
 };
 
-export const generateBookSchema = (book, siteUrl = 'https://www.ctrcr.com') => {
+export const generateBookSchema = (book, siteUrl = SITE_URLS.ctrcr) => {
   return {
     "@context": "https://schema.org",
     "@type": "Book",
