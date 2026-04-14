@@ -1,23 +1,11 @@
 import React from 'react'
 import Head from "next/head"
 import Image from "next/image"
-import linkedin from "@/public/linkedin_logo.png";
-import instagram from "@/public/instagram-logo.png";
 import Partners from "@/components/Partners";
+import { CONTACT_DETAILS, GOOGLE_FORM_LINKS, SITE_URLS, SOCIAL_LINKS } from "@/data/constants";
 
 const ArticleWritingCompetition = () => {
-    const committee = [
-        {
-            name: "Arjun Kapur",
-            role: "Convenor",
-            contact: "+91 83788 98560",
-        },
-        {
-            name: "Suhasini Thakur",
-            role: "Associate Convenor",
-            contact: "+91 75586 37950",
-        },
-    ]
+    const committee = CONTACT_DETAILS.articleCompetitionEdition1Committee;
 
     return (
         <>
@@ -204,12 +192,12 @@ const ArticleWritingCompetition = () => {
                     <div className="flex flex-col md:flex-row md:items-center">
                         <span className="font-semibold md:w-48">Registration Link:</span>
                         <a
-                            href="https://forms.gle/GznQ5o3HQwc3SkZ19"
+                            href={GOOGLE_FORM_LINKS.articleCompetitionEdition1}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-800 underline"
                         >
-                            https://forms.gle/GznQ5o3HQwc3SkZ19
+                            {GOOGLE_FORM_LINKS.articleCompetitionEdition1}
                         </a>
                     </div>
 
@@ -361,15 +349,15 @@ const ArticleWritingCompetition = () => {
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Email & Website</h3>
                                 <div className="space-y-2">
-                                    <p>📧 <a href="mailto:ctrcr@mnlumumbai.edu.in" className="text-blue-600 hover:text-blue-800">ctrcr@mnlumumbai.edu.in</a></p>
-                                    <p>🌐 <a href="https://www.ctrcr.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">www.ctrcr.com</a></p>
+                                    <p>📧 <a href={CONTACT_DETAILS.ctrcrMailto} className="text-blue-600 hover:text-blue-800">{CONTACT_DETAILS.ctrcrEmail}</a></p>
+                                    <p>🌐 <a href={SITE_URLS.ctrcr} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">{SITE_URLS.ctrcr.replace('https://', 'www.')}</a></p>
                                 </div>
                             </div>
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Social Media</h3>
                                 <div className="space-y-2">
-                                    <p> <img src="/linkedin_logo.png" width={22} alt="LinkedIn" className="inline-block mr-2" /> <a href="https://www.linkedin.com/in/ctrcr-centre-for-training-and-research-in-commercial-regulations-895a8024a/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">LinkedIn</a></p>
-                                    <p> <img src="/instagram-logo.png" width={22} alt="Instagram" className="inline-block mr-2" /> <a href="https://www.instagram.com/ctrcr_mnlu/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Instagram</a></p>
+                                    <p> <img src="/linkedin_logo.png" width={22} alt="LinkedIn" className="inline-block mr-2" /> <a href={SOCIAL_LINKS.ctrcrLinkedIn} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">LinkedIn</a></p>
+                                    <p> <img src="/instagram-logo.png" width={22} alt="Instagram" className="inline-block mr-2" /> <a href={SOCIAL_LINKS.ctrcrInstagram} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Instagram</a></p>
                                 </div>
                             </div>
                         </div>

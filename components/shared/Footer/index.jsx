@@ -7,6 +7,7 @@ import linkedin from "@/public/linkedin_logo.png";
 import instagram from "@/public/instagram-logo.png";
 import youtube from "@/public/youtube_logo.png";
 import twitter from "@/public/twitter_logo.png";
+import { CONTACT_DETAILS, SITE_URLS, SOCIAL_LINKS } from "@/data/constants";
 
 const Footer = () => {
   const [clickCount, setClickCount] = useState(0);
@@ -44,17 +45,22 @@ const Footer = () => {
           <div className="text-2xl ">Contact</div>
           <p>Centre for Training and Research in Commercial Regulations</p>
           <p>
-            Phone: <a href="tel:+918378898560">+91 8378898560</a>,{" "}
-            <a href="tel:+917558637950">+91 7558637950</a>
+            Phone:{" "}
+            {CONTACT_DETAILS.footerPhones.map((phone, index) => (
+              <React.Fragment key={phone.dial}>
+                <a href={`tel:${phone.dial}`}>{phone.display}</a>
+                {index < CONTACT_DETAILS.footerPhones.length - 1 ? ", " : ""}
+              </React.Fragment>
+            ))}
           </p>
           <p>
             Email:{" "}
-            <a href="mailto:ctrcr@mnluminbai.edu.in">ctrcr@mnlumumbai.edu.in</a>
+            <a href={CONTACT_DETAILS.ctrcrMailto}>{CONTACT_DETAILS.ctrcrEmail}</a>
           </p>
           <div className="flex max-md:justify-center max-md:flex-col gap-10 mt-6">
             <div className="flex gap-6 justify-center">
               <a
-                href="https://mnlumumbai.edu.in/"
+                href={SITE_URLS.mnlu}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -66,7 +72,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://www.ctrcr.com/"
+                href={SITE_URLS.ctrcrWithSlash}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -82,7 +88,7 @@ const Footer = () => {
               Socials
               <div className="flex max-md:justify-center gap-6">
                 <a
-                  href="https://www.linkedin.com/in/ctrcr-centre-for-training-and-research-in-commercial-regulations-895a8024a/"
+                  href={SOCIAL_LINKS.ctrcrLinkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -94,7 +100,7 @@ const Footer = () => {
                   />
                 </a>
                 <a
-                  href="https://instagram.com/ctrcr_mnlu"
+                  href={SOCIAL_LINKS.ctrcrInstagramNoSlash}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -106,7 +112,7 @@ const Footer = () => {
                   />
                 </a>
                 <a
-                  href="https://www.youtube.com/@ctrcrmnlu9500"
+                  href={SOCIAL_LINKS.ctrcrYoutube}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -124,7 +130,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="container mx-auto text-center">
-        <a href="https://www.ctrcr.com" className="text-white hover:underline">
+        <a href={SITE_URLS.ctrcr} className="text-white hover:underline">
           <p className="mb-2">CTRCR.COM</p>
         </a>
         <p onClick={handleClick} className="cursor-pointer">

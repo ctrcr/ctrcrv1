@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import loader from "@/public/loader.svg";
 import logo from "@/public/blog_logo.png";
+import { GOOGLE_FORM_LINKS, SITE_URLS } from "@/data/constants";
 
 const BlogsPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -55,12 +56,12 @@ const BlogsPage = () => {
           name="keywords"
           content="corporate law blog, commercial law, legal research, CTRCR, MNLU Mumbai, corporate governance, trade law, regulatory compliance"
         />
-        <link rel="canonical" href="https://www.ctrcr.com/fccl" />
+        <link rel="canonical" href={`${SITE_URLS.ctrcr}/fccl`} />
 
         {/* Open Graph */}
         <meta property="og:title" content="FCCL Blog - Forum for Commercial and Corporate Laws | CTRCR" />
         <meta property="og:description" content="Explore the latest insights on corporate law, commercial regulations, and legal research from the Forum for Commercial and Corporate Laws." />
-        <meta property="og:url" content="https://www.ctrcr.com/fccl" />
+        <meta property="og:url" content={`${SITE_URLS.ctrcr}/fccl`} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/blog_logo.png" />
 
@@ -78,11 +79,11 @@ const BlogsPage = () => {
               "@type": "Blog",
               "name": "Forum for Commercial and Corporate Laws",
               "description": "Legal research and insights on corporate law and commercial regulations",
-              "url": "https://www.ctrcr.com/fccl",
+              "url": `${SITE_URLS.ctrcr}/fccl`,
               "publisher": {
                 "@type": "Organization",
                 "name": "CTRCR - Center for Training and Research in Commercial Regulations",
-                "logo": "https://www.ctrcr.com/ctrcr_logo.png"
+                "logo": `${SITE_URLS.ctrcr}/ctrcr_logo.png`
               }
             })
           }}
@@ -256,7 +257,7 @@ const BlogsPage = () => {
         <div className="text-2xl my-6 font-bold">Submission Link</div>
         <div className=" mt-6">
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScw-XXWk8mYtm3dNl-Z570sinCMQoqYGgSv2_BoRgnm5YRFpg/viewform"
+            href={GOOGLE_FORM_LINKS.fcclSubmission}
             target="_blank"
           >
             <button className="bg-black hover:bg-gray-700 text-white text-2xl font-bold py-2 px-4 rounded">
