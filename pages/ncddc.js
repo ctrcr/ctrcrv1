@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { generateBreadcrumbSchema, generateEventSchema } from "@/utils/seoHelpers";
+import { CONTACT_DETAILS, GOOGLE_FORM_LINKS, SITE_URLS } from "@/data/constants";
 
 const NCDDC = () => {
     const partners = [
@@ -64,18 +65,7 @@ const NCDDC = () => {
         }
     ];
 
-    const contacts = [
-        {
-            name: "Omkar Tamhane",
-            role: "Event Head",
-            phone: "9022717016"
-        },
-        {
-            name: "Omkar Wagh",
-            role: "Event Co-Head",
-            phone: "87939 92204"
-        }
-    ];
+    const contacts = CONTACT_DETAILS.ncddcContacts;
 
     return (
         <>
@@ -97,8 +87,8 @@ const NCDDC = () => {
                     content="Join the inaugural National Corporate Due Diligence Competition focusing on M&A and Share Purchase Agreements"
                 />
                 <meta property="og:type" content="event" />
-                <meta property="og:url" content="https://www.ctrcr.com/ncddc" />
-                <meta property="og:image" content="https://www.ctrcr.com/DD/DD%20Logo%20(1)%20(1).png" />
+                <meta property="og:url" content={`${SITE_URLS.ctrcr}/ncddc`} />
+                <meta property="og:image" content={`${SITE_URLS.ctrcr}/DD/DD%20Logo%20(1)%20(1).png`} />
 
                 {/* Twitter Card Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
@@ -107,7 +97,7 @@ const NCDDC = () => {
                     name="twitter:description"
                     content="Inaugural competition on corporate due diligence focusing on M&A"
                 />
-                <meta name="twitter:image" content="https://www.ctrcr.com/DD/DD%20Logo%20(1)%20(1).png" />
+                <meta name="twitter:image" content={`${SITE_URLS.ctrcr}/DD/DD%20Logo%20(1)%20(1).png`} />
 
                 {/* Structured Data */}
                 <script
@@ -126,8 +116,8 @@ const NCDDC = () => {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify(generateBreadcrumbSchema([
-                            { name: 'Home', url: 'ctrcr.mnlumumbai.edu.in' },
-                            { name: 'NCDDC', url: 'https://ctrcr.mnlumumbai.edu.in/ncddc' }
+                            { name: 'Home', url: SITE_URLS.ctrcr },
+                            { name: 'NCDDC', url: `${SITE_URLS.ctrcr}/ncddc` }
                         ]))
                     }}
                 />
@@ -298,13 +288,13 @@ const NCDDC = () => {
                                         <h3 className="text-xl font-semibold text-[#0F111F] mb-2">{contact.name}</h3>
                                         <p className="text-gray-600 mb-2">{contact.role}</p>
                                         <a
-                                            href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                                            href={`tel:${contact.phoneDial}`}
                                             className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
                                         >
                                             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                             </svg>
-                                            {contact.phone}
+                                            {contact.phoneDisplay}
                                         </a>
                                     </div>
                                 ))}
@@ -322,7 +312,7 @@ const NCDDC = () => {
                             Registrations are now open until 22th October 2025 (extended)
                         </p>
                         <a
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSeFhMkDFvgkASwG4QTth4FK6uwdOC9wThitxuEhyBJoMEjYIQ/viewform?usp=header"
+                            href={GOOGLE_FORM_LINKS.ncddcRegistration}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center px-8 py-4 bg-white text-[#0F111F] font-bold text-lg rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
